@@ -1,11 +1,24 @@
-
-
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
   width: 15.625rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav-lang {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  padding: 0.5rem;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+  margin-top: auto;
+}
+
+.brand-name {
+  color: var(--mat-sys-tertiary);
 }
 
 .spacer {
@@ -19,6 +32,23 @@
 .desktop-nav {
   display: flex;
   gap: 0.5rem;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 0.25rem;
+  margin-inline-start: 0.5rem;
+}
+
+.lang-switcher [mat-button],
+.sidenav-lang [mat-button] {
+  min-width: 2rem;
+  padding: 0 0.25rem;
+}
+
+.lang-switcher [mat-button]:not(.active),
+.sidenav-lang [mat-button]:not(.active) {
+  opacity: 0.5;
 }
 
 @media (max-width: 48rem) {

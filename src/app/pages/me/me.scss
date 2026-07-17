@@ -20,13 +20,11 @@
     max-width: 36rem;
   }
 
-  .brand-name {
-    color: var(--mat-sys-tertiary);
-  }
-
   .motto {
     color: var(--brand-surface);
     text-decoration: underline;
+    margin-top: 0;
+    text-align: start;
   }
 }
 

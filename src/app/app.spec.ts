@@ -1,10 +1,26 @@
 import { TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
+      providers: [
+        {
+          provide: TranslateService,
+          useValue: {
+            currentLang: () => 'en',
+            use: () => undefined,
+            translate: () => () => '',
+            onTranslationChange: of({}),
+            onLangChange: of({}),
+            onFallbackLangChange: of({}),
+            onTranslationRefresh: of(undefined),
+          },
+        },
+      ],
     }).compileComponents();
   });
 

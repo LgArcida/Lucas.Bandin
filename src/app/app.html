@@ -6,11 +6,38 @@
     position="start"
   >
     <mat-nav-list>
-      <button mat-list-item>Me</button>
-      <button mat-list-item>About</button>
-      <button mat-list-item>Projects</button>
-      <button mat-list-item>Contact</button>
+      <button mat-list-item>{{ 'NAV.ME' | translate }}</button>
+      <button mat-list-item>{{ 'NAV.ABOUT' | translate }}</button>
+      <button mat-list-item>{{ 'NAV.PROJECTS' | translate }}</button>
+      <button mat-list-item>{{ 'NAV.CONTACT' | translate }}</button>
     </mat-nav-list>
+    <div class="sidenav-lang">
+      <button
+        mat-button
+        aria-label="Switch to English"
+        [class.active]="activeLang() === 'en'"
+        (click)="setLanguage('en')"
+      >
+        <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/>
+          <path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="3"/>
+          <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+          <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="5"/>
+        </svg>
+      </button>
+      <button
+        mat-button
+        aria-label="Switch to Spanish"
+        [class.active]="activeLang() === 'es'"
+        (click)="setLanguage('es')"
+      >
+        <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
+          <rect width="60" height="30" fill="#c60b1e"/>
+          <rect y="7.5" width="60" height="15" fill="#ffc400"/>
+        </svg>
+      </button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -25,11 +52,38 @@
       <span class="brand-name">Lucas Bandin</span>
       <span class="spacer"></span>
       <nav class="desktop-nav">
-        <button mat-button>Me</button>
-        <button mat-button>About</button>
-        <button mat-button>Projects</button>
-        <button mat-button>Contact</button>
+        <button mat-button>{{ 'NAV.ME' | translate }}</button>
+        <button mat-button>{{ 'NAV.ABOUT' | translate }}</button>
+        <button mat-button>{{ 'NAV.PROJECTS' | translate }}</button>
+        <button mat-button>{{ 'NAV.CONTACT' | translate }}</button>
       </nav>
+      <div class="lang-switcher">
+        <button
+          mat-button
+          aria-label="Switch to English"
+          [class.active]="activeLang() === 'en'"
+          (click)="setLanguage('en')"
+        >
+          <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
+            <rect width="60" height="30" fill="#012169"/>
+            <path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/>
+            <path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="3"/>
+            <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="5"/>
+          </svg>
+        </button>
+        <button
+          mat-button
+          aria-label="Switch to Spanish"
+          [class.active]="activeLang() === 'es'"
+          (click)="setLanguage('es')"
+        >
+          <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
+            <rect width="60" height="30" fill="#c60b1e"/>
+            <rect y="7.5" width="60" height="15" fill="#ffc400"/>
+          </svg>
+        </button>
+      </div>
     </mat-toolbar>
     <main>
       <router-outlet />

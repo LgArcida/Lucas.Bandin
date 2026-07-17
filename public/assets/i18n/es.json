@@ -1,0 +1,13 @@
+{
+  "NAV": {
+    "ME": "Yo",
+    "ABOUT": "Sobre mí",
+    "PROJECTS": "Proyectos",
+    "CONTACT": "Contacto"
+  },
+  "HOME": {
+    "GREETING": "¡Hola! Soy {{ name }}",
+    "DESCRIPTION_LINE1": "Disfruto creando aplicaciones frontend modernas y diseñando software que sea fácil de entender, fácil de mantener y agradable de usar.",
+    "DESCRIPTION_LINE2": "Creo que el mejor software se construye eliminando complejidad, no añadiéndola."
+  }
+}
