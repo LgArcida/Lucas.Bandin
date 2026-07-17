@@ -70,6 +70,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 ## Styling
 
 - Prefer `vw` and `vh` units over `px` and `rem` when possible for responsive layouts
+- Do not use `page__X` or similar redundant naming conventions
 
 ## Services
 

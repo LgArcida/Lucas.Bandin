@@ -6,16 +6,22 @@
   display: flex;
   justify-content: flex-start;
   margin-top: 5rem;
-  margin-right: 5rem;
+  margin-right: 10vw;
 
   mat-expansion-panel {
+    width: 12rem;
     max-width: 80vw;
-    width: 100%;
     box-shadow: none;
     border: 1px solid whitesmoke;
+    transition: width 0.3s ease, max-width 0.3s ease;
 
     mat-panel-title {
       color: #9dd9d2;
+      font-size: 1.3rem;
+    }
+
+    &.mat-expanded {
+      width: 80vw;
     }
   }
 }
@@ -26,7 +32,7 @@
   align-items: center;
   text-align: justify;
 
-  .text {
+  .about__text {
     flex: 1;
 
     p {
@@ -54,10 +60,6 @@
   .about {
     justify-content: center;
     margin-right: 0;
-
-    mat-expansion-panel {
-      max-width: 100vw;
-    }
   }
 
   .content {
