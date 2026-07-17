@@ -30,10 +30,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render toolbar title', () => {
+  it('should render toggle menu button', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Lucas Bandin');
+    const menuBtn = compiled.querySelector('[aria-label="Toggle navigation menu"]');
+    expect(menuBtn).toBeTruthy();
   });
 });

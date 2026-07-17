@@ -12,6 +12,10 @@
     margin: 0;
   }
 
+  .profile-name {
+    color: var(--mat-sys-tertiary);
+  }
+
   p {
     font-size: 1.125rem;
     line-height: 1.6;
@@ -29,7 +33,7 @@
 }
 
 .profile__image img {
-  width: clamp(10rem, 25vw, 20rem);
+  width: clamp(15rem, 25vw, 20rem);
   height: auto;
   border-radius: 50%;
   object-fit: cover;
