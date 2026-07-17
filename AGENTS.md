@@ -22,6 +22,8 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use strict type checking
 - Prefer type inference when the type is obvious
 - Avoid the `any` type; use `unknown` when type is uncertain
+- Never use magic numbers; extract to named constants with clear intent
+- Do not use orphan variables (unused variables) in code
 
 ## Angular Best Practices
 
@@ -64,8 +66,19 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use the async pipe to handle observables
 - Do not assume globals like (`new Date()`) are available.
 
+## Styling
+
+- Prefer `vw` and `vh` units over `px` and `rem` when possible for responsive layouts
+
 ## Services
 
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+
+## Tone and Style
+
+- Be concise, direct, and to the point
+- No condescending tone, no unnecessary explanations
+- Answer directly without unnecessary preamble or postamble
+- Keep responses short (1-3 sentences) unless detail is requested

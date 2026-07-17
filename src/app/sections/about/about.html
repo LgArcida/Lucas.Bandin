@@ -3,15 +3,22 @@
     <mat-card-header>
       <mat-card-title>{{ 'ABOUT.TITLE' | translate }}</mat-card-title>
     </mat-card-header>
-    <mat-card-content class="about__content">
-      <div class="about__image">
-        <img ngSrc="assets/job.jpeg" width="1600" height="1201" alt="Lucas Bandin working at his desk" />
+    <mat-card-content class="content">
+      <div class="image">
+        <img
+          ngSrc="assets/job.jpeg"
+          width="1600"
+          height="1201"
+          alt="Lucas Bandin working at his desk"
+        />
       </div>
       <div class="about__text">
         <p>{{ 'ABOUT.PROBLEM_SOLVING' | translate }}</p>
         <p>{{ 'ABOUT.RIGHT_ANSWER' | translate }}</p>
         <p>{{ 'ABOUT.EXPERIENCE' | translate }}</p>
-        <p><mark>{{ 'ABOUT.CLEAN_ARCH' | translate }}</mark></p>
+        <p>
+          <mark>{{ 'ABOUT.CLEAN_ARCH' | translate }}</mark>
+        </p>
         <p>{{ 'ABOUT.LEARNING' | translate }}</p>
       </div>
     </mat-card-content>
