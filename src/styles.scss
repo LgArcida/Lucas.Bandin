@@ -1,39 +1,188 @@
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+
+$primary: (
+  0: #000000,
+  4: #0b0b16,
+  6: #10111f,
+  10: #181a30,
+  12: #1c1e36,
+  17: #262843,
+  20: #2e3050,
+  22: #33345a,
+  24: #383863,
+  25: #3a3b68,
+  30: #454696,
+  35: #4a4b9e,
+  40: #485696,
+  50: #5c6db0,
+  60: #7687c4,
+  70: #91a1d8,
+  80: #acbaeb,
+  87: #c8d2f5,
+  90: #c8d4f7,
+  92: #dbe2f9,
+  94: #e4e9fb,
+  95: #e2e8fb,
+  96: #edf0fc,
+  98: #f0f4fd,
+  99: #f8fafe,
+  100: #ffffff,
+  secondary: (
+    0: #000000,
+    4: #0f0e18,
+    6: #151420,
+    10: #1e1d2c,
+    12: #222236,
+    20: #34345a,
+    25: #3f3f6b,
+    30: #4a4a7c,
+    35: #56568c,
+    40: #62629d,
+    50: #7b7bb4,
+    60: #9696cb,
+    70: #b1b1e2,
+    80: #ccccf2,
+    90: #e6e6fc,
+    95: #f3f3ff,
+    98: #fafaff,
+    99: #fefeff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    4: #0e0e11,
+    6: #141416,
+    10: #1b1b1f,
+    12: #201f22,
+    17: #2a292d,
+    20: #303034,
+    22: #353438,
+    24: #3a393c,
+    25: #3c3b3f,
+    30: #47464a,
+    35: #535256,
+    40: #5f5e62,
+    50: #78767a,
+    60: #929094,
+    70: #adaaaf,
+    80: #c8c5ca,
+    87: #dcd9dd,
+    90: #e5e1e6,
+    92: #ebe7eb,
+    94: #f0edf1,
+    95: #f3eff4,
+    96: #f6f2f7,
+    98: #fcf8fd,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral-variant: (
+    0: #000000,
+    4: #0f0f16,
+    6: #15141d,
+    10: #1b1b23,
+    12: #20202b,
+    17: #2a2a36,
+    20: #303038,
+    22: #353540,
+    24: #3a3a45,
+    25: #3b3b43,
+    30: #46464f,
+    35: #52515b,
+    40: #5e5d67,
+    50: #77767f,
+    60: #919099,
+    70: #abaab3,
+    80: #c7c5cf,
+    87: #dbd9e2,
+    90: #e3e1ea,
+    92: #e9e7ef,
+    94: #eeeef3,
+    95: #f1eff5,
+    96: #f5f3f9,
+    98: #fbf8fd,
+    99: #fefbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$tertiary: (
+  0: #000000,
+  4: #1a0b00,
+  6: #241200,
+  10: #2b1600,
+  12: #331c00,
+  17: #3f2500,
+  20: #482600,
+  22: #502b00,
+  24: #583000,
+  25: #583000,
+  30: #683a00,
+  35: #784400,
+  40: #fc7a1e,
+  50: #ff9340,
+  60: #ffab61,
+  70: #ffc184,
+  80: #ffd7a8,
+  87: #ffe6c8,
+  90: #ffecd0,
+  92: #fff0db,
+  94: #fff5e3,
+  95: #fff5e8,
+  96: #fff8ed,
+  98: #fffaf5,
+  99: #fffdfa,
+  100: #ffffff,
+);
 
 html {
   height: 100%;
-  @include mat.theme(
-    (
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: $primary,
+      tertiary: $tertiary,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+
+  @media (prefers-color-scheme: dark) {
+    @include mat.theme((
       color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
+        theme-type: dark,
+        primary: $primary,
+        tertiary: $tertiary,
       ),
       typography: Roboto,
       density: 0,
-    )
-  );
+    ));
+  }
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
+  color-scheme: light dark;
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
   margin: 0;
   height: 100%;
 }
-/* You can add global styles to this file, and also import other style files */
