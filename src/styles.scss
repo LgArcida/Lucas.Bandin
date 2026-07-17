@@ -4,6 +4,7 @@
   --brand-primary: #485696;
   --brand-surface: #e7e7e7;
   --brand-accent: #fc7a1e;
+  --brand-warning: #ffe100;
 }
 
 $primary: (
@@ -162,26 +163,30 @@ $tertiary: (
 html {
   height: 100%;
   scroll-behavior: smooth;
-  @include mat.theme((
-    color: (
-      theme-type: light,
-      primary: $primary,
-      tertiary: $tertiary,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
-
-  @media (prefers-color-scheme: dark) {
-    @include mat.theme((
+  @include mat.theme(
+    (
       color: (
-        theme-type: dark,
+        theme-type: light,
         primary: $primary,
         tertiary: $tertiary,
       ),
       typography: Roboto,
       density: 0,
-    ));
+    )
+  );
+
+  @media (prefers-color-scheme: dark) {
+    @include mat.theme(
+      (
+        color: (
+          theme-type: dark,
+          primary: $primary,
+          tertiary: $tertiary,
+        ),
+        typography: Roboto,
+        density: 0,
+      )
+    );
   }
 }
 
