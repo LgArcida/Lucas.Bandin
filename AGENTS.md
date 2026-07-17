@@ -1,6 +1,22 @@
 
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
+## Project Context
+
+- This project is a personal portfolio site for showcasing Lucas Bandin's CV in a professional way.
+- The project is also a learning exercise, so favor clear, incremental Angular patterns over large generated templates.
+- Target Angular 21+ with SSR.
+- No backend for now. Do not introduce backend services, APIs, databases, authentication, or server-side persistence unless explicitly requested.
+- Build slowly, feature by feature and page by page.
+- Avoid creating full templates or ready-made pages. Build progressively.
+
+## Current Scope
+
+- The first feature is the landing page.
+- Start minimal: a top toolbar that collapses into a side menu on mobile.
+- Use Angular Material as the UI framework.
+- Do not add extra landing-page sections, CV content, animations, or full-page designs until requested.
+
 ## TypeScript Best Practices
 
 - Use strict type checking
