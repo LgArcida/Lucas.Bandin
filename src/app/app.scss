@@ -1,9 +1,11 @@
+
+
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
-  width: 250px;
+  width: 15.625rem;
 }
 
 .spacer {
@@ -19,7 +21,7 @@
   gap: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .menu-button {
     display: block;
   }

@@ -4,8 +4,8 @@ import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-home',
   imports: [NgOptimizedImage],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  templateUrl: './me.html',
+  styleUrl: './me.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {}

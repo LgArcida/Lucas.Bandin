@@ -1,5 +1,11 @@
 @use '@angular/material' as mat;
 
+:root {
+  --brand-primary: #485696;
+  --brand-surface: #e7e7e7;
+  --brand-accent: #fc7a1e;
+}
+
 $primary: (
   0: #000000,
   4: #0b0b16,

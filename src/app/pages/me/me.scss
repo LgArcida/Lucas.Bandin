@@ -1,0 +1,45 @@
+.profile {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__text {
+  text-align: justify;
+
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--mat-sys-on-surface-variant);
+    margin-top: 0.75rem;
+    max-width: 36rem;
+  }
+
+  .brand-name {
+    color: var(--mat-sys-tertiary);
+  }
+
+  .motto {
+    color: var(--brand-surface);
+    text-decoration: underline;
+  }
+}
+
+.profile__image img {
+  width: clamp(10rem, 25vw, 20rem);
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 48rem) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
