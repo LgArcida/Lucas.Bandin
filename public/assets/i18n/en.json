@@ -5,6 +5,10 @@
     "PROJECTS": "Projects",
     "CONTACT": "Contact"
   },
+  "ABOUT": {
+    "TITLE": "About me",
+    "INTRO": "I am a software developer with a passion for frontend development and clean, maintainable code."
+  },
   "HOME": {
     "GREETING": "Hei! I am",
     "DESCRIPTION_LINE1": "I enjoy building modern frontend applications and designing software that's easy to understand, easy to maintain, and enjoyable to work on.",

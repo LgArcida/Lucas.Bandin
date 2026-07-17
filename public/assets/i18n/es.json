@@ -5,6 +5,10 @@
     "PROJECTS": "Proyectos",
     "CONTACT": "Contacto"
   },
+  "ABOUT": {
+    "TITLE": "Sobre mí",
+    "INTRO": "Soy un desarrollador de software con pasión por el desarrollo frontend y el código limpio y mantenible."
+  },
   "HOME": {
     "GREETING": "¡Hola! Soy",
     "DESCRIPTION_LINE1": "Disfruto creando aplicaciones frontend modernas y diseñando software que sea fácil de entender, fácil de mantener y agradable de usar.",

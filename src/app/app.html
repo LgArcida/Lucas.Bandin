@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" mode="over" position="start">
     <mat-nav-list>
-      <button mat-list-item>{{ 'NAV.ME' | translate }}</button>
+      <button mat-list-item (click)="scrollToAbout(); drawer.close()">{{ 'NAV.ME' | translate }}</button>
       <button mat-list-item>{{ 'NAV.ABOUT' | translate }}</button>
       <button mat-list-item>{{ 'NAV.PROJECTS' | translate }}</button>
       <button mat-list-item>{{ 'NAV.CONTACT' | translate }}</button>
@@ -46,7 +46,7 @@
       </button>
       <span class="spacer"></span>
       <nav class="desktop-nav">
-        <button mat-button>{{ 'NAV.ME' | translate }}</button>
+        <button mat-button (click)="scrollToAbout()">{{ 'NAV.ME' | translate }}</button>
         <button mat-button>{{ 'NAV.ABOUT' | translate }}</button>
         <button mat-button>{{ 'NAV.PROJECTS' | translate }}</button>
         <button mat-button>{{ 'NAV.CONTACT' | translate }}</button>
@@ -81,6 +81,7 @@
     </mat-toolbar>
     <main>
       <router-outlet />
+      <app-about />
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,10 @@
+.about {
+  scroll-margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+
+  mat-card {
+    max-width: 48rem;
+    width: 100%;
+  }
+}
