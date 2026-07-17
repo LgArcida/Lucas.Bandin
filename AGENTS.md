@@ -24,6 +24,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Avoid the `any` type; use `unknown` when type is uncertain
 - Never use magic numbers; extract to named constants with clear intent
 - Do not use orphan variables (unused variables) in code
+- Follow YAGNI: don't implement features until actually needed
 
 ## Angular Best Practices
 

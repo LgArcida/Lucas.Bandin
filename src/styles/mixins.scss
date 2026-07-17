@@ -1,14 +1,36 @@
 @mixin mark-highlight($color) {
+  color: inherit;
   margin: 0 -0.4em;
   padding: 0.1em 0.4em;
-  border-radius: 0.8em 0.3em;
-  background: transparent;
-  background-image: linear-gradient(
-    to right,
-    color-mix(in srgb, #{$color} 10%, transparent),
-    color-mix(in srgb, #{$color} 70%, transparent) 4%,
-    color-mix(in srgb, #{$color} 30%, transparent)
-  );
+  // Uneven, hand-drawn edges rather than a clean pill
+  border-radius: 1.2em 0.4em 1em 0.5em / 0.6em 1em 0.4em 1.1em;
+  background-color: transparent;
+  // Translucent ink laid straight over the text — no mix-blend-mode. Blending
+  // is unstable inside the animated mat-expansion-panel (the compositing layer
+  // it creates makes `multiply` crush the glyphs to black once the animation
+  // settles) and inverts in dark mode, so we keep a plain semi-transparent wash
+  // that reads on any background.
+  background-image:
+    // Vertical grain: ink is a touch heavier along the top where the tip
+    // presses, ragged and lighter at the very bottom. This is where the
+    // "felt tip" character comes from — not a left-to-right fade.
+    linear-gradient(
+      175deg,
+      color-mix(in srgb, #{$color} 42%, transparent) 8%,
+      color-mix(in srgb, #{$color} 34%, transparent) 55%,
+      color-mix(in srgb, #{$color} 40%, transparent) 80%,
+      color-mix(in srgb, #{$color} 22%, transparent) 100%
+    ),
+    // Even base coverage across the whole width, with only a slight lift
+    // at both ends where strokes overlap — no directional fade.
+    linear-gradient(
+      to right,
+      color-mix(in srgb, #{$color} 30%, transparent),
+      color-mix(in srgb, #{$color} 22%, transparent) 12%,
+      color-mix(in srgb, #{$color} 22%, transparent) 88%,
+      color-mix(in srgb, #{$color} 30%, transparent)
+    );
+  background-repeat: no-repeat;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
