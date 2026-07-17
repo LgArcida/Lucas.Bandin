@@ -3,10 +3,10 @@ import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-me',
   imports: [NgOptimizedImage, TranslatePipe],
   templateUrl: './me.html',
   styleUrl: './me.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class MeComponent {}
