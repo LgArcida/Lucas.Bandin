@@ -9,20 +9,31 @@
   margin-right: 10vw;
 
   mat-expansion-panel {
-    width: 12rem;
+    width: 20vw;
     max-width: 80vw;
     box-shadow: none;
     border: 1px solid whitesmoke;
-    transition: width 0.3s ease, max-width 0.3s ease;
+    transition: width 0.3s ease;
 
     mat-panel-title {
       color: #9dd9d2;
       font-size: 1.3rem;
     }
 
-    &.mat-expanded {
+    &.wide {
       width: 80vw;
     }
+  }
+
+  .click-overlay {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  mat-expansion-panel-header {
+    position: relative;
   }
 }
 

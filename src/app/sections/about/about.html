@@ -1,7 +1,8 @@
 <section class="about">
-  <mat-expansion-panel>
+  <mat-expansion-panel #panel [class.wide]="isWide()" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>{{ 'ABOUT.TITLE' | translate }}</mat-panel-title>
+      <div class="click-overlay" (click)="handleClick($event)"></div>
     </mat-expansion-panel-header>
     <div class="content">
       <div class="image">
