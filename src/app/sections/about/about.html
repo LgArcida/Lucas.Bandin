@@ -1,9 +1,6 @@
-<section class="about" #aboutSection>
-  <mat-expansion-panel [class.wide]="hasFullWidth()" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>{{ 'ABOUT.TITLE' | translate }}</mat-panel-title>
-      <div class="click-overlay" (click)="handleClick($event)"></div>
-    </mat-expansion-panel-header>
+<section class="about">
+  <app-expandable-panel>
+    <span header>{{ 'ABOUT.TITLE' | translate }}</span>
     <div class="content">
       <div class="image">
         <img
@@ -13,7 +10,7 @@
           alt="Lucas Bandin working at his desk"
         />
       </div>
-      <div class="about__text">
+      <div class="text">
         <p>{{ 'ABOUT.PROBLEM_SOLVING' | translate }}</p>
         <p>{{ 'ABOUT.RIGHT_ANSWER' | translate }}</p>
         <p>{{ 'ABOUT.EXPERIENCE' | translate }}</p>
@@ -23,5 +20,5 @@
         <p>{{ 'ABOUT.LEARNING' | translate }}</p>
       </div>
     </div>
-  </mat-expansion-panel>
+  </app-expandable-panel>
 </section>

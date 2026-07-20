@@ -1,0 +1,39 @@
+@use 'variables' as *;
+
+:host {
+  scroll-margin-top: 5rem;
+
+  mat-expansion-panel {
+    width: 20vw;
+    max-width: 80vw;
+    box-shadow: none;
+    border: 1px solid whitesmoke;
+    transition: width 0.3s ease;
+    &.wide {
+      width: 80vw;
+    }
+  }
+}
+
+mat-expansion-panel-header {
+  position: relative;
+}
+
+.click-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  :host {
+    mat-expansion-panel {
+      width: 100vw;
+      max-width: 90vw;
+      &.wide {
+        width: 100vw;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<mat-expansion-panel [class.wide]="!isMobile() && hasFullWidth()" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <ng-content select="[header]"></ng-content>
+    </mat-panel-title>
+    <div
+      class="click-overlay"
+      role="button"
+      tabindex="0"
+      [attr.aria-expanded]="isExpanded()"
+      (click)="onClickHandle($event)"
+      (keydown)="handleKeydown($event)"
+    ></div>
+  </mat-expansion-panel-header>
+  <ng-content></ng-content>
+</mat-expansion-panel>
