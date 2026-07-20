@@ -33,6 +33,14 @@ export class AboutComponent {
       setTimeout(() => {
         this.panel()?.open();
         this.isExpanded.set(true);
+        setTimeout(
+          () =>
+            this.aboutSection()?.nativeElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            }),
+          250,
+        );
       }, ANIMATION_MS);
     }
   }
