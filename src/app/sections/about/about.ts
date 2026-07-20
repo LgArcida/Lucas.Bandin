@@ -1,15 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, signal, viewChild } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
-
-const PANEL_CLOSE_MS = 225;
-const PANEL_OPEN_MS = 300;
 
 @Component({
   selector: 'app-about',
@@ -20,25 +12,30 @@ const PANEL_OPEN_MS = 300;
 })
 export class AboutComponent {
   protected readonly panel = viewChild.required(MatExpansionPanel);
-  protected readonly isWide = signal(false);
-  private isOpen = false;
+  protected readonly aboutSection = viewChild<ElementRef<HTMLElement>>('aboutSection');
+  protected readonly isExpanded = signal(false);
+  protected readonly hasFullWidth = signal(false);
 
   protected handleClick(event: MouseEvent): void {
     event.stopPropagation();
+    const isExpanded = this.panel()?.expanded;
 
-    if (this.isOpen) {
-      this.panel().close();
+    if (isExpanded) {
+      // Is expanded now collapsing
+      this.panel()?.close();
       setTimeout(() => {
-        this.isWide.set(false);
-        this.isOpen = false;
-      }, PANEL_CLOSE_MS);
-      return;
+        this.hasFullWidth.set(false);
+        this.isExpanded.set(false);
+      }, ANIMATION_MS);
+    } else {
+      // Is collapsed now expanding
+      this.hasFullWidth.set(true);
+      setTimeout(() => {
+        this.panel()?.open();
+        this.isExpanded.set(true);
+      }, ANIMATION_MS);
     }
-
-    this.isWide.set(true);
-    this.isOpen = true;
-    setTimeout(() => {
-      this.panel().open();
-    }, PANEL_OPEN_MS);
   }
 }
+
+const ANIMATION_MS = 350;

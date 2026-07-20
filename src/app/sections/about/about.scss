@@ -69,8 +69,12 @@
 
 @media (max-width: $breakpoint-mobile) {
   .about {
-    justify-content: center;
+    justify-content: flex-start;
     margin-right: 0;
+
+    mat-expansion-panel {
+      width: 60vw;
+    }
   }
 
   .content {

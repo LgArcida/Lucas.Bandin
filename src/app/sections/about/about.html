@@ -1,5 +1,5 @@
-<section class="about">
-  <mat-expansion-panel #panel [class.wide]="isWide()" hideToggle>
+<section class="about" #aboutSection>
+  <mat-expansion-panel [class.wide]="hasFullWidth()" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>{{ 'ABOUT.TITLE' | translate }}</mat-panel-title>
       <div class="click-overlay" (click)="handleClick($event)"></div>
