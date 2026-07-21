@@ -6,21 +6,9 @@
   margin-right: 10vw;
 }
 
-mat-list-item .mat-mdc-list-item-title {
-  margin-bottom: -0.5rem;
-}
-
-mat-progress-bar {
-  //max-width: 20vw;
-}
-
 @media (max-width: $breakpoint-mobile) {
   .skills {
     justify-content: flex-start;
     margin-right: 0;
-  }
-
-  mat-progress-bar {
-    max-width: 80vw;
   }
 }

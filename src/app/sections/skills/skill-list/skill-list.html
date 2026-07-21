@@ -1,0 +1,10 @@
+<mat-list>
+  @for (skill of skills; track skill.name) {
+    <mat-list-item>
+      <img ngSrc="assets/logos/{{ skill.image }}" width="40" height="40" [alt]="skill.name" matListItemIcon />
+      <span matListItemTitle>{{ skill.name }}</span>
+      <mat-progress-bar matListItemLine [value]="skill.level * 10" mode="determinate" />
+      <span matListItemMeta>{{ skill.level }}/10</span>
+    </mat-list-item>
+  }
+</mat-list>

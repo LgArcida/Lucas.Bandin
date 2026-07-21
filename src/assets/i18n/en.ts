@@ -7,6 +7,8 @@ export const en = {
   },
   SKILLS: {
     TITLE: 'Skills ',
+    LIST: 'List',
+    CHART: 'Chart',
   },
   ABOUT: {
     TITLE: 'About me',
