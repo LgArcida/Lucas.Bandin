@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -8,11 +7,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AboutComponent } from './sections/about/about';
 import { MeComponent } from './sections/me/me';
+import { SkillsComponent } from './sections/skills/skills';
 
 @Component({
   selector: 'app-root',
   imports: [
-    AboutComponent,
     MatButtonModule,
     MatIconModule,
     MatListModule,
@@ -20,6 +19,8 @@ import { MeComponent } from './sections/me/me';
     MatToolbarModule,
     TranslatePipe,
     MeComponent,
+    AboutComponent,
+    SkillsComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

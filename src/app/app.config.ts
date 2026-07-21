@@ -1,8 +1,17 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideTranslateService } from '@ngx-translate/core';
-import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateService, provideTranslateLoader, TranslateLoader, TranslationObject } from '@ngx-translate/core';
+import { of } from 'rxjs';
+import { en, es } from './i18n';
+
+const translations: Record<string, TranslationObject> = { en, es };
+
+class TsTranslateLoader implements TranslateLoader {
+  getTranslation(lang: string) {
+    return of(translations[lang] ?? {});
+  }
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,10 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideTranslateService({
       lang: 'en',
+      fallbackLang: 'en',
     }),
-    provideTranslateHttpLoader({
-      prefix: './assets/i18n/',
-      suffix: '.json',
-    }),
+    provideTranslateLoader(TsTranslateLoader),
   ],
 };

@@ -1,5 +1,16 @@
 @use 'variables' as *;
 
+.sections {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+
+  > :first-child {
+    margin-top: 5rem;
+  }
+}
+
 .sidenav-container {
   height: 100%;
 }
