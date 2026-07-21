@@ -1,11 +1,16 @@
+@use '@angular/material' as mat;
 @use 'variables' as *;
 
 mat-list-item .mat-mdc-list-item-title {
   margin-bottom: -0.5rem;
 }
 
-mat-progress-bar {
-  //max-width: 20vw;
+:host {
+  @include mat.progress-bar-overrides(
+    (
+      active-indicator-color: var(--brand-bubble),
+    )
+  );
 }
 
 @media (max-width: $breakpoint-mobile) {

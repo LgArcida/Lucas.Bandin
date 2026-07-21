@@ -52,6 +52,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Do NOT use `ngClass`, use `class` bindings instead
 - Do NOT use `ngStyle`, use `style` bindings instead
 - When using external templates/styles, use paths relative to the component TS file.
+- Do NOT use `ViewEncapsulation.None`. Use Angular's default emulated encapsulation instead.
 
 ## State Management
 
@@ -71,6 +72,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 - Prefer `vw` and `vh` units over `px` and `rem` when possible for responsive layouts
 - Do not use `page__X` or similar redundant naming conventions
+- Do NOT use `::ng-deep`. It is deprecated. Use component-level styles or CSS custom properties instead.
 
 ## Services
 
@@ -97,3 +99,9 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Question and challenge every detail, edge case, and assumption before work begins.
 - Prefer yes/no or multiple-selection questions over open-ended guesses that risk filling gaps with assumptions.
 - When possible, offer a clear recommendation (not just options) so the user can decide quickly.
+
+## No Guessing
+
+- Never guess. If you don't know something — or aren't demonstrably sure of it — do not propose it.
+- Only suggest approaches, patterns, or solutions you can confidently back with evidence from the codebase, documentation, or first-hand knowledge.
+- When uncertain, say so explicitly and ask for clarification rather than filling gaps with assumptions.
