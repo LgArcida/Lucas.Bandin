@@ -11,12 +11,6 @@ import {
 import type * as d3 from 'd3';
 import { CORE_SKILLS } from '../skills.data';
 
-interface PackNode {
-  name: string;
-  value?: number;
-  children?: PackNode[];
-}
-
 @Component({
   selector: 'app-skill-bubble-chart',
   templateUrl: './skill-bubble-chart.html',
@@ -90,3 +84,9 @@ export class SkillBubbleChartComponent {
       .style('pointer-events', 'none');
   }
 }
+
+type PackNode = {
+  name: string;
+  value?: number;
+  children?: PackNode[];
+};

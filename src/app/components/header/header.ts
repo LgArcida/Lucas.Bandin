@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
@@ -10,7 +9,6 @@ import { NAV_ITEMS, NavItem, scrollToSection } from '../../nav/nav-items';
   selector: 'app-header',
   imports: [
     MatButtonModule,
-    MatIconModule,
     MatToolbarModule,
     TranslatePipe,
     LanguageSwitcherComponent,
