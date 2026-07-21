@@ -68,7 +68,7 @@ export class SkillBubbleChartComponent {
     group
       .append('circle')
       .attr('r', (d) => d.r)
-      .attr('fill', 'var(--brand-bubble)')
+      .style('fill', 'var(--brand-bubble)')
       .attr('fill-opacity', (d) => opacityScale(d.data.value!))
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5);
