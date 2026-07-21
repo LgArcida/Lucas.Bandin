@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { AppStore } from './store/app.store';
 import { AboutComponent } from './sections/about/about';
 import { MeComponent } from './sections/me/me';
 import { SkillsComponent } from './sections/skills/skills';
@@ -27,13 +28,12 @@ import { SkillsComponent } from './sections/skills/skills';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
-  private translate = inject(TranslateService);
+  protected readonly appStore = inject(AppStore);
 
-  protected activeLang = signal<string>(this.translate.currentLang() || 'en');
-
-  protected setLanguage(lang: string): void {
-    this.translate.use(lang);
-    this.activeLang.set(lang);
+  constructor() {
+    effect(() => {
+      document.documentElement.lang = this.appStore.language();
+    });
   }
 
   protected scrollToAbout(): void {

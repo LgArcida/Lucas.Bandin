@@ -11,7 +11,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
-import { ViewUtils } from '../../utils/view-utils';
+import { AppStore } from '../../store/app.store';
 
 @Component({
   selector: 'app-expandable-panel',
@@ -21,7 +21,8 @@ import { ViewUtils } from '../../utils/view-utils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandablePanelComponent {
-  readonly isMobile = ViewUtils.isMobile;
+  readonly #appStore = inject(AppStore);
+  readonly isMobile = this.#appStore.isMobile;
   #animationMs = computed(() => (this.isMobile() ? 0 : 350));
 
   private readonly panel = viewChild.required(MatExpansionPanel);

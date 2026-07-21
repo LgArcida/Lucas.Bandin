@@ -12,8 +12,8 @@
       <button
         mat-button
         aria-label="Switch to English"
-        [class.active]="activeLang() === 'en'"
-        (click)="setLanguage('en')"
+        [class.active]="appStore.language() === 'en'"
+        (click)="appStore.setLanguage('en')"
       >
         <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
           <rect width="60" height="30" fill="#012169" />
@@ -26,8 +26,8 @@
       <button
         mat-button
         aria-label="Switch to Spanish"
-        [class.active]="activeLang() === 'es'"
-        (click)="setLanguage('es')"
+        [class.active]="appStore.language() === 'es'"
+        (click)="appStore.setLanguage('es')"
       >
         <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
           <rect width="60" height="30" fill="#c60b1e" />
@@ -57,8 +57,8 @@
         <button
           mat-button
           aria-label="Switch to English"
-          [class.active]="activeLang() === 'en'"
-          (click)="setLanguage('en')"
+          [class.active]="appStore.language() === 'en'"
+          (click)="appStore.setLanguage('en')"
         >
           <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
             <rect width="60" height="30" fill="#012169" />
@@ -71,8 +71,8 @@
         <button
           mat-button
           aria-label="Switch to Spanish"
-          [class.active]="activeLang() === 'es'"
-          (click)="setLanguage('es')"
+          [class.active]="appStore.language() === 'es'"
+          (click)="appStore.setLanguage('es')"
         >
           <svg viewBox="0 0 60 30" width="20" height="12" aria-hidden="true">
             <rect width="60" height="30" fill="#c60b1e" />
