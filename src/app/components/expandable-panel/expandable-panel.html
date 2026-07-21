@@ -1,4 +1,4 @@
-<mat-expansion-panel [class.wide]="!isMobile() && hasFullWidth()" hideToggle>
+<mat-expansion-panel [class.wide]="!isMobile() && isExpanded()" hideToggle>
   <mat-expansion-panel-header>
     <mat-panel-title>
       <ng-content select="[header]"></ng-content>

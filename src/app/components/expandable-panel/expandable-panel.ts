@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   ElementRef,
   inject,
   output,
@@ -21,7 +22,7 @@ import { ViewUtils } from '../../utils/view-utils';
 })
 export class ExpandablePanelComponent {
   readonly isMobile = ViewUtils.isMobile;
-  #ANIMATION_MS = computed(() => (this.isMobile() ? 0 : 350));
+  #animationMs = computed(() => (this.isMobile() ? 0 : 350));
 
   private readonly panel = viewChild.required(MatExpansionPanel);
   private readonly hostRef = inject(ElementRef);
@@ -29,7 +30,10 @@ export class ExpandablePanelComponent {
   expandedChange = output<boolean>();
 
   protected readonly isExpanded = signal(false);
-  protected readonly hasFullWidth = signal(false);
+
+  constructor() {
+    effect(() => this.expandedChange.emit(this.isExpanded()));
+  }
 
   protected onClickHandle(event: MouseEvent): void {
     event.stopPropagation();
@@ -51,26 +55,26 @@ export class ExpandablePanelComponent {
       // Is expanded now collapsing
       this.panel()?.close();
       setTimeout(() => {
-        this.hasFullWidth.set(false);
         this.isExpanded.set(false);
-        this.expandedChange.emit(false);
-      }, this.#ANIMATION_MS());
+      }, this.#animationMs());
     } else {
       // Is collapsed now expanding
-      this.hasFullWidth.set(true);
+      this.isExpanded.set(true);
       setTimeout(() => {
         this.panel()?.open();
-        this.isExpanded.set(true);
-        this.expandedChange.emit(true);
-        setTimeout(
-          () =>
-            this.hostRef.nativeElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            }),
-          250,
-        );
-      }, this.#ANIMATION_MS());
+        this.scrollIntoView();
+      }, this.#animationMs());
     }
+  }
+
+  private scrollIntoView() {
+    setTimeout(
+      () =>
+        this.hostRef.nativeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        }),
+      250,
+    );
   }
 }
