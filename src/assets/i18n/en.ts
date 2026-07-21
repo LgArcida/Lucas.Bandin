@@ -5,6 +5,9 @@ export const en = {
     PROJECTS: 'Projects',
     CONTACT: 'Contact',
   },
+  SKILLS: {
+    TITLE: 'Skills ',
+  },
   ABOUT: {
     TITLE: 'About me',
     PROBLEM_SOLVING: 'I like solving problems, code is just part of it',
@@ -19,7 +22,7 @@ export const en = {
   HOME: {
     GREETING: 'Hei! I am',
     DESCRIPTION_LINE1:
-      'I enjoy building modern frontend applications and designing software that\'s easy to understand, easy to maintain, and enjoyable to work on.',
+      "I enjoy building modern frontend applications and designing software that's easy to understand, easy to maintain, and enjoyable to work on.",
     DESCRIPTION_LINE2:
       'I believe the best software is built by removing complexity, not adding it.',
   },

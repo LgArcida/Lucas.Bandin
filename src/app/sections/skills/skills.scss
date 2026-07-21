@@ -1,54 +1,26 @@
-@use 'mixins' as *;
 @use 'variables' as *;
 
-.about {
+.skills {
   display: flex;
   justify-content: flex-start;
   margin-right: 10vw;
 }
 
-.content {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  text-align: justify;
+mat-list-item .mat-mdc-list-item-title {
+  margin-bottom: -0.5rem;
+}
 
-  .text {
-    flex: 1;
-
-    p {
-      line-height: 1.6;
-      color: var(--mat-sys-on-surface-variant);
-      margin-top: 0;
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
-  }
-
-  .image img {
-    width: clamp(10rem, 18vw, 14rem);
-    height: auto;
-    border-radius: 0.75rem;
-    object-fit: cover;
-  }
-
-  mark {
-    @include mark-highlight(var(--brand-warning));
-  }
+mat-progress-bar {
+  //max-width: 20vw;
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .about {
+  .skills {
     justify-content: flex-start;
     margin-right: 0;
   }
 
-  .content {
-    flex-direction: column-reverse;
-    text-align: justify;
-
-    .image img {
-      width: clamp(10rem, 50vw, 14rem);
-    }
+  mat-progress-bar {
+    max-width: 80vw;
   }
 }

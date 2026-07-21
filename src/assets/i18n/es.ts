@@ -7,6 +7,9 @@ export const es = {
     PROJECTS: 'Proyectos',
     CONTACT: 'Contacto',
   },
+  SKILLS: {
+    TITLE: 'Habilidades',
+  },
   ABOUT: {
     TITLE: 'Sobre mí',
     PROBLEM_SOLVING: 'Me gusta resolver problemas, código es solo una parte',

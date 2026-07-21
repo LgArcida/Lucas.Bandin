@@ -5,3 +5,4 @@ Ask me a lot of question before starting to get a clear understanding of what I 
 
 # Result
 
+Very good. Makes plans more explicit and easier for LLM to follow.
