@@ -1,11 +1,8 @@
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { TranslatePipe } from '@ngx-translate/core';
 import { AppStore } from './store/app.store';
+import { HeaderComponent } from './components/header/header';
+import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu';
 import { AboutComponent } from './sections/about/about';
 import { MeComponent } from './sections/me/me';
 import { SkillsComponent } from './sections/skills/skills';
@@ -13,12 +10,9 @@ import { SkillsComponent } from './sections/skills/skills';
 @Component({
   selector: 'app-root',
   imports: [
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
     MatSidenavModule,
-    MatToolbarModule,
-    TranslatePipe,
+    HeaderComponent,
+    SidenavMenuComponent,
     MeComponent,
     AboutComponent,
     SkillsComponent,
@@ -28,15 +22,12 @@ import { SkillsComponent } from './sections/skills/skills';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
-  protected readonly appStore = inject(AppStore);
+  readonly #document = inject(DOCUMENT);
+  readonly #appStore = inject(AppStore);
 
   constructor() {
     effect(() => {
-      document.documentElement.lang = this.appStore.language();
+      this.#document.documentElement.lang = this.#appStore.language();
     });
-  }
-
-  protected scrollToAbout(): void {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   }
 }

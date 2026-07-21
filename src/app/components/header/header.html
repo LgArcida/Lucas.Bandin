@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    aria-label="Toggle navigation menu"
+    (click)="menuToggle.emit()"
+    class="menu-button"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <nav class="desktop-nav">
+    @for (item of navItems; track item.labelKey) {
+      <button mat-button (click)="navigate(item)">{{ item.labelKey | translate }}</button>
+    }
+  </nav>
+  <app-language-switcher class="lang-switcher" />
+</mat-toolbar>

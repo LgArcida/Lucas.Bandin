@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  gap: 0.25rem;
+}
+
+[mat-button] {
+  min-width: 2rem;
+  padding: 0 0.25rem;
+
+  &:not(.active) {
+    opacity: 0.5;
+  }
+}
