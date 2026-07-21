@@ -30,7 +30,7 @@ export class SkillBubbleChartComponent {
   constructor() {
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platformId)) return;
-      this.renderChart();
+      void this.renderChart();
     });
   }
 
@@ -55,7 +55,7 @@ export class SkillBubbleChartComponent {
 
     const root = d3Module
       .hierarchy<PackNode>(packData)
-      .sum((d) => d.value ?? 0)
+      .sum((d) => (d.value ?? 0) ** 2)
       .sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
 
     const pack = d3Module.pack<PackNode>().size([size, size]).padding(2);
@@ -74,7 +74,7 @@ export class SkillBubbleChartComponent {
     group
       .append('circle')
       .attr('r', (d) => d.r)
-      .attr('fill', '#9d4edd')
+      .attr('fill', 'var(--brand-bubble)')
       .attr('fill-opacity', (d) => opacityScale(d.data.value!))
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5);
