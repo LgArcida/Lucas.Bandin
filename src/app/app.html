@@ -8,7 +8,11 @@
       <app-me />
       <section class="sections">
         <app-about />
-        <app-skills />
+        @defer (on viewport) {
+          <app-skills />
+        } @placeholder {
+          <section style="min-height: 50vh"></section>
+        }
       </section>
     </main>
   </mat-sidenav-content>
