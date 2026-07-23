@@ -11,6 +11,10 @@ export const es = {
     TITLE: 'Habilidades',
     LIST: 'Lista',
     CHART: 'Gráfico',
+    FRONTEND: 'Frontend',
+    BACKEND: 'Backend',
+    STRENGTHS: 'Fortalezas',
+    AI: 'IA',
   },
   ABOUT: {
     TITLE: 'Sobre mí',

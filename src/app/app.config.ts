@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideTranslateService, provideTranslateLoader, TranslateLoader, TranslationObject } from '@ngx-translate/core';
+import { provideTranslateService, TranslateLoader, TranslationObject } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { en, es } from '../assets/i18n';
 
@@ -22,6 +22,6 @@ export const appConfig: ApplicationConfig = {
       lang: 'en',
       fallbackLang: 'en',
     }),
-    provideTranslateLoader(TsTranslateLoader),
+    { provide: TranslateLoader, useClass: TsTranslateLoader },
   ],
 };

@@ -9,6 +9,10 @@ export const en = {
     TITLE: 'Skills ',
     LIST: 'List',
     CHART: 'Chart',
+    FRONTEND: 'Frontend',
+    BACKEND: 'Backend',
+    STRENGTHS: 'Strengths',
+    AI: 'AI',
   },
   ABOUT: {
     TITLE: 'About me',

@@ -9,7 +9,6 @@ import {
   viewChild,
 } from '@angular/core';
 import type * as d3 from 'd3';
-import { CORE_SKILLS } from '../skills.data';
 
 @Component({
   selector: 'app-skill-bubble-chart',
@@ -44,7 +43,7 @@ export class SkillBubbleChartComponent {
 
     const packData: PackNode = {
       name: 'root',
-      children: CORE_SKILLS.map((s) => ({ name: s.name, value: s.level })),
+      children: [],
     };
 
     const root = d3Module
