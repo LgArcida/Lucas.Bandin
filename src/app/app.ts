@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { AppStore } from './store/app.store';
-import { HeaderComponent } from './components/header/header';
-import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu';
-import { AboutComponent } from './sections/about/about';
-import { MeComponent } from './sections/me/me';
-import { SkillsComponent } from './sections/skills/skills';
+import { AppStore } from '../application/state/app.store';
+import { HeaderComponent } from './presentation/shared/header/header';
+import { SidenavMenuComponent } from './presentation/shared/sidenav-menu/sidenav-menu';
+import { AboutComponent } from './presentation/features/profile/about/about';
+import { MeComponent } from './presentation/features/profile/me/me';
+import { SkillsComponent } from './presentation/features/profile/skills/skills';
 
 @Component({
   selector: 'app-root',

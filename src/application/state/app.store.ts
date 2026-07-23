@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
-import { TranslateService } from '@ngx-translate/core';
+import { LOCALIZATION_PORT } from '../localization/localization.port';
 
 type AppState = {
   language: string;
@@ -10,14 +10,14 @@ type AppState = {
 export const AppStore = signalStore(
   { providedIn: 'root' },
   withState<AppState>({ language: 'en', isMobile: false }),
-  withMethods((store, translate = inject(TranslateService)) => ({
+  withMethods((store, localizationPort = inject(LOCALIZATION_PORT)) => ({
     setLanguage(lang: string): void {
-      translate.use(lang);
+      localizationPort.setLanguage(lang);
       patchState(store, { language: lang });
     },
     toggleLanguage(): void {
       const next = store.language() === 'en' ? 'es' : 'en';
-      translate.use(next);
+      localizationPort.setLanguage(next);
       patchState(store, { language: next });
     },
   })),

@@ -22,6 +22,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use strict type checking
 - Prefer type inference when the type is obvious
 - Avoid the `any` type; use `unknown` when type is uncertain
+- Prefer `type` aliases over `interface` declarations
 - Never use magic numbers; extract to named constants with clear intent
 - Do not use orphan variables (unused variables) in code
 - Follow YAGNI: don't implement features until actually needed

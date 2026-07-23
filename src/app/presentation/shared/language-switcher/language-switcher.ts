@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { AppStore } from '../../store/app.store';
+import { AppStore } from '../../../../application/state/app.store';
 
 interface LanguageOption {
   code: string;

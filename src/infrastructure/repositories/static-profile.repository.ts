@@ -1,12 +1,7 @@
-export type Skill = {
-  name: string;
-  image: string;
-  level: number;
-};
+import { ProfileRepository } from '../../domain/profile/ports/profile.repository';
+import { SkillCategory } from '../../domain/profile/models/skill-category';
 
-export const skillSort = (a: Skill, b: Skill) => (b.level ?? 0) - (a.level ?? 0);
-
-export const FRONTEND_SKILLS: Skill[] = [
+const FRONTEND_SKILLS = [
   { name: 'Angular', image: 'angular.webp', level: 9.5 },
   { name: 'TypeScript', image: 'typescript.webp', level: 9 },
   { name: 'RxJS', image: 'rxjs.webp', level: 8.5 },
@@ -18,14 +13,14 @@ export const FRONTEND_SKILLS: Skill[] = [
   { name: 'React', image: 'react.webp', level: 3 },
 ];
 
-export const BACKEND_SKILLS: Skill[] = [
+const BACKEND_SKILLS = [
   { name: 'Python', image: 'python.webp', level: 6 },
   { name: 'Django', image: 'django.webp', level: 5.5 },
   { name: 'Firebase', image: 'firebase.webp', level: 5 },
   { name: 'SQLite', image: 'sqlite.webp', level: 5.5 },
 ];
 
-export const AI_SKILLS: Skill[] = [
+const AI_SKILLS = [
   { name: 'Claude', image: 'claude.webp', level: 6 },
   { name: 'Opencode', image: 'opencode.webp', level: 6 },
   { name: 'Codex', image: 'codex.webp', level: 6 },
@@ -33,7 +28,7 @@ export const AI_SKILLS: Skill[] = [
   { name: 'LangChain', image: 'langchain.webp', level: 3 },
 ];
 
-export const PLATFORM_SKILLS: Skill[] = [
+const PLATFORM_SKILLS = [
   { name: 'Git', image: 'git.webp', level: 8 },
   { name: 'Nx', image: 'nx.webp', level: 5 },
   { name: 'Electron', image: 'electron.webp', level: 4.5 },
@@ -41,3 +36,14 @@ export const PLATFORM_SKILLS: Skill[] = [
   { name: 'Linux', image: 'linux.webp', level: 8 },
   { name: 'PWA', image: 'pwa.webp', level: 7 },
 ];
+
+export class StaticProfileRepository implements ProfileRepository {
+  getSkills(): SkillCategory[] {
+    return [
+      SkillCategory.create({ name: 'Frontend', skills: FRONTEND_SKILLS }),
+      SkillCategory.create({ name: 'Backend', skills: BACKEND_SKILLS }),
+      SkillCategory.create({ name: 'AI', skills: AI_SKILLS }),
+      SkillCategory.create({ name: 'Platform', skills: PLATFORM_SKILLS }),
+    ];
+  }
+}

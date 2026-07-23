@@ -1,17 +1,22 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { LOCALIZATION_PORT } from '../application/localization/localization.port';
+import { ProfileRepository } from '../domain/profile/ports/profile.repository';
+import { Profile } from '../domain/profile/models/profile';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
+    const mockRepo: ProfileRepository = { getSkills: () => [] };
+
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [
         {
           provide: TranslateService,
           useValue: {
-            currentLang: () => 'en',
+            currentLang: () => 'en' as const,
             use: () => undefined,
             translate: () => () => '',
             onTranslationChange: of({}),
@@ -20,6 +25,8 @@ describe('App', () => {
             onTranslationRefresh: of(undefined),
           },
         },
+        { provide: LOCALIZATION_PORT, useValue: { setLanguage: () => undefined, getCurrentLanguage: () => 'en' } },
+        { provide: Profile, useFactory: () => new Profile(mockRepo) },
       ],
     }).compileComponents();
   });

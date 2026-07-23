@@ -11,7 +11,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
-import { AppStore } from '../../store/app.store';
+import { AppStore } from '../../../../application/state/app.store';
 
 @Component({
   selector: 'app-expandable-panel',

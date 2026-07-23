@@ -9,7 +9,3 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'NAV.PROJECTS' },
   { labelKey: 'NAV.CONTACT' },
 ];
-
-export const scrollToSection = (id: string): void => {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-};
