@@ -1,5 +1,5 @@
 import type { SkillCategory } from '../models/skill-category';
 
-export interface ProfileRepository {
+export type ProfileRepository = {
   getSkills(): SkillCategory[];
-}
+};
