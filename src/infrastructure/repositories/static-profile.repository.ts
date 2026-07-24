@@ -1,6 +1,6 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
-import { SkillCategory } from '@domain/profile/models/skill-category';
+import { SkillCategory, SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 
 const FRONTEND_SKILLS = [
   { name: 'Angular', image: 'angular.webp', level: 9.5 },
@@ -40,10 +40,10 @@ const PLATFORM_SKILLS = [
 
 const buildCategories = (): SkillCategory[] => {
   return [
-    SkillCategory.create({ name: 'Frontend', skills: FRONTEND_SKILLS }),
-    SkillCategory.create({ name: 'Backend', skills: BACKEND_SKILLS }),
-    SkillCategory.create({ name: 'AI', skills: AI_SKILLS }),
-    SkillCategory.create({ name: 'Platform', skills: PLATFORM_SKILLS }),
+      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Frontend, skills: FRONTEND_SKILLS }),
+      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Backend, skills: BACKEND_SKILLS }),
+      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.AI, skills: AI_SKILLS }),
+      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Platform, skills: PLATFORM_SKILLS }),
   ];
 };
 

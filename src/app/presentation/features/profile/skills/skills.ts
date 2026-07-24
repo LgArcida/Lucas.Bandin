@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TranslatePipe } from '@ngx-translate/core';
+import { SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { Profile } from '@domain/profile/models/profile';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
 import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
@@ -30,18 +31,18 @@ export class SkillsComponent {
   readonly #categories = toSignal(this.#profile.skills$, { initialValue: [] });
 
   protected readonly frontendSkills = computed(
-    () => this.#categories().find((c) => c.name === 'Frontend')?.skills ?? [],
+    () => this.#categories().find((c) => c.name === SKILL_CATEGORY_NAMES.Frontend)?.skills ?? [],
   );
 
   protected readonly backendSkills = computed(
-    () => this.#categories().find((c) => c.name === 'Backend')?.skills ?? [],
+    () => this.#categories().find((c) => c.name === SKILL_CATEGORY_NAMES.Backend)?.skills ?? [],
   );
 
   protected readonly aiSkills = computed(
-    () => this.#categories().find((c) => c.name === 'AI')?.skills ?? [],
+    () => this.#categories().find((c) => c.name === SKILL_CATEGORY_NAMES.AI)?.skills ?? [],
   );
 
   protected readonly platformSkills = computed(
-    () => this.#categories().find((c) => c.name === 'Platform')?.skills ?? [],
+    () => this.#categories().find((c) => c.name === SKILL_CATEGORY_NAMES.Platform)?.skills ?? [],
   );
 }

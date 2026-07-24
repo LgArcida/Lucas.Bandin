@@ -27,3 +27,12 @@ export class SkillCategory {
     return this._name;
   }
 }
+
+export const SKILL_CATEGORY_NAMES = {
+  Frontend: 'Frontend',
+  Backend: 'Backend',
+  AI: 'AI',
+  Platform: 'Platform',
+} as const;
+
+export type SkillCategoryName = (typeof SKILL_CATEGORY_NAMES)[keyof typeof SKILL_CATEGORY_NAMES];
