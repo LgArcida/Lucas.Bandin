@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, inject, output } from '@angular/cor
 import { MatListModule } from '@angular/material/list';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
-import { NAV_ITEMS, NavItem } from '../../../../application/navigation/nav-items';
-import { NavigationService } from '../../../../application/navigation/navigation.service';
+import { NAV_ITEMS, NavItem } from '@application/navigation/nav-items';
+import { NavigationService } from '@application/navigation/navigation.service';
 
 @Component({
   selector: 'app-sidenav-menu',

@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Profile } from '../../../../../domain/profile/models/profile';
-import type { Skill } from '../../../../../domain/profile/models/skill';
-import { ProfileRepository } from '../../../../../domain/profile/ports/profile.repository';
-import { StaticProfileRepository } from '../../../../../infrastructure/repositories/static-profile.repository';
+import { Profile } from '@domain/profile/models/profile';
+import { ProfileRepository } from '@domain/profile/ports/profile.repository';
+import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
 import { ExpandablePanelComponent } from '../../../shared/expandable-panel/expandable-panel';
 import { SkillListComponent } from './skill-list/skill-list';
 
@@ -26,17 +26,22 @@ import { SkillListComponent } from './skill-list/skill-list';
 export class SkillsComponent {
   readonly #profile = inject(Profile);
 
-  protected readonly frontendSkills: readonly Skill[];
-  protected readonly backendSkills: readonly Skill[];
-  protected readonly aiSkills: readonly Skill[];
-  protected readonly platformSkills: readonly Skill[];
   protected readonly selectedTab = signal(0);
+  readonly #categories = toSignal(this.#profile.skills$, { initialValue: [] });
 
-  constructor() {
-    const categories = this.#profile.skills;
-    this.frontendSkills = categories.find(c => c.name === 'Frontend')?.skills ?? [];
-    this.backendSkills = categories.find(c => c.name === 'Backend')?.skills ?? [];
-    this.aiSkills = categories.find(c => c.name === 'AI')?.skills ?? [];
-    this.platformSkills = categories.find(c => c.name === 'Platform')?.skills ?? [];
-  }
+  protected readonly frontendSkills = computed(
+    () => this.#categories().find((c) => c.name === 'Frontend')?.skills ?? [],
+  );
+
+  protected readonly backendSkills = computed(
+    () => this.#categories().find((c) => c.name === 'Backend')?.skills ?? [],
+  );
+
+  protected readonly aiSkills = computed(
+    () => this.#categories().find((c) => c.name === 'AI')?.skills ?? [],
+  );
+
+  protected readonly platformSkills = computed(
+    () => this.#categories().find((c) => c.name === 'Platform')?.skills ?? [],
+  );
 }

@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs';
 import type { SkillCategory } from '../models/skill-category';
 
 export type ProfileRepository = {
-  getSkills(): SkillCategory[];
+  getSkills(): Observable<SkillCategory[]>;
 };

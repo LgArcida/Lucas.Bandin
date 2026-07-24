@@ -3,17 +3,17 @@
     <span header>{{ 'SKILLS.TITLE' | translate }}</span>
     <mat-tab-group (selectedIndexChange)="selectedTab.set($event)">
       <mat-tab [label]="'SKILLS.FRONTEND' | translate">
-        <app-skill-list [source]="frontendSkills" />
+        <app-skill-list [source]="frontendSkills()" />
       </mat-tab>
 
       <mat-tab [label]="'SKILLS.STRENGTHS' | translate">
-        <app-skill-list [source]="platformSkills" />
+        <app-skill-list [source]="platformSkills()" />
       </mat-tab>
       <mat-tab [label]="'SKILLS.AI' | translate">
-        <app-skill-list [source]="aiSkills" />
+        <app-skill-list [source]="aiSkills()" />
       </mat-tab>
       <mat-tab [label]="'SKILLS.BACKEND' | translate">
-        <app-skill-list [source]="backendSkills" />
+        <app-skill-list [source]="backendSkills()" />
       </mat-tab>
     </mat-tab-group>
   </app-expandable-panel>

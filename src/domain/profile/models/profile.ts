@@ -1,10 +1,11 @@
+import { Observable } from 'rxjs';
 import type { ProfileRepository } from '../ports/profile.repository';
 import type { SkillCategory } from './skill-category';
 
 export class Profile {
-  constructor(private readonly repository: ProfileRepository) {}
+  readonly skills$: Observable<SkillCategory[]>;
 
-  get skills(): SkillCategory[] {
-    return this.repository.getSkills();
+  constructor(repository: ProfileRepository) {
+    this.skills$ = repository.getSkills();
   }
 }

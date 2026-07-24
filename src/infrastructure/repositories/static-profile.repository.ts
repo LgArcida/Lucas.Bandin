@@ -1,5 +1,6 @@
-import { ProfileRepository } from '../../domain/profile/ports/profile.repository';
-import { SkillCategory } from '../../domain/profile/models/skill-category';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { ProfileRepository } from '@domain/profile/ports/profile.repository';
+import { SkillCategory } from '@domain/profile/models/skill-category';
 
 const FRONTEND_SKILLS = [
   { name: 'Angular', image: 'angular.webp', level: 9.5 },
@@ -37,13 +38,19 @@ const PLATFORM_SKILLS = [
   { name: 'PWA', image: 'pwa.webp', level: 7 },
 ];
 
+const buildCategories = (): SkillCategory[] => {
+  return [
+    SkillCategory.create({ name: 'Frontend', skills: FRONTEND_SKILLS }),
+    SkillCategory.create({ name: 'Backend', skills: BACKEND_SKILLS }),
+    SkillCategory.create({ name: 'AI', skills: AI_SKILLS }),
+    SkillCategory.create({ name: 'Platform', skills: PLATFORM_SKILLS }),
+  ];
+};
+
 export class StaticProfileRepository implements ProfileRepository {
-  getSkills(): SkillCategory[] {
-    return [
-      SkillCategory.create({ name: 'Frontend', skills: FRONTEND_SKILLS }),
-      SkillCategory.create({ name: 'Backend', skills: BACKEND_SKILLS }),
-      SkillCategory.create({ name: 'AI', skills: AI_SKILLS }),
-      SkillCategory.create({ name: 'Platform', skills: PLATFORM_SKILLS }),
-    ];
+  readonly #skills$ = new BehaviorSubject<SkillCategory[]>(buildCategories());
+
+  getSkills(): Observable<SkillCategory[]> {
+    return this.#skills$.asObservable();
   }
 }

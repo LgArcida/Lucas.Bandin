@@ -1,14 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { LOCALIZATION_PORT } from '../application/localization/localization.port';
-import { ProfileRepository } from '../domain/profile/ports/profile.repository';
-import { Profile } from '../domain/profile/models/profile';
+import { LOCALIZATION_PORT } from '@application/localization/localization.port';
+import { ProfileRepository } from '@domain/profile/ports/profile.repository';
+import { Profile } from '@domain/profile/models/profile';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
-    const mockRepo: ProfileRepository = { getSkills: () => [] };
+    const mockRepo: ProfileRepository = { getSkills: () => of([]) };
 
     await TestBed.configureTestingModule({
       imports: [App],

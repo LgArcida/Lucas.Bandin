@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { AppStore } from '../application/state/app.store';
+import { AppStore } from '@application/state/app.store';
 import { HeaderComponent } from './presentation/shared/header/header';
 import { SidenavMenuComponent } from './presentation/shared/sidenav-menu/sidenav-menu';
 import { AboutComponent } from './presentation/features/profile/about/about';

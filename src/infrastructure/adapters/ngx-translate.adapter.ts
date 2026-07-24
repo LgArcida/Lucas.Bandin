@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LocalizationPort } from '../../application/localization/localization.port';
+import { LocalizationPort } from '@application/localization/localization.port';
 
 @Injectable()
 export class NgxTranslateAdapter implements LocalizationPort {

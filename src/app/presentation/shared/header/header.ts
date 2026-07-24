@@ -3,8 +3,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
-import { NAV_ITEMS, NavItem } from '../../../../application/navigation/nav-items';
-import { NavigationService } from '../../../../application/navigation/navigation.service';
+import { NAV_ITEMS, NavItem } from '@application/navigation/nav-items';
+import { NavigationService } from '@application/navigation/navigation.service';
 
 @Component({
   selector: 'app-header',
