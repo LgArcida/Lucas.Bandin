@@ -26,6 +26,9 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Never use magic numbers; extract to named constants with clear intent
 - Do not use orphan variables (unused variables) in code
 - Follow YAGNI: don't implement features until actually needed
+- Use `const` functions rather than simple functions
+- Use `const` rather than enums
+- Avoid using `as` type assertions whenever possible
 
 ## Angular Best Practices
 
