@@ -11,9 +11,8 @@ export type SkillModel = z.infer<typeof skillSchema>;
 export class Skill {
   private constructor(private readonly data: SkillModel) {}
 
-  static create(input: unknown): Skill | undefined {
-    const result = skillSchema.safeParse(input);
-    return result.success ? new Skill(result.data) : undefined;
+  static create(input: unknown): Skill {
+    return new Skill(skillSchema.parse(input));
   }
 
   get name(): string {

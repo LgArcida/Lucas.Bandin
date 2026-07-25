@@ -10,9 +10,6 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Avoid creating full templates or ready-made pages. Build progressively.
 
 ## Current Scope
-
-- The first feature is the landing page.
-- Start minimal: a top toolbar that collapses into a side menu on mobile.
 - Use Angular Material as the UI framework.
 - Do not add extra landing-page sections, CV content, animations, or full-page designs until requested.
 

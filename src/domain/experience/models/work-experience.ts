@@ -5,7 +5,7 @@ import { periodSchema, type PeriodModel } from './period';
 import { highlightSchema, type HighlightModel } from './highlight';
 import { skillSchema, type SkillModel } from '@domain/profile/models/skill';
 
-const schema = z.object({
+export const workExperienceSchema = z.object({
   company: companySchema,
   role: roleSchema,
   period: periodSchema,
@@ -13,13 +13,13 @@ const schema = z.object({
   technologies: z.array(skillSchema).min(1, 'At least one technology is required'),
 });
 
-type WorkExperienceModel = z.infer<typeof schema>;
+export type WorkExperienceModel = z.infer<typeof workExperienceSchema>;
 
 export class WorkExperience {
   private constructor(private readonly data: WorkExperienceModel) {}
 
   static create(input: unknown): WorkExperience {
-    return new WorkExperience(schema.parse(input));
+    return new WorkExperience(workExperienceSchema.parse(input));
   }
 
   get company(): CompanyModel {

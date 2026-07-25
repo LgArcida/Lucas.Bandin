@@ -38,19 +38,19 @@ const PLATFORM_SKILLS = [
   { name: 'PWA', image: 'pwa.webp', level: 7 },
 ];
 
-const buildCategories = (): SkillCategory[] => {
+const buildCategories = (): readonly SkillCategory[] => {
   return [
     SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Frontend, skills: FRONTEND_SKILLS }),
     SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Backend, skills: BACKEND_SKILLS }),
     SkillCategory.create({ name: SKILL_CATEGORY_NAMES.AI, skills: AI_SKILLS }),
     SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Platform, skills: PLATFORM_SKILLS }),
-  ].filter((s): s is SkillCategory => s !== undefined);
+  ];
 };
 
 export class StaticProfileRepository implements ProfileRepository {
-  readonly #skills$ = new BehaviorSubject<SkillCategory[]>(buildCategories());
+  readonly #skills$ = new BehaviorSubject<readonly SkillCategory[]>(buildCategories());
 
-  getSkills(): Observable<SkillCategory[]> {
+  getSkills(): Observable<readonly SkillCategory[]> {
     return this.#skills$.asObservable();
   }
 }

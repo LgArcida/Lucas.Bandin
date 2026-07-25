@@ -9,24 +9,22 @@ export const skillCategorySchema = z.object({
 export type SkillCategoryModel = z.infer<typeof skillCategorySchema>;
 
 export class SkillCategory {
-  readonly skills: readonly Skill[];
+  private readonly skillList: readonly Skill[];
 
   private constructor(private readonly data: SkillCategoryModel) {
-    this.skills = Object.freeze(
-      data.skills
-        .map((s) => Skill.create(s))
-        .filter((s): s is Skill => s !== undefined),
-    );
+    this.skillList = data.skills.map((s) => Skill.create(s));
   }
 
-  static create(input: unknown): SkillCategory | undefined {
-    const result = skillCategorySchema.safeParse(input);
-    if (!result.success) return undefined;
-    return new SkillCategory(result.data);
+  static create(input: unknown): SkillCategory {
+    return new SkillCategory(skillCategorySchema.parse(input));
   }
 
   get name(): string {
     return this.data.name;
+  }
+
+  get skills(): readonly Skill[] {
+    return this.skillList;
   }
 }
 
