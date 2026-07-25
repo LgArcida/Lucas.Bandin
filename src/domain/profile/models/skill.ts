@@ -1,18 +1,18 @@
 import { z } from 'zod';
 
-const schema = z.object({
+export const skillSchema = z.object({
   name: z.string().min(1, 'Skill name must not be empty'),
   image: z.string(),
   level: z.number().min(0).max(10, 'Skill level must be 0–10'),
 });
 
-type SkillModel = z.infer<typeof schema>;
+export type SkillModel = z.infer<typeof skillSchema>;
 
 export class Skill {
   private constructor(private readonly data: SkillModel) {}
 
   static create(input: unknown): Skill {
-    return new Skill(schema.parse(input));
+    return new Skill(skillSchema.parse(input));
   }
 
   get name(): string {
