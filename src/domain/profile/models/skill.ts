@@ -6,10 +6,10 @@ const schema = z.object({
   level: z.number().min(0).max(10, 'Skill level must be 0–10'),
 });
 
-type SkillData = z.infer<typeof schema>;
+type SkillModel = z.infer<typeof schema>;
 
 export class Skill {
-  private constructor(private readonly data: SkillData) {}
+  private constructor(private readonly data: SkillModel) {}
 
   static create(input: unknown): Skill {
     return new Skill(schema.parse(input));

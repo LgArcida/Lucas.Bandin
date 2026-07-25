@@ -78,6 +78,17 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Do not use `page__X` or similar redundant naming conventions
 - Do NOT use `::ng-deep`. It is deprecated. Use component-level styles or CSS custom properties instead.
 
+## Domain-Driven Design
+
+- Follow DDD principles with no exception
+- Separate code into `domain`, `application`, `infrastructure`, and `presentation` layers
+- Domain layer contains pure business logic: entities, value objects, aggregates, and domain services
+- Application layer orchestrates use cases and coordinates domain objects
+- Infrastructure layer provides technical capabilities (adapters, repositories)
+- Presentation layer handles UI concerns only
+- Domain and application layers must not depend on framework or infrastructure code
+- Use ports and adapters pattern for cross-layer communication
+
 ## Services
 
 - Design services around a single responsibility

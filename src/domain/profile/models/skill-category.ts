@@ -6,13 +6,13 @@ const schema = z.object({
   skills: z.array(z.any()).min(1, 'Category must have at least one skill'),
 });
 
-type SkillCategoryData = z.infer<typeof schema>;
+type SkillCategoryModel = z.infer<typeof schema>;
 
 export class SkillCategory {
   readonly skills: readonly Skill[];
   private readonly _name: string;
 
-  private constructor(data: SkillCategoryData, skills: Skill[]) {
+  private constructor(data: SkillCategoryModel, skills: Skill[]) {
     this._name = data.name;
     this.skills = Object.freeze([...skills].sort(Skill.compare));
   }
