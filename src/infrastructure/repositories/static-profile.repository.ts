@@ -40,11 +40,11 @@ const PLATFORM_SKILLS = [
 
 const buildCategories = (): SkillCategory[] => {
   return [
-      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Frontend, skills: FRONTEND_SKILLS }),
-      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Backend, skills: BACKEND_SKILLS }),
-      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.AI, skills: AI_SKILLS }),
-      SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Platform, skills: PLATFORM_SKILLS }),
-  ];
+    SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Frontend, skills: FRONTEND_SKILLS }),
+    SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Backend, skills: BACKEND_SKILLS }),
+    SkillCategory.create({ name: SKILL_CATEGORY_NAMES.AI, skills: AI_SKILLS }),
+    SkillCategory.create({ name: SKILL_CATEGORY_NAMES.Platform, skills: PLATFORM_SKILLS }),
+  ].filter((s): s is SkillCategory => s !== undefined);
 };
 
 export class StaticProfileRepository implements ProfileRepository {

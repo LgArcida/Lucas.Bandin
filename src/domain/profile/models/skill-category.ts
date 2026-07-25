@@ -1,30 +1,32 @@
 import { z } from 'zod';
-import { Skill } from './skill';
+import { Skill, skillSchema } from './skill';
 
-const schema = z.object({
+export const skillCategorySchema = z.object({
   name: z.string().min(1, 'Category name must not be empty'),
-  skills: z.array(z.any()).min(1, 'Category must have at least one skill'),
+  skills: z.array(skillSchema).min(1, 'Category must have at least one skill'),
 });
 
-type SkillCategoryModel = z.infer<typeof schema>;
+export type SkillCategoryModel = z.infer<typeof skillCategorySchema>;
 
 export class SkillCategory {
   readonly skills: readonly Skill[];
-  private readonly _name: string;
 
-  private constructor(data: SkillCategoryModel, skills: Skill[]) {
-    this._name = data.name;
-    this.skills = Object.freeze([...skills].sort(Skill.compare));
+  private constructor(private readonly data: SkillCategoryModel) {
+    this.skills = Object.freeze(
+      data.skills
+        .map((s) => Skill.create(s))
+        .filter((s): s is Skill => s !== undefined),
+    );
   }
 
-  static create(input: unknown): SkillCategory {
-    const data = schema.parse(input);
-    const skills = data.skills.map((s: unknown) => Skill.create(s));
-    return new SkillCategory(data, skills);
+  static create(input: unknown): SkillCategory | undefined {
+    const result = skillCategorySchema.safeParse(input);
+    if (!result.success) return undefined;
+    return new SkillCategory(result.data);
   }
 
   get name(): string {
-    return this._name;
+    return this.data.name;
   }
 }
 
