@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppStore } from '@application/state/app.store';
+import { Profile } from '@application/profile/profile';
+import { ProfileRepository } from '@domain/profile/ports/profile.repository';
+import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
 import { HeaderComponent } from './presentation/shared/header/header';
 import { SidenavMenuComponent } from './presentation/shared/sidenav-menu/sidenav-menu';
 import { AboutComponent } from './presentation/features/profile/about/about';
 import { MeComponent } from './presentation/features/profile/me/me';
 import { SkillsComponent } from './presentation/features/profile/skills/skills';
+import { FooterComponent } from './presentation/layout/footer/footer';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +20,15 @@ import { SkillsComponent } from './presentation/features/profile/skills/skills';
     MeComponent,
     AboutComponent,
     SkillsComponent,
+    FooterComponent,
+  ],
+  providers: [
+    StaticProfileRepository,
+    {
+      provide: Profile,
+      useFactory: (repo: ProfileRepository) => new Profile(repo),
+      deps: [StaticProfileRepository],
+    },
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

@@ -1,6 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
 import { SkillCategory, SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
+import { SocialLink } from '@domain/profile/models/social-link';
 
 const FRONTEND_SKILLS = [
   { name: 'Angular', image: 'angular.webp', level: 9.5 },
@@ -47,10 +48,21 @@ const buildCategories = (): readonly SkillCategory[] => {
   ];
 };
 
+const SOCIAL_LINKS: readonly SocialLink[] = [
+  SocialLink.create({ name: 'Reddit',    url: 'https://placeholder.reddit',  icon: 'reddit.svg' }),
+  SocialLink.create({ name: 'LinkedIn',  url: 'https://placeholder.linkedin', icon: 'linkedin.svg' }),
+  SocialLink.create({ name: 'Facebook',  url: 'https://placeholder.facebook', icon: 'facebook.svg' }),
+];
+
 export class StaticProfileRepository implements ProfileRepository {
   readonly #skills$ = new BehaviorSubject<readonly SkillCategory[]>(buildCategories());
+  readonly #socials$ = new BehaviorSubject<readonly SocialLink[]>(SOCIAL_LINKS);
 
   getSkills(): Observable<readonly SkillCategory[]> {
     return this.#skills$.asObservable();
+  }
+
+  getSocials(): Observable<readonly SocialLink[]> {
+    return this.#socials$.asObservable();
   }
 }

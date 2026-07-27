@@ -3,12 +3,12 @@ import { of } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { LOCALIZATION_PORT } from '@application/localization/localization.port';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
-import { Profile } from '@domain/profile/models/profile';
+import { Profile } from '@application/profile/profile';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
-    const mockRepo: ProfileRepository = { getSkills: () => of([]) };
+    const mockRepo: ProfileRepository = { getSkills: () => of([]), getSocials: () => of([]) };
 
     await TestBed.configureTestingModule({
       imports: [App],
