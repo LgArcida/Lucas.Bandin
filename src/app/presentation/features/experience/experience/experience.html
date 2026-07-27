@@ -1,0 +1,40 @@
+<section class="experience">
+  <mat-list>
+    @for (exp of experiences(); track trackByCompany($index, exp)) {
+      <mat-list-item class="entry">
+        <div class="entry-header">
+          <img
+            ngSrc="{{ exp.company.logo }}"
+            width="48"
+            height="48"
+            [alt]="exp.company.name"
+            class="logo"
+          />
+          <div class="header-text">
+            <h3>{{ exp.role.title }}</h3>
+            <p class="company">{{ exp.company.name }}</p>
+            <p class="period">{{ formatPeriod(exp.period) }}</p>
+          </div>
+        </div>
+        <p class="description">{{ exp.role.description }}</p>
+        @if (exp.highlights.length > 0) {
+          <ul class="highlights">
+            @for (h of exp.highlights; track trackByTitle($index, h)) {
+              <li>
+                <strong>{{ h.title }}</strong>
+                <p>{{ h.description }}</p>
+              </li>
+            }
+          </ul>
+        }
+        @if (exp.technologies.length > 0) {
+          <div class="technologies">
+            @for (s of exp.technologies; track trackBySkillName($index, s)) {
+              <span class="tech-badge">{{ s.name }}</span>
+            }
+          </div>
+        }
+      </mat-list-item>
+    }
+  </mat-list>
+</section>
