@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    aria-label="Toggle navigation menu"
+    (click)="menuToggle.emit()"
+    class="menu-button"
+  >
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+      <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+    </svg>
+  </button>
+  <span class="spacer"></span>
+  <nav class="desktop-nav">
+    @for (item of navItems; track item.labelKey) {
+      <button mat-button (click)="navigate(item)">{{ item.labelKey | translate }}</button>
+    }
+  </nav>
+  <app-language-switcher class="lang-switcher" />
+</mat-toolbar>

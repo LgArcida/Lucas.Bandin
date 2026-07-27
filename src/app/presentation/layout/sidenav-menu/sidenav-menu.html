@@ -1,0 +1,8 @@
+<mat-nav-list>
+  @for (item of navItems; track item.labelKey) {
+    <button mat-list-item (click)="onNavigate(item)">
+      {{ item.labelKey | translate }}
+    </button>
+  }
+</mat-nav-list>
+<app-language-switcher class="sidenav-lang" />
