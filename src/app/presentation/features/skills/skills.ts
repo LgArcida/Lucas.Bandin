@@ -6,7 +6,7 @@ import { SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { Profile } from '@application/profile/profile';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
 import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
-import { ExpandablePanelComponent } from '../../../shared/expandable-panel/expandable-panel';
+import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { SkillListComponent } from './skill-list/skill-list';
 
 @Component({

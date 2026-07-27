@@ -6,12 +6,18 @@ import { StaticExperienceRepository } from '@infrastructure/repositories/static-
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ExpandablePanelComponent } from '../../../shared/expandable-panel/expandable-panel';
-import { FormatPeriodPipe } from '../../../shared/pipes/format-period.pipe';
+import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
+import { FormatPeriodPipe } from '../../shared/pipes/format-period.pipe';
 
 @Component({
   selector: 'app-experience',
-  imports: [MatChipsModule, MatExpansionModule, TranslatePipe, ExpandablePanelComponent, FormatPeriodPipe],
+  imports: [
+    MatChipsModule,
+    MatExpansionModule,
+    TranslatePipe,
+    ExpandablePanelComponent,
+    FormatPeriodPipe,
+  ],
   providers: [
     StaticExperienceRepository,
     {

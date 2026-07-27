@@ -3,11 +3,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppStore } from '@application/state/app.store';
 import { HeaderComponent } from './presentation/layout/header/header';
 import { SidenavMenuComponent } from './presentation/layout/sidenav-menu/sidenav-menu';
-import { AboutComponent } from './presentation/features/profile/about/about';
-import { MeComponent } from './presentation/features/profile/me/me';
-import { SkillsComponent } from './presentation/features/profile/skills/skills';
+import { AboutComponent } from './presentation/features/about-me/about-me';
+import { MeComponent } from './presentation/features/me/me';
+import { SkillsComponent } from './presentation/features/skills/skills';
 import { FooterComponent } from './presentation/layout/footer/footer';
-import { ExperienceComponent } from './presentation/features/experience/experience/experience';
+import { ExperienceComponent } from './presentation/features/experience/experience';
 
 @Component({
   selector: 'app-root',
