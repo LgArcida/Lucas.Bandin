@@ -9,10 +9,10 @@ export const skillCategorySchema = z.object({
 export type SkillCategoryModel = z.infer<typeof skillCategorySchema>;
 
 export class SkillCategory {
-  private readonly skillList: readonly Skill[];
+  readonly #skills: readonly Skill[];
 
   private constructor(private readonly data: SkillCategoryModel) {
-    this.skillList = data.skills.map((s) => Skill.create(s));
+    this.#skills = data.skills.map((s) => Skill.create(s));
   }
 
   static create(input: unknown): SkillCategory {
@@ -24,7 +24,7 @@ export class SkillCategory {
   }
 
   get skills(): readonly Skill[] {
-    return this.skillList;
+    return this.#skills;
   }
 }
 

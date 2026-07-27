@@ -80,6 +80,22 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Domain and application layers must not depend on framework or infrastructure code
 - Use ports and adapters pattern for cross-layer communication
 
+### Value objects (Zod + class)
+
+- Model each value object as: an exported `xSchema` (Zod), an exported `type XModel = z.infer<typeof xSchema>`, and a `class X`.
+- The class holds a single `private readonly data: XModel`, has a `private constructor(data)`, and a `static create(input: unknown): X` that returns `new X(xSchema.parse(input))`.
+- Expose fields through getters (the public contract); put domain behavior as methods on the class. Do NOT use `implements XModel` + `declare readonly` fields.
+- Validation rules live ONLY in the schema — never duplicate them in the class.
+- `create` MUST use `parse` (throws), never `safeParse` returning `undefined`. This guarantees the always-valid invariant: an instance can never exist in an invalid state. Swallowing invalid input as `undefined` causes silent data loss.
+- When a factory reconstructs nested value objects, build the child instances once (e.g. in the constructor) so references stay stable for OnPush change detection.
+- Repositories/ports return immutable collections (`readonly X[]`).
+
+### Validating untrusted data at the boundary
+
+- The domain factory is the trust boundary: pass `unknown` data straight into `X.create` — never `as`-cast external data.
+- Fault-tolerance for bad external data belongs in the infrastructure adapter, NOT in the domain model (the model always throws).
+- Adapter policy is **mixed by granularity**: skip + log an individual invalid item so the rest render (a boundary-level `tryCreate` helper that catches and returns `undefined`, then filter); but if the whole response shape is wrong, fail the load and surface an explicit UI error state. Log Zod `issues` (path + message) so the failing field is identifiable.
+
 ## Services
 
 - Design services around a single responsibility

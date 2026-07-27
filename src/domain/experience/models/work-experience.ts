@@ -1,9 +1,9 @@
 import { z } from 'zod';
-import { companySchema, type CompanyModel } from './company';
-import { roleSchema, type RoleModel } from './role';
-import { periodSchema, type PeriodModel } from './period';
-import { highlightSchema, type HighlightModel } from './highlight';
-import { skillSchema, type SkillModel } from '@domain/profile/models/skill';
+import { Company, companySchema } from './company';
+import { Role, roleSchema } from './role';
+import { Period, periodSchema } from './period';
+import { Highlight, highlightSchema } from './highlight';
+import { Skill, skillSchema } from '@domain/profile/models/skill';
 
 export const workExperienceSchema = z.object({
   company: companySchema,
@@ -16,29 +16,41 @@ export const workExperienceSchema = z.object({
 export type WorkExperienceModel = z.infer<typeof workExperienceSchema>;
 
 export class WorkExperience {
-  private constructor(private readonly data: WorkExperienceModel) {}
+  readonly #company: Company;
+  readonly #role: Role;
+  readonly #period: Period;
+  readonly #highlights: readonly Highlight[];
+  readonly #technologies: readonly Skill[];
+
+  private constructor(data: WorkExperienceModel) {
+    this.#company = Company.create(data.company);
+    this.#role = Role.create(data.role);
+    this.#period = Period.create(data.period);
+    this.#highlights = data.highlights.map((h) => Highlight.create(h));
+    this.#technologies = data.technologies.map((t) => Skill.create(t));
+  }
 
   static create(input: unknown): WorkExperience {
     return new WorkExperience(workExperienceSchema.parse(input));
   }
 
-  get company(): CompanyModel {
-    return this.data.company;
+  get company(): Company {
+    return this.#company;
   }
 
-  get role(): RoleModel {
-    return this.data.role;
+  get role(): Role {
+    return this.#role;
   }
 
-  get period(): PeriodModel {
-    return this.data.period;
+  get period(): Period {
+    return this.#period;
   }
 
-  get highlights(): readonly HighlightModel[] {
-    return this.data.highlights;
+  get highlights(): readonly Highlight[] {
+    return this.#highlights;
   }
 
-  get technologies(): readonly SkillModel[] {
-    return this.data.technologies;
+  get technologies(): readonly Skill[] {
+    return this.#technologies;
   }
 }
