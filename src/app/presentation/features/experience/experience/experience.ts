@@ -3,13 +3,15 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { Experience } from '@application/experience/experience';
 import { ExperienceRepository } from '@domain/experience/ports/experience.repository';
 import { StaticExperienceRepository } from '@infrastructure/repositories/static-experience.repository';
-import { NgOptimizedImage } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
-import type { Period } from '@domain/experience/models/period';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { TranslatePipe } from '@ngx-translate/core';
+import { ExpandablePanelComponent } from '../../../shared/expandable-panel/expandable-panel';
+import { FormatPeriodPipe } from '../../../shared/pipes/format-period.pipe';
 
 @Component({
   selector: 'app-experience',
-  imports: [NgOptimizedImage, MatListModule],
+  imports: [MatChipsModule, MatExpansionModule, TranslatePipe, ExpandablePanelComponent, FormatPeriodPipe],
   providers: [
     StaticExperienceRepository,
     {
@@ -25,22 +27,4 @@ import type { Period } from '@domain/experience/models/period';
 export class ExperienceComponent {
   readonly #experience = inject(Experience);
   protected readonly experiences = toSignal(this.#experience.experiences$, { initialValue: [] });
-
-  protected formatPeriod(period: Period): string {
-    const start = period.start.toFormat('MMM yyyy');
-    const end = period.isCurrent ? 'Present' : period.end!.toFormat('MMM yyyy');
-    return `${start} – ${end}`;
-  }
-
-  protected trackByCompany(_index: number, exp: { company: { name: string } }): string {
-    return exp.company.name;
-  }
-
-  protected trackByTitle(_index: number, h: { title: string }): string {
-    return h.title;
-  }
-
-  protected trackBySkillName(_index: number, s: { name: string }): string {
-    return s.name;
-  }
 }

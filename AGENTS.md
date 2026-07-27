@@ -50,6 +50,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use `computed()` for derived state
 - Keep state transformations pure and predictable
 - Do NOT use `mutate` on signals, use `update` or `set` instead
+- Avoid calling getters or functions from HTML templates for display logic or simple transformations. Instead, create a local signal state that holds all necessary derived data and is reactive.
 
 ## Date & Time
 

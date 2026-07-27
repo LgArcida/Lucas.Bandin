@@ -8,13 +8,14 @@
       <app-me />
       <section class="sections">
         <app-about />
+
         @defer (on viewport) {
-          <app-experience />
+          <app-skills />
         } @placeholder {
           <section style="min-height: 50vh"></section>
         }
         @defer (on viewport) {
-          <app-skills />
+          <app-experience />
         } @placeholder {
           <section style="min-height: 50vh"></section>
         }
