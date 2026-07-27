@@ -15,8 +15,8 @@ const EXPERIENCES: readonly WorkExperience[] = [
       description: 'A brief description of the role and responsibilities.',
     },
     period: {
-      start: new Date('2020-01-01'),
-      end: new Date('2022-06-01'),
+      start: '2020-01-01',
+      end: '2022-06-01',
     },
     highlights: [
       { title: 'Built feature X', description: 'Led the development of a new feature from concept to production.' },

@@ -51,6 +51,12 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Keep state transformations pure and predictable
 - Do NOT use `mutate` on signals, use `update` or `set` instead
 
+## Date & Time
+
+- Do NOT use the native JS `Date` API. Use Luxon (`DateTime`, `Duration`, etc.) for all date/time handling.
+- Treat `DateTime` instances as immutable — always create new instances via Luxon's manipulation methods.
+- Use `DateTime.fromISO`, `DateTime.fromFormat`, etc. when parsing external date values; never rely on the `Date` constructor.
+
 ## Templates
 
 - Keep templates simple and avoid complex logic
