@@ -1,0 +1,42 @@
+import { BehaviorSubject, Observable } from 'rxjs';
+import { CoreRepository } from '@domain/core/ports/core.repository';
+import { Technology } from '@domain/core/models/technology';
+
+const TECHNOLOGIES = [
+  { name: 'Angular', image: 'angular.webp' },
+  { name: 'TypeScript', image: 'typescript.webp' },
+  { name: 'RxJS', image: 'rxjs.webp' },
+  { name: 'Ionic', image: 'ionic.webp' },
+  { name: 'Capacitor', image: 'capacitor.webp' },
+  { name: 'JavaScript', image: 'javascript.webp' },
+  { name: 'HTML', image: 'html.webp' },
+  { name: 'CSS', image: 'css.webp' },
+  { name: 'React', image: 'react.webp' },
+  { name: 'Python', image: 'python.webp' },
+  { name: 'Django', image: 'django.webp' },
+  { name: 'Firebase', image: 'firebase.webp' },
+  { name: 'SQLite', image: 'sqlite.webp' },
+  { name: 'Claude', image: 'claude.webp' },
+  { name: 'Opencode', image: 'opencode.webp' },
+  { name: 'Codex', image: 'codex.webp' },
+  { name: 'LangGraph', image: 'langgraph.webp' },
+  { name: 'LangChain', image: 'langchain.webp' },
+  { name: 'Git', image: 'git.webp' },
+  { name: 'Nx', image: 'nx.webp' },
+  { name: 'Electron', image: 'electron.webp' },
+  { name: 'Android', image: 'android.webp' },
+  { name: 'Linux', image: 'linux.webp' },
+  { name: 'PWA', image: 'pwa.webp' },
+];
+
+const buildTechnologyRepository = (): readonly Technology[] => {
+  return TECHNOLOGIES.map((item) => Technology.create(item));
+};
+
+export class StaticTechnologyRepository implements CoreRepository {
+  readonly #technologies$ = new BehaviorSubject<readonly Technology[]>(buildTechnologyRepository());
+
+  getTechnologies(): Observable<readonly Technology[]> {
+    return this.#technologies$.asObservable();
+  }
+}

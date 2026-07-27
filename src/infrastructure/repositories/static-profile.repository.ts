@@ -4,39 +4,39 @@ import { SkillCategory, SKILL_CATEGORY_NAMES } from '@domain/profile/models/skil
 import { SocialLink } from '@domain/profile/models/social-link';
 
 const FRONTEND_SKILLS = [
-  { name: 'Angular', image: 'angular.webp', level: 9.5 },
-  { name: 'TypeScript', image: 'typescript.webp', level: 9 },
-  { name: 'RxJS', image: 'rxjs.webp', level: 8.5 },
-  { name: 'Ionic', image: 'ionic.webp', level: 8.5 },
-  { name: 'Capacitor', image: 'capacitor.webp', level: 8 },
-  { name: 'JavaScript', image: 'javascript.webp', level: 8 },
-  { name: 'HTML', image: 'html.webp', level: 8 },
-  { name: 'CSS', image: 'css.webp', level: 7.5 },
-  { name: 'React', image: 'react.webp', level: 3 },
+  { technology: { name: 'Angular', image: 'angular.webp' }, level: 9.5 },
+  { technology: { name: 'TypeScript', image: 'typescript.webp' }, level: 9 },
+  { technology: { name: 'RxJS', image: 'rxjs.webp' }, level: 8.5 },
+  { technology: { name: 'Ionic', image: 'ionic.webp' }, level: 8.5 },
+  { technology: { name: 'Capacitor', image: 'capacitor.webp' }, level: 8 },
+  { technology: { name: 'JavaScript', image: 'javascript.webp' }, level: 8 },
+  { technology: { name: 'HTML', image: 'html.webp' }, level: 8 },
+  { technology: { name: 'CSS', image: 'css.webp' }, level: 7.5 },
+  { technology: { name: 'React', image: 'react.webp' }, level: 3 },
 ];
 
 const BACKEND_SKILLS = [
-  { name: 'Python', image: 'python.webp', level: 6 },
-  { name: 'Django', image: 'django.webp', level: 5.5 },
-  { name: 'Firebase', image: 'firebase.webp', level: 5 },
-  { name: 'SQLite', image: 'sqlite.webp', level: 5.5 },
+  { technology: { name: 'Python', image: 'python.webp' }, level: 6 },
+  { technology: { name: 'Django', image: 'django.webp' }, level: 5.5 },
+  { technology: { name: 'Firebase', image: 'firebase.webp' }, level: 5 },
+  { technology: { name: 'SQLite', image: 'sqlite.webp' }, level: 5.5 },
 ];
 
 const AI_SKILLS = [
-  { name: 'Claude', image: 'claude.webp', level: 6 },
-  { name: 'Opencode', image: 'opencode.webp', level: 6 },
-  { name: 'Codex', image: 'codex.webp', level: 6 },
-  { name: 'LangGraph', image: 'langgraph.webp', level: 3 },
-  { name: 'LangChain', image: 'langchain.webp', level: 3 },
+  { technology: { name: 'Claude', image: 'claude.webp' }, level: 6 },
+  { technology: { name: 'Opencode', image: 'opencode.webp' }, level: 6 },
+  { technology: { name: 'Codex', image: 'codex.webp' }, level: 6 },
+  { technology: { name: 'LangGraph', image: 'langgraph.webp' }, level: 3 },
+  { technology: { name: 'LangChain', image: 'langchain.webp' }, level: 3 },
 ];
 
 const PLATFORM_SKILLS = [
-  { name: 'Git', image: 'git.webp', level: 8 },
-  { name: 'Nx', image: 'nx.webp', level: 5 },
-  { name: 'Electron', image: 'electron.webp', level: 4.5 },
-  { name: 'Android', image: 'android.webp', level: 6 },
-  { name: 'Linux', image: 'linux.webp', level: 8 },
-  { name: 'PWA', image: 'pwa.webp', level: 7 },
+  { technology: { name: 'Git', image: 'git.webp' }, level: 8 },
+  { technology: { name: 'Nx', image: 'nx.webp' }, level: 5 },
+  { technology: { name: 'Electron', image: 'electron.webp' }, level: 4.5 },
+  { technology: { name: 'Android', image: 'android.webp' }, level: 6 },
+  { technology: { name: 'Linux', image: 'linux.webp' }, level: 8 },
+  { technology: { name: 'PWA', image: 'pwa.webp' }, level: 7 },
 ];
 
 const buildCategories = (): readonly SkillCategory[] => {
