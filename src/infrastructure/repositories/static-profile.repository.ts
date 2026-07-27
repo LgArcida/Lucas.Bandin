@@ -2,41 +2,44 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
 import { SkillCategory, SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { SocialLink } from '@domain/profile/models/social-link';
+import { TECHNOLOGIES } from '../data/technologies';
+
+const findTechnology = (name: string) => TECHNOLOGIES.find((x) => x.name === name)!;
 
 const FRONTEND_SKILLS = [
-  { technology: { name: 'Angular', image: 'angular.webp' }, level: 9.5 },
-  { technology: { name: 'TypeScript', image: 'typescript.webp' }, level: 9 },
-  { technology: { name: 'RxJS', image: 'rxjs.webp' }, level: 8.5 },
-  { technology: { name: 'Ionic', image: 'ionic.webp' }, level: 8.5 },
-  { technology: { name: 'Capacitor', image: 'capacitor.webp' }, level: 8 },
-  { technology: { name: 'JavaScript', image: 'javascript.webp' }, level: 8 },
-  { technology: { name: 'HTML', image: 'html.webp' }, level: 8 },
-  { technology: { name: 'CSS', image: 'css.webp' }, level: 7.5 },
-  { technology: { name: 'React', image: 'react.webp' }, level: 3 },
+  { technology: findTechnology('Angular'), level: 9.5 },
+  { technology: findTechnology('TypeScript'), level: 9 },
+  { technology: findTechnology('RxJS'), level: 8.5 },
+  { technology: findTechnology('Ionic'), level: 8.5 },
+  { technology: findTechnology('Capacitor'), level: 8 },
+  { technology: findTechnology('JavaScript'), level: 8 },
+  { technology: findTechnology('HTML'), level: 8 },
+  { technology: findTechnology('CSS'), level: 7.5 },
+  { technology: findTechnology('React'), level: 3 },
 ];
 
 const BACKEND_SKILLS = [
-  { technology: { name: 'Python', image: 'python.webp' }, level: 6 },
-  { technology: { name: 'Django', image: 'django.webp' }, level: 5.5 },
-  { technology: { name: 'Firebase', image: 'firebase.webp' }, level: 5 },
-  { technology: { name: 'SQLite', image: 'sqlite.webp' }, level: 5.5 },
+  { technology: findTechnology('Python'), level: 6 },
+  { technology: findTechnology('Django'), level: 5.5 },
+  { technology: findTechnology('Firebase'), level: 5 },
+  { technology: findTechnology('SQLite'), level: 5.5 },
 ];
 
 const AI_SKILLS = [
-  { technology: { name: 'Claude', image: 'claude.webp' }, level: 6 },
-  { technology: { name: 'Opencode', image: 'opencode.webp' }, level: 6 },
-  { technology: { name: 'Codex', image: 'codex.webp' }, level: 6 },
-  { technology: { name: 'LangGraph', image: 'langgraph.webp' }, level: 3 },
-  { technology: { name: 'LangChain', image: 'langchain.webp' }, level: 3 },
+  { technology: findTechnology('Claude'), level: 6 },
+  { technology: findTechnology('Opencode'), level: 6 },
+  { technology: findTechnology('Codex'), level: 6 },
+  { technology: findTechnology('LangGraph'), level: 3 },
+  { technology: findTechnology('LangChain'), level: 3 },
 ];
 
 const PLATFORM_SKILLS = [
-  { technology: { name: 'Git', image: 'git.webp' }, level: 8 },
-  { technology: { name: 'Nx', image: 'nx.webp' }, level: 5 },
-  { technology: { name: 'Electron', image: 'electron.webp' }, level: 4.5 },
-  { technology: { name: 'Android', image: 'android.webp' }, level: 6 },
-  { technology: { name: 'Linux', image: 'linux.webp' }, level: 8 },
-  { technology: { name: 'PWA', image: 'pwa.webp' }, level: 7 },
+  { technology: findTechnology('Git'), level: 8 },
+  { technology: findTechnology('Nx'), level: 5 },
+  { technology: findTechnology('Electron'), level: 4.5 },
+  { technology: findTechnology('Android'), level: 6 },
+  { technology: findTechnology('Linux'), level: 8 },
+  { technology: findTechnology('PWA'), level: 7 },
 ];
 
 const buildCategories = (): readonly SkillCategory[] => {
