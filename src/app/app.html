@@ -7,9 +7,19 @@
     <main>
       <app-me />
       <section class="sections">
-        <app-about />
-        <app-skills />
+        <app-about-me />
+        @defer (on viewport) {
+          <app-skills />
+        } @placeholder {
+          <section style="min-height: 50vh"></section>
+        }
+        @defer (on viewport) {
+          <app-experience />
+        } @placeholder {
+          <section style="min-height: 50vh"></section>
+        }
       </section>
     </main>
+    <app-footer />
   </mat-sidenav-content>
 </mat-sidenav-container>

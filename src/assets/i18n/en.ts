@@ -25,6 +25,10 @@ export const en = {
       'I enjoy refactoring probably more than I should, and I get a weird amount of satisfaction from making complicated software feel obvious.',
     LEARNING: "I'm still learning every day, and I hope that never changes.",
   },
+  EXPERIENCE: {
+    TITLE: 'Experience',
+    PRESENT: 'Present',
+  },
   HOME: {
     GREETING: 'Hei! I am',
     DESCRIPTION_LINE1:

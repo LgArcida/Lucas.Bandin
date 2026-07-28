@@ -1,0 +1,10 @@
+<footer>
+  <nav class="social-links" aria-label="Social media links">
+    @for (link of socials(); track link.name) {
+      <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img ngSrc="assets/logos/{{ link.icon }}" [alt]="link.name" width="24" height="24" />
+        <span class="label">{{ link.name }}</span>
+      </a>
+    }
+  </nav>
+</footer>

@@ -1,0 +1,45 @@
+<section class="experience">
+  <app-expandable-panel>
+    <span header>{{ 'EXPERIENCE.TITLE' | translate }}</span>
+    <mat-accordion>
+      @for (exp of experiences(); track $index) {
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <div class="entry-header">
+              <img
+                [src]="exp.company.logo"
+                width="48"
+                height="48"
+                [alt]="exp.company.name"
+                class="logo"
+              />
+              <div class="header-text">
+                <strong>{{ exp.role.title }}</strong>
+                <span
+                  >{{ exp.company.name }} –
+                  {{ exp.period | formatPeriod: ('EXPERIENCE.PRESENT' | translate) }}</span
+                >
+              </div>
+            </div>
+          </mat-expansion-panel-header>
+          <p class="description">{{ exp.role.description }}</p>
+          @if (exp.highlights.length > 0) {
+            <ul class="highlights">
+              @for (h of exp.highlights; track $index) {
+                <li>
+                  <strong>{{ h.title }}</strong>
+                  <p>{{ h.description }}</p>
+                </li>
+              }
+            </ul>
+          }
+          <mat-chip-set>
+            @for (s of exp.technologies; track $index) {
+              <mat-chip>{{ s.name }}</mat-chip>
+            }
+          </mat-chip-set>
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </app-expandable-panel>
+</section>

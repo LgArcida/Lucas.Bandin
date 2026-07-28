@@ -27,6 +27,10 @@ export const es = {
       'Disfruto refactorizar probablemente más de lo que debería, y obtengo una extraña satisfacción al hacer que un software complicado se sienta obvio.',
     LEARNING: 'Sigo aprendiendo cada día, y espero que eso nunca cambie.',
   },
+  EXPERIENCE: {
+    TITLE: 'Experiencia',
+    PRESENT: 'Presente',
+  },
   HOME: {
     GREETING: '¡Hola! Soy',
     DESCRIPTION_LINE1:
