@@ -23,4 +23,6 @@ export const TECHNOLOGIES = [
   { name: 'Android', image: 'android.webp' },
   { name: 'Linux', image: 'linux.webp' },
   { name: 'PWA', image: 'pwa.webp' },
+  { name: 'Bluetooth', image: '' },
+  { name: 'Iridium Satellite', image: '' },
 ] as const;
