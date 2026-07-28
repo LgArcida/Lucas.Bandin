@@ -3,6 +3,7 @@ import { ProfileRepository } from '@domain/profile/ports/profile.repository';
 import { SkillCategory, SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { SocialLink } from '@domain/profile/models/social-link';
 import { TECHNOLOGIES } from '../data/technologies';
+import { SOCIAL_DATA } from '@infrastructure/data/social';
 
 const findTechnology = (name: string) => TECHNOLOGIES.find((x) => x.name === name)!;
 
@@ -51,15 +52,11 @@ const buildCategories = (): readonly SkillCategory[] => {
   ];
 };
 
-const SOCIAL_LINKS: readonly SocialLink[] = [
-  SocialLink.create({ name: 'Reddit',    url: 'https://placeholder.reddit',  icon: 'reddit.svg' }),
-  SocialLink.create({ name: 'LinkedIn',  url: 'https://placeholder.linkedin', icon: 'linkedin.svg' }),
-  SocialLink.create({ name: 'Facebook',  url: 'https://placeholder.facebook', icon: 'facebook.svg' }),
-];
+const buildSocial = (): readonly SocialLink[] => SOCIAL_DATA.map((item) => SocialLink.create(item));
 
 export class StaticProfileRepository implements ProfileRepository {
   readonly #skills$ = new BehaviorSubject<readonly SkillCategory[]>(buildCategories());
-  readonly #socials$ = new BehaviorSubject<readonly SocialLink[]>(SOCIAL_LINKS);
+  readonly #socials$ = new BehaviorSubject<readonly SocialLink[]>(buildSocial());
 
   getSkills(): Observable<readonly SkillCategory[]> {
     return this.#skills$.asObservable();
