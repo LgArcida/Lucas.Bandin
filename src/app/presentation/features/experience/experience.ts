@@ -8,6 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { FormatPeriodPipe } from '../../shared/pipes/format-period.pipe';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-experience',
@@ -17,6 +18,7 @@ import { FormatPeriodPipe } from '../../shared/pipes/format-period.pipe';
     TranslatePipe,
     ExpandablePanelComponent,
     FormatPeriodPipe,
+    NgOptimizedImage,
   ],
   providers: [
     StaticExperienceRepository,
