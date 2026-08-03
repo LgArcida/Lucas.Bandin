@@ -19,6 +19,15 @@
   line-height: 1.5;
 }
 
+.mat-expansion-panel-body {
+  background: #232323;
+  padding: 1.5rem 1rem;
+}
+
+.mat-expansion-panel-header {
+  padding: 1rem 0.5rem;
+}
+
 .highlights {
   list-style: none;
   padding: 0;
@@ -36,5 +45,3 @@
     }
   }
 }
-
-

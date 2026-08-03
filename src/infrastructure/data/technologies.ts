@@ -25,4 +25,5 @@ export const TECHNOLOGIES = [
   { name: 'PWA', image: 'pwa.webp' },
   { name: 'Bluetooth', image: '' },
   { name: 'Iridium Satellite', image: '' },
+  { name: 'Chess.js', image: '' },
 ] as const;
