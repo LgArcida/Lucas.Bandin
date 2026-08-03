@@ -19,6 +19,10 @@ mat-expansion-panel-header {
   position: relative;
 }
 
+.panel-content {
+  padding-block-start: 1rem;
+}
+
 .click-overlay {
   position: absolute;
   inset: 0;

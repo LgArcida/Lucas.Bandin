@@ -12,5 +12,7 @@
       (keydown)="handleKeydown($event)"
     ></div>
   </mat-expansion-panel-header>
-  <ng-content></ng-content>
+  <div class="panel-content">
+    <ng-content></ng-content>
+  </div>
 </mat-expansion-panel>
