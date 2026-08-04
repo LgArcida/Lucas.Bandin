@@ -4,14 +4,14 @@
       ngSrc="assets/logos/{{ experience.company.logo }}"
       width="48"
       height="48"
-      [alt]="experience.company.name"
+      [alt]="experience.company.name | translate"
       class="logo"
     />
     <div class="text">
-      <span id="sheet-title" class="name">{{ experience.company.name }}</span>
-      <span class="role">{{ experience.role.title }}</span>
+      <span id="sheet-title" class="name">{{ experience.company.name | translate }}</span>
+      <span class="role">{{ experience.role.title | translate }}</span>
       <span class="period">
-        {{ experience.company.location }}
+        {{ experience.company.location | translate }}
       </span>
       <span class="period">
         {{ experience.period | formatPeriod: ('EXPERIENCE.PRESENT' | translate) }}
@@ -30,13 +30,13 @@
       <mat-icon fontIcon="close" />
     </button>
   </div>
-  <p class="description">{{ experience.role.description }}</p>
+  <p class="description">{{ experience.role.description | translate }}</p>
   @if (experience.highlights.length > 0) {
     <ul class="highlights">
       @for (h of experience.highlights; track $index) {
         <li>
-          <strong>{{ h.title }}</strong>
-          <p>{{ h.description }}</p>
+          <strong>{{ h.title | translate }}</strong>
+          <p>{{ h.description | translate }}</p>
         </li>
       }
     </ul>

@@ -15,10 +15,10 @@
             ngSrc="assets/logos/{{ exp.company.logo }}"
             width="50"
             height="50"
-            [alt]="exp.company.name"
+            [alt]="exp.company.name | translate"
           />
-          <span matListItemTitle>{{ exp.company.name }}</span>
-          <span matListItemLine>{{ exp.role.title }}</span>
+          <span matListItemTitle>{{ exp.company.name | translate }}</span>
+          <span matListItemLine>{{ exp.role.title | translate }}</span>
         </mat-list-item>
       }
     </mat-list>
