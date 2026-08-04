@@ -1,8 +1,5 @@
 import { TECHNOLOGIES } from './technologies';
 
-const findTechnology = (name: string) =>
-  TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };
-
 export const SOCIAL_DATA = [
   { name: 'Reddit', url: 'https://www.reddit.com/user/LgArcida/', icon: 'reddit.webp' },
   {
