@@ -7,7 +7,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgOptimizedImage } from '@angular/common';
 import { WorkExperience } from '@domain/experience/models/work-experience';
 import { FormatPeriodPipe } from '../../../shared/pipes/format-period.pipe';
-import { Translations } from '../../../../../assets/i18n/translations';
+import { Translations } from '@i18n/translations';
 
 @Component({
   selector: 'app-work-experience-bottom-sheet',

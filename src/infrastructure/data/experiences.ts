@@ -1,10 +1,12 @@
 import { TECHNOLOGIES } from './technologies';
-import { Translations } from '../../assets/i18n/translations';
+import { Translations } from '@i18n/translations';
 
 const COMPANIES = Translations.EXPERIENCE.COMPANIES;
 const findTechnology = (name: string) =>
   TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };
-const listHighlights = (highlights: { TITLE: string; DESCRIPTION: string }[]) =>
+type HighlightKeys = (typeof COMPANIES)[keyof typeof COMPANIES]['HIGHLIGHTS'][number];
+
+const listHighlights = (highlights: readonly HighlightKeys[]) =>
   highlights.map((h) => ({
     title: h.TITLE,
     description: h.DESCRIPTION,

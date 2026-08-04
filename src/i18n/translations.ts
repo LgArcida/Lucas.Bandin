@@ -3,7 +3,7 @@ import { en } from './en';
 type KeysMap<T, Prefix extends string = ''> = T extends readonly (infer E)[]
   ? E extends object
     ? KeysMap<E, `${Prefix}${number}.`>[]
-    : []
+    : `${Prefix}${number}`[]
   : T extends object
     ? {
         [K in keyof T & string]: T[K] extends string
@@ -12,18 +12,19 @@ type KeysMap<T, Prefix extends string = ''> = T extends readonly (infer E)[]
       }
     : never;
 
+const resolve = (value: unknown, path: string): unknown =>
+  value !== null && typeof value === 'object' ? buildKeys(value, `${path}.`) : path;
+
 const buildKeys = <T>(source: T, prefix = ''): KeysMap<T> => {
   if (Array.isArray(source)) {
-    return source.map((item, index) => buildKeys(item, `${prefix}${index}.`)) as KeysMap<T>;
+    return source.map((item, index) => resolve(item, `${prefix}${index}`)) as KeysMap<T>;
   }
 
   const result = Object.fromEntries(
-    Object.entries(source as Record<string, unknown>).map(([key, value]) => {
-      const path = prefix ? `${prefix}${key}` : key;
-      const resolved =
-        value !== null && typeof value === 'object' ? buildKeys(value, `${path}.`) : path;
-      return [key, resolved];
-    }),
+    Object.entries(source as Record<string, unknown>).map(([key, value]) => [
+      key,
+      resolve(value, `${prefix}${key}`),
+    ]),
   );
 
   return result as KeysMap<T>;

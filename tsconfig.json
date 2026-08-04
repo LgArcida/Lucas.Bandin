@@ -8,7 +8,9 @@
     "paths": {
       "@domain/*":        ["src/domain/*"],
       "@application/*":   ["src/application/*"],
-      "@infrastructure/*": ["src/infrastructure/*"]
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@i18n/*":          ["src/i18n/*"],
+      "@i18n":            ["src/i18n/index.ts"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

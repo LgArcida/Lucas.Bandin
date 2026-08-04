@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Translations } from '../../../../assets/i18n/translations';
+import { Translations } from '@i18n/translations';
 
 @Component({
   selector: 'app-me',

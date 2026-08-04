@@ -8,7 +8,7 @@ import { WorkExperience } from '@domain/experience/models/work-experience';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { WorkExperienceBottomSheetComponent } from './work-experience-bottom-sheet/work-experience-bottom-sheet';
 import { MatListModule } from '@angular/material/list';
-import { Translations } from '../../../../assets/i18n/translations';
+import { Translations } from '@i18n/translations';
 
 @Component({
   selector: 'app-experience',

@@ -6,7 +6,7 @@ import { SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { Profile } from '@application/profile/profile';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { SkillListComponent } from './skill-list/skill-list';
-import { Translations } from '../../../../assets/i18n/translations';
+import { Translations } from '@i18n/translations';
 
 @Component({
   selector: 'app-skills',

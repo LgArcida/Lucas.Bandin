@@ -1,4 +1,4 @@
-import type { Translations } from '../../assets/i18n/translations';
+import type { Translations } from '@i18n/translations';
 
 export type NavLabelKey = keyof typeof Translations.NAV;
 
