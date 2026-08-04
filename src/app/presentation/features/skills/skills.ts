@@ -4,22 +4,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { Profile } from '@application/profile/profile';
-import { ProfileRepository } from '@domain/profile/ports/profile.repository';
-import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { SkillListComponent } from './skill-list/skill-list';
 
 @Component({
   selector: 'app-skills',
   imports: [MatTabsModule, TranslatePipe, ExpandablePanelComponent, SkillListComponent],
-  providers: [
-    StaticProfileRepository,
-    {
-      provide: Profile,
-      useFactory: (repo: ProfileRepository) => new Profile(repo),
-      deps: [StaticProfileRepository],
-    },
-  ],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
