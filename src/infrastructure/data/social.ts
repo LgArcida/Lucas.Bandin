@@ -11,4 +11,5 @@ export const SOCIAL_DATA = [
     icon: 'linkedin.webp',
   },
   { name: 'Facebook', url: 'https://www.facebook.com/lucas.bandin.arcida/', icon: 'facebook.webp' },
+  { name: 'GitHub', url: 'https://github.com/LgArcida', icon: 'github.webp' },
 ];
