@@ -117,6 +117,58 @@ via `inject(LOCALIZATION_PORT)`.
    ```
 5. **Presentation** — build a dumb component that does `inject(<UseCase>)`.
 
+## Swapping an adapter (e.g. static → real backend)
+
+The token is the **seam**: everything upstream asks DI for "whatever fulfills this
+port", and the composition root is the only place that names a concrete class. So
+switching data sources is **additive** — write a new adapter, change **one wiring
+line**. You do not modify the port, the use case, or any component.
+
+**Step A — write a new adapter** implementing the *same* port (keep `implements`, it
+guarantees the class stays in sync with the contract):
+
+```ts
+// src/infrastructure/repositories/http-experience.repository.ts
+export class HttpExperienceRepository implements ExperienceRepository {
+  constructor(private http: HttpClient) {}
+  getExperiences(): Observable<readonly WorkExperience[]> {
+    return this.http
+      .get<WorkExperienceDto[]>('/api/experiences')
+      .pipe(map((dtos) => dtos.map((d) => WorkExperience.create(d)))); // DTO → domain
+  }
+}
+```
+
+It returns the **same `Observable<readonly WorkExperience[]>`** as the static one —
+that is why nothing downstream cares where the data came from.
+
+**Step B — change one line in `app.config.ts`:**
+
+```ts
+// before
+{ provide: EXPERIENCE_REPOSITORY, useFactory: () => new StaticExperienceRepository() },
+// after
+{ provide: EXPERIENCE_REPOSITORY,
+  useFactory: (http: HttpClient) => new HttpExperienceRepository(http),
+  deps: [HttpClient] },
+```
+
+**What does NOT change:** the port (`experience.repository.ts`), the use case
+(`Experience`), and every component (`inject(Experience)` as before). The old
+`StaticExperienceRepository` stays — useful for tests, SSR fallback, offline demos.
+
+**Why the static adapter stays:** a port needs at least one adapter to be usable, and
+`implements ExperienceRepository` makes the compiler enforce the contract. Keep it.
+
+**Where mapping belongs:** a backend returns raw JSON (a **DTO**), not a rich domain
+object. Converting DTO → domain (validate, then `WorkExperience.create(...)`) happens
+**inside the adapter**. This quarantines the outside world's messy shapes in
+infrastructure so the domain stays clean — the whole reason ports & adapters exist.
+
+**Testing benefit (same seam):** in a test, provide a fake against the token —
+`{ provide: EXPERIENCE_REPOSITORY, useValue: { getExperiences: () => of([...]) } }` —
+and the use case/component run with no network and no real adapter.
+
 ## Wired dependencies
 
 | Port / token | Adapter | Use case built from it |

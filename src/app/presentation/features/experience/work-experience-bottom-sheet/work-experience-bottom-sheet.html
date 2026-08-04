@@ -11,6 +11,9 @@
       <span id="sheet-title" class="name">{{ experience.company.name }}</span>
       <span class="role">{{ experience.role.title }}</span>
       <span class="period">
+        {{ experience.company.location }}
+      </span>
+      <span class="period">
         {{ experience.period | formatPeriod: ('EXPERIENCE.PRESENT' | translate) }}
       </span>
       @if (experience.company.website) {
