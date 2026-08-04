@@ -29,13 +29,16 @@ Wiring concretes to abstractions happens once, at the **composition root**
 ## Ports & adapters
 
 A **port** is a contract the domain declares ("I need something that can do X").
-It is a plain TypeScript type:
+Because a TypeScript `type` is erased at runtime and cannot be a DI key, each port is
+expressed as **a type + an `InjectionToken`** (the runtime stand-in for the type):
 
 ```ts
 // src/domain/experience/ports/experience.repository.ts
 export type ExperienceRepository = {
   getExperiences(): Observable<readonly WorkExperience[]>;
 };
+export const EXPERIENCE_REPOSITORY =
+  new InjectionToken<ExperienceRepository>('ExperienceRepository');
 ```
 
 An **adapter** (infrastructure) implements it:
@@ -59,14 +62,19 @@ the port type; something else decides the concrete.
 
 ## Composition root (the ONE wiring place)
 
-`app.config.ts` is where the app boots, so it is the composition root. It binds each
-use case to its concrete adapter, once:
+`app.config.ts` is where the app boots, so it is the composition root. For each port
+it does two bindings — bind the **token** to the adapter, then build the **use case**
+from whatever fulfills the token:
 
 ```ts
 // src/app/app.config.ts
 providers: [
-  { provide: Experience, useFactory: () => new Experience(new StaticExperienceRepository()) },
-  { provide: Profile,    useFactory: () => new Profile(new StaticProfileRepository()) },
+  // port (token) → adapter
+  { provide: EXPERIENCE_REPOSITORY, useFactory: () => new StaticExperienceRepository() },
+  // use case ← the port abstraction
+  { provide: Experience,
+    useFactory: (repo: ExperienceRepository) => new Experience(repo),
+    deps: [EXPERIENCE_REPOSITORY] },
 ]
 ```
 
@@ -80,36 +88,45 @@ readonly #experience = inject(Experience);
 Notes:
 - `useFactory: () => new Static…()` (not `useClass`) keeps infrastructure free of
   Angular decorators — adapters stay plain classes.
+- `deps: [EXPERIENCE_REPOSITORY]` is how the use-case factory receives the injected
+  adapter: Angular resolves the token and passes it as the `repo` argument.
 - Swapping an implementation (static → HTTP, or a mock in tests) = change **one line**
-  here; nothing in domain/application/presentation moves.
+  (the token's `useFactory`); nothing in domain/application/presentation moves.
 
-### When to add an `InjectionToken`
+### Why a token here (not just `new Experience(new Static…())`)
 
-You do **not** need a token for a use case built in a single `useFactory` (above).
-Introduce a token only when a dependency must be **injected by its abstraction**
-directly — e.g. `LOCALIZATION_PORT`, injected via `inject(LOCALIZATION_PORT)` and
-bound in `app.config.ts` with `{ provide: LOCALIZATION_PORT, useClass: NgxTranslateAdapter }`.
+The token makes the *port* itself injectable, so any consumer can depend on the
+**abstraction** by key — not only this one factory. It also lets tests override just
+the repository (`{ provide: EXPERIENCE_REPOSITORY, useValue: mockRepo }`) without
+touching the use-case wiring. `LOCALIZATION_PORT` is the same idea consumed directly
+via `inject(LOCALIZATION_PORT)`.
 
 ## Adding a new feature (checklist)
 
 1. **Domain** — add `models/` types and a `ports/<name>.repository.ts` exporting the
-   port **type**.
+   port **type** and its **`InjectionToken`**.
 2. **Infrastructure** — add `repositories/static-<name>.repository.ts` implementing the
    port; put raw data in `data/`.
 3. **Application** — add a use-case service in `application/<name>/` taking the port
    type in its constructor.
-4. **Composition root** — in `app.config.ts`, add
-   `{ provide: <UseCase>, useFactory: () => new <UseCase>(new <StaticAdapter>()) }`.
+4. **Composition root** — in `app.config.ts`, bind the token to the adapter and build
+   the use case from it:
+   ```ts
+   { provide: <TOKEN>, useFactory: () => new <StaticAdapter>() },
+   { provide: <UseCase>, useFactory: (r) => new <UseCase>(r), deps: [<TOKEN>] },
+   ```
 5. **Presentation** — build a dumb component that does `inject(<UseCase>)`.
 
 ## Wired dependencies
 
-| Consumer | Binding (in `app.config.ts`) | Adapter |
-|----------|------------------------------|---------|
-| `Experience` use case | `useFactory: () => new Experience(new StaticExperienceRepository())` | `StaticExperienceRepository` |
-| `Profile` use case | `useFactory: () => new Profile(new StaticProfileRepository())` | `StaticProfileRepository` |
-| `LOCALIZATION_PORT` | `useClass: NgxTranslateAdapter` (injected by token) | `NgxTranslateAdapter` |
+| Port / token | Adapter | Use case built from it |
+|--------------|---------|------------------------|
+| `EXPERIENCE_REPOSITORY` | `StaticExperienceRepository` | `Experience` |
+| `PROFILE_REPOSITORY` | `StaticProfileRepository` | `Profile` |
+| `LOCALIZATION_PORT` | `NgxTranslateAdapter` | injected directly via `inject(LOCALIZATION_PORT)` |
 
-> `Technologies` / `CoreRepository` (`StaticTechnologyRepository`) exist but aren't
-> consumed yet — add a `{ provide: Technologies, useFactory: … }` line when a component
-> first needs technologies.
+All bound once in `src/app/app.config.ts`.
+
+> `CoreRepository` (`StaticTechnologyRepository`) / `Technologies` exist but aren't
+> consumed yet — add a `CORE_REPOSITORY` token + the two provider lines when a
+> component first needs technologies.

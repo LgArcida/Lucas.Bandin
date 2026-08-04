@@ -8,6 +8,14 @@ import { NgxTranslateAdapter } from '@infrastructure/adapters/ngx-translate.adap
 import { TsTranslateLoader } from '@infrastructure/adapters/ts-translate.loader';
 import { Experience } from '@application/experience/experience';
 import { Profile } from '@application/profile/profile';
+import {
+  EXPERIENCE_REPOSITORY,
+  ExperienceRepository,
+} from '@domain/experience/ports/experience.repository';
+import {
+  PROFILE_REPOSITORY,
+  ProfileRepository,
+} from '@domain/profile/ports/profile.repository';
 import { StaticExperienceRepository } from '@infrastructure/repositories/static-experience.repository';
 import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
 
@@ -24,8 +32,20 @@ export const appConfig: ApplicationConfig = {
     { provide: TranslateLoader, useClass: TsTranslateLoader },
     { provide: LOCALIZATION_PORT, useClass: NgxTranslateAdapter },
 
-    // Composition root: bind application use cases to their infrastructure adapters.
-    { provide: Experience, useFactory: () => new Experience(new StaticExperienceRepository()) },
-    { provide: Profile, useFactory: () => new Profile(new StaticProfileRepository()) },
+    // Composition root: bind each port (token) to its infrastructure adapter,
+    // then build the application use case from whatever fulfills the port.
+    { provide: EXPERIENCE_REPOSITORY, useFactory: () => new StaticExperienceRepository() },
+    {
+      provide: Experience,
+      useFactory: (repo: ExperienceRepository) => new Experience(repo),
+      deps: [EXPERIENCE_REPOSITORY],
+    },
+
+    { provide: PROFILE_REPOSITORY, useFactory: () => new StaticProfileRepository() },
+    {
+      provide: Profile,
+      useFactory: (repo: ProfileRepository) => new Profile(repo),
+      deps: [PROFILE_REPOSITORY],
+    },
   ],
 };
