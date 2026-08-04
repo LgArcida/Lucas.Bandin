@@ -6,11 +6,9 @@ import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { LOCALIZATION_PORT } from '@application/localization/localization.port';
 import { NgxTranslateAdapter } from '@infrastructure/adapters/ngx-translate.adapter';
 import { TsTranslateLoader } from '@infrastructure/adapters/ts-translate.loader';
-import { provideAppIcons } from './presentation/shared/icons/app-icons';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideAppIcons(),
     provideAnimations(),
     provideBrowserGlobalErrorListeners(),
     provideClientHydration(withEventReplay()),

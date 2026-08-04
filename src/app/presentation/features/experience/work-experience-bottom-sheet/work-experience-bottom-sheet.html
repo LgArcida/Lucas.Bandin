@@ -19,12 +19,8 @@
         </a>
       }
     </div>
-    <button
-      mat-icon-button
-      (click)="close()"
-      [attr.aria-label]="'EXPERIENCE.CLOSE' | translate"
-    >
-      <mat-icon svgIcon="close" />
+    <button matIconButton (click)="close()" [attr.aria-label]="'EXPERIENCE.CLOSE' | translate">
+      <mat-icon fontIcon="close" />
     </button>
   </div>
   <p class="description">{{ experience.role.description }}</p>
