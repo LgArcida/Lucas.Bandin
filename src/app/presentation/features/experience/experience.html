@@ -2,24 +2,26 @@
   <app-expandable-panel>
     <span header>{{ 'EXPERIENCE.TITLE' | translate }}</span>
     <mat-accordion>
-      @for (exp of experiences(); track $index) {
-        <mat-expansion-panel>
+      @for (exp of experiences(); track exp.company.name) {
+        <mat-expansion-panel (closed)="onClose(exp)" (opened)="onExpand(exp)">
           <mat-expansion-panel-header>
-            <div class="entry-header">
-              <img
-                ngSrc="assets/logos/{{ exp.company.logo }}"
-                width="48"
-                height="48"
-                [alt]="exp.company.name"
-                class="logo"
-              />
-              <div class="header-text">
-                <strong>{{ exp.role.title }}</strong>
+            <img
+              ngSrc="assets/logos/{{ exp.company.logo }}"
+              width="48"
+              height="48"
+              [alt]="exp.company.name"
+              class="logo"
+            />
+            <div class="text">
+              <span class="name"> {{ exp.company.name }} </span>
+              @if (currentExperience().has(exp.company.name)) {
+                <span class="role">{{ exp.company.location }}</span>
                 <span>
-                  {{ exp.company.name }} –
                   {{ exp.period | formatPeriod: ('EXPERIENCE.PRESENT' | translate) }}
                 </span>
-              </div>
+              } @else {
+                <span> {{ exp.role.title }} </span>
+              }
             </div>
           </mat-expansion-panel-header>
           <p class="description">{{ exp.role.description }}</p>

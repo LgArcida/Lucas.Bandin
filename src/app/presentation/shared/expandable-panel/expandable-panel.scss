@@ -7,7 +7,9 @@
     width: 20vw;
     max-width: 80vw;
     box-shadow: none;
-    border: 1px solid whitesmoke;
+    border-left: 5px solid whitesmoke;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     transition: width 0.3s ease;
     &.wide {
       width: 80vw;

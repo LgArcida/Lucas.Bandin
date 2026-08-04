@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Experience } from '@application/experience/experience';
 import { ExperienceRepository } from '@domain/experience/ports/experience.repository';
@@ -9,6 +9,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { FormatPeriodPipe } from '../../shared/pipes/format-period.pipe';
 import { NgOptimizedImage } from '@angular/common';
+import { WorkExperience } from '@domain/experience/models/work-experience';
 
 @Component({
   selector: 'app-experience',
@@ -35,4 +36,13 @@ import { NgOptimizedImage } from '@angular/common';
 export class ExperienceComponent {
   readonly #experience = inject(Experience);
   protected readonly experiences = toSignal(this.#experience.experiences$, { initialValue: [] });
+  protected currentExperience = signal<Set<string>>(new Set());
+
+  protected onExpand(exp: WorkExperience): void {
+    this.currentExperience().add(exp?.company.name ?? '');
+  }
+
+  protected onClose(exp: WorkExperience): void {
+    this.currentExperience().delete(exp?.company.name ?? '');
+  }
 }
