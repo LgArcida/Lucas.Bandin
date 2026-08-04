@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher';
@@ -10,6 +11,7 @@ import { NavigationService } from '@application/navigation/navigation.service';
   selector: 'app-header',
   imports: [
     MatButtonModule,
+    MatIconModule,
     MatToolbarModule,
     TranslatePipe,
     LanguageSwitcherComponent,

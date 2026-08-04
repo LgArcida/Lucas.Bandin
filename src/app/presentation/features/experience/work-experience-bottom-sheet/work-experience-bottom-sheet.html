@@ -1,0 +1,46 @@
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="header">
+    <img
+      ngSrc="assets/logos/{{ experience.company.logo }}"
+      width="48"
+      height="48"
+      [alt]="experience.company.name"
+      class="logo"
+    />
+    <div class="text">
+      <span id="sheet-title" class="name">{{ experience.company.name }}</span>
+      <span class="role">{{ experience.role.title }}</span>
+      <span class="period">
+        {{ experience.period | formatPeriod: ('EXPERIENCE.PRESENT' | translate) }}
+      </span>
+      @if (experience.company.website) {
+        <a class="website" [href]="experience.company.website" target="_blank" rel="noopener">
+          {{ experience.company.website }}
+        </a>
+      }
+    </div>
+    <button
+      mat-icon-button
+      (click)="close()"
+      [attr.aria-label]="'EXPERIENCE.CLOSE' | translate"
+    >
+      <mat-icon svgIcon="close" />
+    </button>
+  </div>
+  <p class="description">{{ experience.role.description }}</p>
+  @if (experience.highlights.length > 0) {
+    <ul class="highlights">
+      @for (h of experience.highlights; track $index) {
+        <li>
+          <strong>{{ h.title }}</strong>
+          <p>{{ h.description }}</p>
+        </li>
+      }
+    </ul>
+  }
+  <mat-chip-set>
+    @for (s of experience.technologies; track $index) {
+      <mat-chip>{{ s.name }}</mat-chip>
+    }
+  </mat-chip-set>
+</div>

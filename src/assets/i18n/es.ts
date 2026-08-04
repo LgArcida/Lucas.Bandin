@@ -30,6 +30,7 @@ export const es = {
   EXPERIENCE: {
     TITLE: 'Experiencia',
     PRESENT: 'Presente',
+    CLOSE: 'Cerrar detalles',
   },
   HOME: {
     GREETING: '¡Hola! Soy',

@@ -22,12 +22,12 @@ export const EXPERIENCES_DATA = [
     },
     highlights: [
       {
-        title: 'Frontend evolution from prototype to production',
+        title: 'Evolution',
         description:
-          'Led the frontend evolution from prototype to production, delivering Android, iOS, Windows, Linux, and Web applications.',
+          'From prototype to production, delivering Android, iOS, Windows, Linux, and Web applications.',
       },
       {
-        title: 'Offline-first workflow and VMS integration',
+        title: 'Offline-first and VMS integration',
         description:
           'Designed the offline-first workflow and VMS integration using Bluetooth and Iridium satellite communications for reliable reporting in low-connectivity environments.',
       },
@@ -42,7 +42,7 @@ export const EXPERIENCES_DATA = [
           'Refactored the Electronic Reporting System (ERS) into modular domain workflows, simplifying regulatory changes and reducing long-term maintenance.',
       },
       {
-        title: 'Angular modernization and team-wide patterns',
+        title: 'Modernization and team-wide patterns',
         description:
           'Modernized the application across multiple Angular versions, reducing technical debt while standardizing Angular patterns, introducing reusable modules, improving code reviews, and reducing duplicated code across an 8-person team.',
       },
@@ -62,13 +62,13 @@ export const EXPERIENCES_DATA = [
     company: {
       name: 'Clono AS',
       logo: 'clono.webp',
-      website: '',
+      website: 'https://clono.no/',
       location: 'La Paz, Bolivia / Tromsø, Norway',
     },
     role: {
-      title: 'Lead Software Engineer (Side Project)',
+      title: 'Lead Software Engineer',
       description:
-        'Technical lead for Clono Chess System, the official platform used in FIDE tournaments worldwide.',
+        'Technical lead for Clono Chess System, the official platform used in FIDE tournaments worldwide. (Side Project)',
     },
     period: {
       start: '2017-01-01',

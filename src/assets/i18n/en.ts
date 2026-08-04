@@ -28,6 +28,7 @@ export const en = {
   EXPERIENCE: {
     TITLE: 'Experience',
     PRESENT: 'Present',
+    CLOSE: 'Close details',
   },
   HOME: {
     GREETING: 'Hei! I am',

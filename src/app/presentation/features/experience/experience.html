@@ -1,47 +1,20 @@
 <section class="experience">
   <app-expandable-panel>
     <span header>{{ 'EXPERIENCE.TITLE' | translate }}</span>
-    <mat-accordion>
+    <mat-action-list>
       @for (exp of experiences(); track exp.company.name) {
-        <mat-expansion-panel (closed)="onClose(exp)" (opened)="onExpand(exp)">
-          <mat-expansion-panel-header>
-            <img
-              ngSrc="assets/logos/{{ exp.company.logo }}"
-              width="48"
-              height="48"
-              [alt]="exp.company.name"
-              class="logo"
-            />
-            <div class="text">
-              <span class="name"> {{ exp.company.name }} </span>
-              @if (currentExperience().has(exp.company.name)) {
-                <span class="role">{{ exp.company.location }}</span>
-                <span>
-                  {{ exp.period | formatPeriod: ('EXPERIENCE.PRESENT' | translate) }}
-                </span>
-              } @else {
-                <span> {{ exp.role.title }} </span>
-              }
-            </div>
-          </mat-expansion-panel-header>
-          <p class="description">{{ exp.role.description }}</p>
-          @if (exp.highlights.length > 0) {
-            <ul class="highlights">
-              @for (h of exp.highlights; track $index) {
-                <li>
-                  <strong>{{ h.title }}</strong>
-                  <p>{{ h.description }}</p>
-                </li>
-              }
-            </ul>
-          }
-          <mat-chip-set>
-            @for (s of exp.technologies; track $index) {
-              <mat-chip>{{ s.name }}</mat-chip>
-            }
-          </mat-chip-set>
-        </mat-expansion-panel>
+        <button mat-list-item (click)="openDetails(exp)">
+          <img
+            matListItemAvatar
+            ngSrc="assets/logos/{{ exp.company.logo }}"
+            width="48"
+            height="48"
+            [alt]="exp.company.name"
+          />
+          <span matListItemTitle>{{ exp.company.name }}</span>
+          <span matListItemLine>{{ exp.role.title }}</span>
+        </button>
       }
-    </mat-accordion>
+    </mat-action-list>
   </app-expandable-panel>
 </section>

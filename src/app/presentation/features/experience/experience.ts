@@ -1,26 +1,19 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { TranslatePipe } from '@ngx-translate/core';
+import { NgOptimizedImage } from '@angular/common';
 import { Experience } from '@application/experience/experience';
 import { ExperienceRepository } from '@domain/experience/ports/experience.repository';
 import { StaticExperienceRepository } from '@infrastructure/repositories/static-experience.repository';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { TranslatePipe } from '@ngx-translate/core';
-import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
-import { FormatPeriodPipe } from '../../shared/pipes/format-period.pipe';
-import { NgOptimizedImage } from '@angular/common';
 import { WorkExperience } from '@domain/experience/models/work-experience';
+import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
+import { WorkExperienceBottomSheetComponent } from './work-experience-bottom-sheet/work-experience-bottom-sheet';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-experience',
-  imports: [
-    MatChipsModule,
-    MatExpansionModule,
-    TranslatePipe,
-    ExpandablePanelComponent,
-    FormatPeriodPipe,
-    NgOptimizedImage,
-  ],
+  imports: [TranslatePipe, NgOptimizedImage, ExpandablePanelComponent, MatListModule],
   providers: [
     StaticExperienceRepository,
     {
@@ -35,14 +28,10 @@ import { WorkExperience } from '@domain/experience/models/work-experience';
 })
 export class ExperienceComponent {
   readonly #experience = inject(Experience);
+  readonly #bottomSheet = inject(MatBottomSheet);
   protected readonly experiences = toSignal(this.#experience.experiences$, { initialValue: [] });
-  protected currentExperience = signal<Set<string>>(new Set());
 
-  protected onExpand(exp: WorkExperience): void {
-    this.currentExperience().add(exp?.company.name ?? '');
-  }
-
-  protected onClose(exp: WorkExperience): void {
-    this.currentExperience().delete(exp?.company.name ?? '');
+  protected openDetails(exp: WorkExperience): void {
+    this.#bottomSheet.open(WorkExperienceBottomSheetComponent, { data: exp });
   }
 }
