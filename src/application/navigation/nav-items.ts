@@ -1,11 +1,15 @@
+import type { KEYS } from '../../assets/i18n/keys';
+
+export type NavLabelKey = keyof typeof KEYS.NAV;
+
 export interface NavItem {
-  labelKey: string;
+  labelKey: NavLabelKey;
   targetId?: string;
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { labelKey: 'NAV.ME', targetId: 'about' },
-  { labelKey: 'NAV.ABOUT' },
-  { labelKey: 'NAV.PROJECTS' },
-  { labelKey: 'NAV.CONTACT' },
+  { labelKey: 'ME', targetId: 'about' },
+  { labelKey: 'ABOUT' },
+  { labelKey: 'PROJECTS' },
+  { labelKey: 'CONTACT' },
 ];

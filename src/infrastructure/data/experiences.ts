@@ -1,9 +1,14 @@
 import { TECHNOLOGIES } from './technologies';
+import { KEYS } from '../../assets/i18n/keys';
 
+const COMPANIES = KEYS.EXPERIENCE.COMPANIES;
 const findTechnology = (name: string) =>
   TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };
-
-const KEY = 'EXPERIENCE.COMPANIES';
+const listHighlights = (highlights: { TITLE: string; DESCRIPTION: string }[]) =>
+  highlights.map((h) => ({
+    title: h.TITLE,
+    description: h.DESCRIPTION,
+  }));
 
 export const EXPERIENCES_DATA = [
   {
@@ -11,50 +16,17 @@ export const EXPERIENCES_DATA = [
       name: 'Dualog Fisknett AS',
       logo: 'dualog.webp',
       website: 'https://dualog.com',
-      location: `${KEY}.DUALOG.LOCATION`,
+      location: COMPANIES.DUALOG.LOCATION,
     },
     role: {
-      title: `${KEY}.DUALOG.ROLE_TITLE`,
-      description: `${KEY}.DUALOG.ROLE_DESCRIPTION`,
+      title: COMPANIES.DUALOG.ROLE_TITLE,
+      description: COMPANIES.DUALOG.ROLE_DESCRIPTION,
     },
     period: {
       start: '2020-01-01',
       end: '2026-06-01',
     },
-    highlights: [
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.0.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.0.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.1.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.1.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.2.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.2.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.3.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.3.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.4.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.4.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.5.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.5.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.6.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.6.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.DUALOG.HIGHLIGHTS.7.TITLE`,
-        description: `${KEY}.DUALOG.HIGHLIGHTS.7.DESCRIPTION`,
-      },
-    ],
+    highlights: listHighlights(COMPANIES.DUALOG.HIGHLIGHTS),
     technologies: [
       findTechnology('Angular'),
       findTechnology('TypeScript'),
@@ -71,49 +43,16 @@ export const EXPERIENCES_DATA = [
       name: 'Clono AS',
       logo: 'clono.webp',
       website: 'https://clono.no/',
-      location: `${KEY}.CLONO.LOCATION`,
+      location: COMPANIES.CLONO.LOCATION,
     },
     role: {
-      title: `${KEY}.CLONO.ROLE_TITLE`,
-      description: `${KEY}.CLONO.ROLE_DESCRIPTION`,
+      title: COMPANIES.CLONO.ROLE_TITLE,
+      description: COMPANIES.CLONO.ROLE_DESCRIPTION,
     },
     period: {
       start: '2017-01-01',
     },
-    highlights: [
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.0.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.0.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.1.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.1.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.2.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.2.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.3.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.3.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.4.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.4.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.5.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.5.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.6.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.6.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CLONO.HIGHLIGHTS.7.TITLE`,
-        description: `${KEY}.CLONO.HIGHLIGHTS.7.DESCRIPTION`,
-      },
-    ],
+    highlights: listHighlights(COMPANIES.CLONO.HIGHLIGHTS),
     technologies: [
       findTechnology('Angular'),
       findTechnology('Capacitor'),
@@ -130,38 +69,17 @@ export const EXPERIENCES_DATA = [
       name: "Cutter's Club",
       logo: 'cutters_club.webp',
       website: 'https://cuttersclub.com/',
-      location: `${KEY}.CUTTERS_CLUB.LOCATION`,
+      location: COMPANIES.CUTTERS_CLUB.LOCATION,
     },
     role: {
-      title: `${KEY}.CUTTERS_CLUB.ROLE_TITLE`,
-      description: `${KEY}.CUTTERS_CLUB.ROLE_DESCRIPTION`,
+      title: COMPANIES.CUTTERS_CLUB.ROLE_TITLE,
+      description: COMPANIES.CUTTERS_CLUB.ROLE_DESCRIPTION,
     },
     period: {
       start: '2019-01-01',
       end: '2020-12-31',
     },
-    highlights: [
-      {
-        title: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.0.TITLE`,
-        description: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.0.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.1.TITLE`,
-        description: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.1.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.2.TITLE`,
-        description: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.2.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.3.TITLE`,
-        description: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.3.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.4.TITLE`,
-        description: `${KEY}.CUTTERS_CLUB.HIGHLIGHTS.4.DESCRIPTION`,
-      },
-    ],
+    highlights: listHighlights(COMPANIES.CUTTERS_CLUB.HIGHLIGHTS),
     technologies: [
       findTechnology('React'),
       findTechnology('Expo'),
@@ -173,45 +91,20 @@ export const EXPERIENCES_DATA = [
   },
   {
     company: {
-      name: `${KEY}.CONSULTING.NAME`,
+      name: COMPANIES.CONSULTING.NAME,
       logo: 'www.webp',
       website: '',
-      location: `${KEY}.CONSULTING.LOCATION`,
+      location: COMPANIES.CONSULTING.LOCATION,
     },
     role: {
-      title: `${KEY}.CONSULTING.ROLE_TITLE`,
-      description: `${KEY}.CONSULTING.ROLE_DESCRIPTION`,
+      title: COMPANIES.CONSULTING.ROLE_TITLE,
+      description: COMPANIES.CONSULTING.ROLE_DESCRIPTION,
     },
     period: {
       start: '2016-03-01',
       end: '2019-12-31',
     },
-    highlights: [
-      {
-        title: `${KEY}.CONSULTING.HIGHLIGHTS.0.TITLE`,
-        description: `${KEY}.CONSULTING.HIGHLIGHTS.0.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CONSULTING.HIGHLIGHTS.1.TITLE`,
-        description: `${KEY}.CONSULTING.HIGHLIGHTS.1.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CONSULTING.HIGHLIGHTS.2.TITLE`,
-        description: `${KEY}.CONSULTING.HIGHLIGHTS.2.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CONSULTING.HIGHLIGHTS.3.TITLE`,
-        description: `${KEY}.CONSULTING.HIGHLIGHTS.3.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CONSULTING.HIGHLIGHTS.4.TITLE`,
-        description: `${KEY}.CONSULTING.HIGHLIGHTS.4.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CONSULTING.HIGHLIGHTS.5.TITLE`,
-        description: `${KEY}.CONSULTING.HIGHLIGHTS.5.DESCRIPTION`,
-      },
-    ],
+    highlights: listHighlights(COMPANIES.CONSULTING.HIGHLIGHTS),
     technologies: [
       findTechnology('Angular'),
       findTechnology('React'),
@@ -227,30 +120,17 @@ export const EXPERIENCES_DATA = [
       name: 'Rapid Instinct',
       logo: 'rapid_instinct.webp',
       website: '',
-      location: `${KEY}.RAPID_INSTINCT.LOCATION`,
+      location: COMPANIES.RAPID_INSTINCT.LOCATION,
     },
     role: {
-      title: `${KEY}.RAPID_INSTINCT.ROLE_TITLE`,
-      description: `${KEY}.RAPID_INSTINCT.ROLE_DESCRIPTION`,
+      title: COMPANIES.RAPID_INSTINCT.ROLE_TITLE,
+      description: COMPANIES.RAPID_INSTINCT.ROLE_DESCRIPTION,
     },
     period: {
       start: '2015-12-01',
       end: '2016-03-31',
     },
-    highlights: [
-      {
-        title: `${KEY}.RAPID_INSTINCT.HIGHLIGHTS.0.TITLE`,
-        description: `${KEY}.RAPID_INSTINCT.HIGHLIGHTS.0.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.RAPID_INSTINCT.HIGHLIGHTS.1.TITLE`,
-        description: `${KEY}.RAPID_INSTINCT.HIGHLIGHTS.1.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.RAPID_INSTINCT.HIGHLIGHTS.2.TITLE`,
-        description: `${KEY}.RAPID_INSTINCT.HIGHLIGHTS.2.DESCRIPTION`,
-      },
-    ],
+    highlights: listHighlights(COMPANIES.RAPID_INSTINCT.HIGHLIGHTS),
     technologies: [findTechnology('Angular'), findTechnology('PostgreSQL')],
   },
   {
@@ -258,46 +138,17 @@ export const EXPERIENCES_DATA = [
       name: 'CodeRoad / Mojix — Xtime',
       logo: 'coderoad.webp',
       website: '',
-      location: `${KEY}.CODEROAD.LOCATION`,
+      location: COMPANIES.CODEROAD.LOCATION,
     },
     role: {
-      title: `${KEY}.CODEROAD.ROLE_TITLE`,
-      description: `${KEY}.CODEROAD.ROLE_DESCRIPTION`,
+      title: COMPANIES.CODEROAD.ROLE_TITLE,
+      description: COMPANIES.CODEROAD.ROLE_DESCRIPTION,
     },
     period: {
       start: '2013-02-01',
       end: '2015-11-30',
     },
-    highlights: [
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.0.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.0.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.1.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.1.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.2.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.2.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.3.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.3.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.4.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.4.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.5.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.5.DESCRIPTION`,
-      },
-      {
-        title: `${KEY}.CODEROAD.HIGHLIGHTS.6.TITLE`,
-        description: `${KEY}.CODEROAD.HIGHLIGHTS.6.DESCRIPTION`,
-      },
-    ],
+    highlights: listHighlights(COMPANIES.CODEROAD.HIGHLIGHTS),
     technologies: [
       findTechnology('Sencha'),
       findTechnology('Ext JS'),
