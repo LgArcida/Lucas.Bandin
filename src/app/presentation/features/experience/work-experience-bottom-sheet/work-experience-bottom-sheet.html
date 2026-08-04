@@ -14,7 +14,7 @@
         {{ experience.company.location | translate }}
       </span>
       <span class="period">
-        {{ experience.period | formatPeriod: (keys.EXPERIENCE.PRESENT | translate) }}
+        {{ experience.period | formatPeriod: (translations.EXPERIENCE.PRESENT | translate) }}
       </span>
       @if (experience.company.website) {
         <a class="website" [href]="experience.company.website" target="_blank" rel="noopener">
@@ -25,7 +25,7 @@
     <button
       matIconButton
       (click)="onCloseClick()"
-      [attr.aria-label]="keys.EXPERIENCE.CLOSE | translate"
+      [attr.aria-label]="translations.EXPERIENCE.CLOSE | translate"
     >
       <mat-icon fontIcon="close" />
     </button>

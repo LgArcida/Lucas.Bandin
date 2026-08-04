@@ -1,6 +1,6 @@
-import type { KEYS } from '../../assets/i18n/keys';
+import type { Translations } from '../../assets/i18n/translations';
 
-export type NavLabelKey = keyof typeof KEYS.NAV;
+export type NavLabelKey = keyof typeof Translations.NAV;
 
 export interface NavItem {
   labelKey: NavLabelKey;

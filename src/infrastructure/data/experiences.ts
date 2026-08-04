@@ -1,7 +1,7 @@
 import { TECHNOLOGIES } from './technologies';
-import { KEYS } from '../../assets/i18n/keys';
+import { Translations } from '../../assets/i18n/translations';
 
-const COMPANIES = KEYS.EXPERIENCE.COMPANIES;
+const COMPANIES = Translations.EXPERIENCE.COMPANIES;
 const findTechnology = (name: string) =>
   TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };
 const listHighlights = (highlights: { TITLE: string; DESCRIPTION: string }[]) =>

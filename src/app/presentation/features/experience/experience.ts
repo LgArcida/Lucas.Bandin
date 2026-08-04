@@ -8,7 +8,7 @@ import { WorkExperience } from '@domain/experience/models/work-experience';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { WorkExperienceBottomSheetComponent } from './work-experience-bottom-sheet/work-experience-bottom-sheet';
 import { MatListModule } from '@angular/material/list';
-import { KEYS } from '../../../../assets/i18n/keys';
+import { Translations } from '../../../../assets/i18n/translations';
 
 @Component({
   selector: 'app-experience',
@@ -18,7 +18,7 @@ import { KEYS } from '../../../../assets/i18n/keys';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceComponent {
-  protected readonly keys = KEYS;
+  protected readonly translations = Translations;
   readonly #experience = inject(Experience);
   readonly #bottomSheet = inject(MatBottomSheet);
   protected readonly experiences = toSignal(this.#experience.experiences$, { initialValue: [] });

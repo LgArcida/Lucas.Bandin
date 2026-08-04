@@ -10,7 +10,7 @@
   <span class="spacer"></span>
   <nav class="desktop-nav">
     @for (item of navItems; track item.labelKey) {
-      <button mat-button (click)="navigate(item)">{{ keys.NAV[item.labelKey] | translate }}</button>
+      <button mat-button (click)="navigate(item)">{{ translations.NAV[item.labelKey] | translate }}</button>
     }
   </nav>
   <app-language-switcher class="lang-switcher" />

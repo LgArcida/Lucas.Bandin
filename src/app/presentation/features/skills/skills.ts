@@ -6,7 +6,7 @@ import { SKILL_CATEGORY_NAMES } from '@domain/profile/models/skill-category';
 import { Profile } from '@application/profile/profile';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { SkillListComponent } from './skill-list/skill-list';
-import { KEYS } from '../../../../assets/i18n/keys';
+import { Translations } from '../../../../assets/i18n/translations';
 
 @Component({
   selector: 'app-skills',
@@ -16,7 +16,7 @@ import { KEYS } from '../../../../assets/i18n/keys';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
-  protected readonly keys = KEYS;
+  protected readonly translations = Translations;
   readonly #profile = inject(Profile);
 
   protected readonly selectedTab = signal(0);

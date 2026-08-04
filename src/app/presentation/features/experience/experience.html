@@ -1,6 +1,6 @@
 <section class="experience">
   <app-expandable-panel>
-    <span header>{{ keys.EXPERIENCE.TITLE | translate }}</span>
+    <span header>{{ translations.EXPERIENCE.TITLE | translate }}</span>
     <mat-list>
       @for (exp of experiences(); track exp.company.name) {
         <mat-list-item

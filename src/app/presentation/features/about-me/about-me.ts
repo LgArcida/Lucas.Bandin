@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
-import { KEYS } from '../../../../assets/i18n/keys';
+import { Translations } from '../../../../assets/i18n/translations';
 
 @Component({
   selector: 'app-about-me',
@@ -12,5 +12,5 @@ import { KEYS } from '../../../../assets/i18n/keys';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
-  protected readonly keys = KEYS;
+  protected readonly translations = Translations;
 }

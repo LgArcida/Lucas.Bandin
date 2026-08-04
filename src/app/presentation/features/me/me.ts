@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { KEYS } from '../../../../assets/i18n/keys';
+import { Translations } from '../../../../assets/i18n/translations';
 
 @Component({
   selector: 'app-me',
@@ -11,5 +11,5 @@ import { KEYS } from '../../../../assets/i18n/keys';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MeComponent {
-  protected readonly keys = KEYS;
+  protected readonly translations = Translations;
 }

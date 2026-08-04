@@ -7,7 +7,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgOptimizedImage } from '@angular/common';
 import { WorkExperience } from '@domain/experience/models/work-experience';
 import { FormatPeriodPipe } from '../../../shared/pipes/format-period.pipe';
-import { KEYS } from '../../../../../assets/i18n/keys';
+import { Translations } from '../../../../../assets/i18n/translations';
 
 @Component({
   selector: 'app-work-experience-bottom-sheet',
@@ -24,7 +24,7 @@ import { KEYS } from '../../../../../assets/i18n/keys';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkExperienceBottomSheetComponent {
-  protected readonly keys = KEYS;
+  protected readonly translations = Translations;
   protected readonly experience = inject<WorkExperience>(MAT_BOTTOM_SHEET_DATA);
   readonly #bottomSheetRef = inject(MatBottomSheetRef<WorkExperienceBottomSheetComponent>);
 
