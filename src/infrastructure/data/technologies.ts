@@ -1,5 +1,7 @@
 export const TECHNOLOGIES = [
   { name: 'Angular', image: 'angular.webp' },
+  { name: 'Ngrx', image: 'ngrx.webp' },
+  { name: 'Ngxs', image: 'ngxs.webp' },
   { name: 'TypeScript', image: 'typescript.webp' },
   { name: 'RxJS', image: 'rxjs.webp' },
   { name: 'Ionic', image: 'ionic.webp' },

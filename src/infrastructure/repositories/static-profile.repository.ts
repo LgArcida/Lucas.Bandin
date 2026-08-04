@@ -11,6 +11,8 @@ const FRONTEND_SKILLS = [
   { technology: findTechnology('Angular'), level: 9.5 },
   { technology: findTechnology('TypeScript'), level: 9 },
   { technology: findTechnology('RxJS'), level: 8.5 },
+  { technology: findTechnology('Ngrx'), level: 6.5 },
+  { technology: findTechnology('Ngxs'), level: 8.5 },
   { technology: findTechnology('Ionic'), level: 8.5 },
   { technology: findTechnology('Capacitor'), level: 8 },
   { technology: findTechnology('JavaScript'), level: 8 },
