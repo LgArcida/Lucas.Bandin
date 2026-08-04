@@ -1,20 +1,26 @@
 <section class="experience">
   <app-expandable-panel>
     <span header>{{ 'EXPERIENCE.TITLE' | translate }}</span>
-    <mat-action-list>
+    <mat-list>
       @for (exp of experiences(); track exp.company.name) {
-        <button mat-list-item (click)="openDetails(exp)">
+        <mat-list-item
+          role="button"
+          tabindex="0"
+          (click)="openDetails(exp)"
+          (keydown.enter)="openDetails(exp)"
+          (keydown.space)="openDetails(exp)"
+        >
           <img
-            matListItemAvatar
+            matListItemIcon
             ngSrc="assets/logos/{{ exp.company.logo }}"
-            width="48"
-            height="48"
+            width="50"
+            height="50"
             [alt]="exp.company.name"
           />
           <span matListItemTitle>{{ exp.company.name }}</span>
           <span matListItemLine>{{ exp.role.title }}</span>
-        </button>
+        </mat-list-item>
       }
-    </mat-action-list>
+    </mat-list>
   </app-expandable-panel>
 </section>

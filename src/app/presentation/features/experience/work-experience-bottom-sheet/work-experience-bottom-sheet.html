@@ -19,7 +19,11 @@
         </a>
       }
     </div>
-    <button matIconButton (click)="close()" [attr.aria-label]="'EXPERIENCE.CLOSE' | translate">
+    <button
+      matIconButton
+      (click)="onCloseClick()"
+      [attr.aria-label]="'EXPERIENCE.CLOSE' | translate"
+    >
       <mat-icon fontIcon="close" />
     </button>
   </div>

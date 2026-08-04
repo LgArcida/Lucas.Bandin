@@ -26,7 +26,7 @@ export class WorkExperienceBottomSheetComponent {
   protected readonly experience = inject<WorkExperience>(MAT_BOTTOM_SHEET_DATA);
   readonly #bottomSheetRef = inject(MatBottomSheetRef<WorkExperienceBottomSheetComponent>);
 
-  protected close(): void {
+  protected onCloseClick(): void {
     this.#bottomSheetRef.dismiss();
   }
 }
