@@ -5,6 +5,8 @@ const PROJECTS = Translations.PROJECTS;
 
 export const PROJECTS_DATA = [
   {
+    company: PROJECTS.ITEMS.ANAPOL.COMPANY,
+    role: PROJECTS.ITEMS.ANAPOL.ROLE,
     title: PROJECTS.ITEMS.ANAPOL.TITLE,
     description: PROJECTS.ITEMS.ANAPOL.DESCRIPTION,
     image: 'anapol.webp',

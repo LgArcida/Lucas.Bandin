@@ -18,10 +18,12 @@ export const es = {
   },
   PROJECTS: {
     TITLE: 'Proyectos',
+    SUB_TITLE: 'Proyectos profesionales',
     ITEMS: {
       ANAPOL: {
-        TITLE:
-          'Academia Nacional de Policía de Bolivia (ANAPOL) — Sistema de Pruebas Psicológicas y Corrección OMR',
+        ROLE: 'Ingeniero de software principal (Solo)',
+        COMPANY: 'ANAPOL - Academia Nacional de Policía de Bolivia',
+        TITLE: 'Sistema de Pruebas Psicológicas y Corrección OMR',
         DESCRIPTION:
           'Built a secure Django platform for processing psychological admission tests for the Bolivian National Police Academy.',
         LOCATION: 'La Paz, Bolivia',

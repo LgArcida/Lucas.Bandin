@@ -10,6 +10,11 @@
   gap: 1rem;
   align-items: flex-start;
 
+  .logo {
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+  }
+
   .text {
     display: flex;
     flex-direction: column;

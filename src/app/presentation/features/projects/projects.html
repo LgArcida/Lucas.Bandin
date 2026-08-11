@@ -1,6 +1,6 @@
 <section class="projects">
   <app-expandable-panel>
-    <span header>{{ translations.PROJECTS.TITLE | translate }}</span>
+    <span header>{{ translations.PROJECTS.SUB_TITLE | translate }}</span>
     <mat-list>
       @for (project of projects(); track project.title) {
         <mat-list-item
@@ -18,8 +18,8 @@
             [alt]="project.title | translate"
           />
 
-          <span matListItemTitle>{{ project.title | translate }}</span>
-          <span matListItemLine>{{ project.location | translate }}</span>
+          <span matListItemTitle>{{ project.company | translate }}</span>
+          <span matListItemLine>{{ project.role | translate }}</span>
         </mat-list-item>
       }
     </mat-list>

@@ -7,10 +7,18 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Project } from '@domain/projects/models/project';
 import { FormatPeriodPipe } from '../../../shared/pipes/format-period.pipe';
 import { Translations } from '@i18n/translations';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-project-details-bottom-sheet',
-  imports: [MatChipsModule, MatButtonModule, MatIconModule, TranslatePipe, FormatPeriodPipe],
+  imports: [
+    MatChipsModule,
+    MatButtonModule,
+    MatIconModule,
+    TranslatePipe,
+    FormatPeriodPipe,
+    NgOptimizedImage,
+  ],
   templateUrl: './project-details-bottom-sheet.html',
   styleUrl: './project-details-bottom-sheet.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

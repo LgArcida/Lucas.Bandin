@@ -16,10 +16,12 @@ export const en = {
   },
   PROJECTS: {
     TITLE: 'Projects',
+    SUB_TITLE: 'Professional projects',
     ITEMS: {
       ANAPOL: {
-        TITLE:
-          'Bolivian National Police Academy (ANAPOL) — Psychological Testing & OMR Scoring System',
+        ROLE: 'Lead Software Engineer (Solo)',
+        COMPANY: 'ANAPOL - Bolivian National Police Academy',
+        TITLE: 'Psychological Testing & OMR Scoring System',
         DESCRIPTION:
           'Built a secure Django platform for processing psychological admission tests for the Bolivian National Police Academy.',
         LOCATION: 'La Paz, Bolivia',
