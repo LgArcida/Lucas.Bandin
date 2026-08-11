@@ -1,0 +1,19 @@
+<section class="projects">
+  <app-expandable-panel>
+    <span header>{{ translations.PROJECTS.TITLE | translate }}</span>
+    <mat-list>
+      @for (project of projects(); track project.title) {
+        <mat-list-item
+          role="button"
+          tabindex="0"
+          (click)="openDetails(project)"
+          (keydown.enter)="openDetails(project)"
+          (keydown.space)="openDetails(project)"
+        >
+          <span matListItemTitle>{{ project.title | translate }}</span>
+          <span matListItemLine>{{ project.location | translate }}</span>
+        </mat-list-item>
+      }
+    </mat-list>
+  </app-expandable-panel>
+</section>
