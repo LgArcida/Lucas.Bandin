@@ -12,6 +12,7 @@ export const TECHNOLOGIES = [
   { name: 'React', image: 'react.webp' },
   { name: 'Python', image: 'python.webp' },
   { name: 'Django', image: 'django.webp' },
+  { name: 'OpenCV', image: 'opencv.webp' },
   { name: 'Firebase', image: 'firebase.webp' },
   { name: 'SQLite', image: 'sqlite.webp' },
   { name: 'Claude', image: 'claude.webp' },
@@ -29,3 +30,6 @@ export const TECHNOLOGIES = [
   { name: 'Iridium Satellite', image: '' },
   { name: 'Chess.js', image: '' },
 ] as const;
+
+export const findTechnology = (name: string) =>
+  TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };

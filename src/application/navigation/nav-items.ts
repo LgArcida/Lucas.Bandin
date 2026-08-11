@@ -10,6 +10,6 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'ME', targetId: 'about' },
   { labelKey: 'ABOUT' },
-  { labelKey: 'PROJECTS' },
+  { labelKey: 'PROJECTS', targetId: 'projects' },
   { labelKey: 'CONTACT' },
 ];

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import type { Period } from '@domain/experience/models/period';
+import type { Period } from '@domain/core/models/period';
 
 @Pipe({
   name: 'formatPeriod',

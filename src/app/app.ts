@@ -8,6 +8,7 @@ import { MeComponent } from './presentation/features/me/me';
 import { SkillsComponent } from './presentation/features/skills/skills';
 import { FooterComponent } from './presentation/layout/footer/footer';
 import { ExperienceComponent } from './presentation/features/experience/experience';
+import { ProjectsComponent } from './presentation/features/projects/projects';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { ExperienceComponent } from './presentation/features/experience/experien
     SkillsComponent,
     FooterComponent,
     ExperienceComponent,
+    ProjectsComponent,
   ],
   providers: [],
   templateUrl: './app.html',
