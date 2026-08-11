@@ -10,6 +10,14 @@
           (keydown.enter)="openDetails(project)"
           (keydown.space)="openDetails(project)"
         >
+          <img
+            matListItemIcon
+            ngSrc="assets/logos/{{ project.image }}"
+            width="50"
+            height="50"
+            [alt]="project.title | translate"
+          />
+
           <span matListItemTitle>{{ project.title | translate }}</span>
           <span matListItemLine>{{ project.location | translate }}</span>
         </mat-list-item>

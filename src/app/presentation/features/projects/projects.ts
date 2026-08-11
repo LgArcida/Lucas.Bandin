@@ -8,10 +8,11 @@ import { Project } from '@domain/projects/models/project';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { ProjectDetailsBottomSheetComponent } from './project-details-bottom-sheet/project-details-bottom-sheet';
 import { Translations } from '@i18n/translations';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
-  imports: [TranslatePipe, MatListModule, ExpandablePanelComponent],
+  imports: [TranslatePipe, MatListModule, ExpandablePanelComponent, NgOptimizedImage],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
