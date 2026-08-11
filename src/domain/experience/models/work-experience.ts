@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { Company, companySchema } from './company';
 import { Role, roleSchema } from './role';
-import { Period, periodSchema } from './period';
+import { Period, periodSchema } from '@domain/core/models/period';
 import { Highlight, highlightSchema } from './highlight';
 import { Technology, technologySchema } from '@domain/core/models/technology';
 

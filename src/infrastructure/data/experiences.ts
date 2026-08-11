@@ -1,9 +1,7 @@
-import { TECHNOLOGIES } from './technologies';
+import { findTechnology } from './technologies';
 import { Translations } from '@i18n/translations';
 
 const COMPANIES = Translations.EXPERIENCE.COMPANIES;
-const findTechnology = (name: string) =>
-  TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };
 type HighlightKeys = (typeof COMPANIES)[keyof typeof COMPANIES]['HIGHLIGHTS'][number];
 
 const listHighlights = (highlights: readonly HighlightKeys[]) =>
