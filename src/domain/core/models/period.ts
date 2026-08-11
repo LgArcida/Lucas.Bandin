@@ -1,19 +1,25 @@
 import { DateTime } from 'luxon';
 import { z } from 'zod';
 
-const dateString = z.string().refine((val) => DateTime.fromISO(val).isValid, {
-  message: 'Must be a valid ISO date string',
-});
-
 export const periodSchema = z
   .object({
-    start: dateString,
-    end: dateString.optional(),
+    start: z.string().refine((val) => DateTime.fromISO(val).isValid, {
+      message: 'Must be a valid ISO date string',
+    }),
+    end: z
+      .string()
+      .refine((val) => DateTime.fromISO(val).isValid, {
+        message: 'Must be a valid ISO date string',
+      })
+      .optional(),
   })
-  .refine((data) => {
-    if (data.end === undefined) return true;
-    return DateTime.fromISO(data.end) > DateTime.fromISO(data.start);
-  }, { message: 'End date must be after start date' });
+  .refine(
+    (data) => {
+      if (data.end === undefined) return true;
+      return DateTime.fromISO(data.end) > DateTime.fromISO(data.start);
+    },
+    { message: 'End date must be after start date' },
+  );
 
 export type PeriodModel = z.infer<typeof periodSchema>;
 
