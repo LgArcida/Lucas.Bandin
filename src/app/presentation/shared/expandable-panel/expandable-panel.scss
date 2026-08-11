@@ -7,10 +7,12 @@
     width: 20vw;
     max-width: 80vw;
     box-shadow: none;
-    border-left: 5px solid whitesmoke;
+    border-left: 5px solid var(--brand-white-mate);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     transition: width 0.3s ease;
+    background-color: var(--brand-black-mate);
+    padding: 0;
     &.wide {
       width: 80vw;
     }
