@@ -14,6 +14,22 @@ export const en = {
     STRENGTHS: 'Strengths',
     AI: 'AI',
   },
+  PROJECTS: {
+    TITLE: 'Projects',
+    ITEMS: {
+      ANAPOL: {
+        TITLE:
+          'Bolivian National Police Academy (ANAPOL) — Psychological Testing & OMR Scoring System',
+        DESCRIPTION:
+          'Built a secure Django platform for processing psychological admission tests for the Bolivian National Police Academy.',
+        LOCATION: 'La Paz, Bolivia',
+        HIGHLIGHTS: [
+          'Expanded a 2016 UMSA Law School OMR pilot for 250 students into a national-scale ANAPOL admission testing system processing 22,000+ applicants.',
+          'Built the custom OpenCV-based OMR and scoring pipeline in-house — QR-coded applicant IDs, bubble detection, and answer-sheet scoring across seven pages per applicant — without third-party OCR or scoring services, due to strict police and government security requirements.',
+        ],
+      },
+    },
+  },
   ABOUT: {
     TITLE: 'About me',
     PROBLEM_SOLVING: 'I like solving problems, code is just part of it',
