@@ -6,18 +6,24 @@ import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { LOCALIZATION_PORT } from '@application/localization/localization.port';
 import { NgxTranslateAdapter } from '@infrastructure/adapters/ngx-translate.adapter';
 import { TsTranslateLoader } from '@infrastructure/adapters/ts-translate.loader';
+
+// -------------------- Experience -----------------
 import { Experience } from '@application/experience/experience';
-import { Profile } from '@application/profile/profile';
+import { StaticExperienceRepository } from '@infrastructure/repositories/static-experience.repository';
 import {
   EXPERIENCE_REPOSITORY,
   ExperienceRepository,
 } from '@domain/experience/ports/experience.repository';
-import {
-  PROFILE_REPOSITORY,
-  ProfileRepository,
-} from '@domain/profile/ports/profile.repository';
-import { StaticExperienceRepository } from '@infrastructure/repositories/static-experience.repository';
+
+// -------------------- Profile -----------------
+import { Profile } from '@application/profile/profile';
 import { StaticProfileRepository } from '@infrastructure/repositories/static-profile.repository';
+import { PROFILE_REPOSITORY, ProfileRepository } from '@domain/profile/ports/profile.repository';
+
+// -------------------- Projects -----------------
+import { Projects } from '@application/projects/projects';
+import { StaticProjectsRepository } from '@infrastructure/repositories/static-projects.repository';
+import { PROJECT_REPOSITORY, ProjectRepository } from '@domain/projects/ports/projects.repository';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -46,6 +52,13 @@ export const appConfig: ApplicationConfig = {
       provide: Profile,
       useFactory: (repo: ProfileRepository) => new Profile(repo),
       deps: [PROFILE_REPOSITORY],
+    },
+
+    { provide: PROJECT_REPOSITORY, useFactory: () => new StaticProjectsRepository() },
+    {
+      provide: Projects,
+      useFactory: (repo: ProjectRepository) => new Projects(repo),
+      deps: [PROJECT_REPOSITORY],
     },
   ],
 };
