@@ -20,6 +20,10 @@ export const es = {
   PROJECTS: {
     TITLE: 'Proyectos',
     SUB_TITLE: 'Proyectos profesionales',
+    TABS: {
+      PROFESSIONAL: 'Profesionales',
+      PERSONAL: 'Personales',
+    },
     ITEMS: {
       ANAPOL: {
         ROLE: 'Ingeniero de software principal (Solo)',

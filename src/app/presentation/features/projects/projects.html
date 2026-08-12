@@ -1,27 +1,56 @@
 <section class="projects">
   <app-expandable-panel>
-    <span header>{{ translations.PROJECTS.SUB_TITLE | translate }}</span>
-    <mat-list>
-      @for (project of projects(); track project.title) {
-        <mat-list-item
-          role="button"
-          tabindex="0"
-          (click)="openDetails(project)"
-          (keydown.enter)="openDetails(project)"
-          (keydown.space)="openDetails(project)"
-        >
-          <img
-            matListItemIcon
-            ngSrc="assets/logos/{{ project.image }}"
-            width="50"
-            height="50"
-            [alt]="project.title | translate"
-          />
+    <span header>{{ translations.PROJECTS.TITLE | translate }}</span>
+    <mat-tab-group>
+      <mat-tab [label]="translations.PROJECTS.TABS.PROFESSIONAL | translate">
+        <mat-list>
+          @for (project of professionalProjects(); track project.title) {
+            <mat-list-item
+              role="button"
+              tabindex="0"
+              (click)="openDetails(project)"
+              (keydown.enter)="openDetails(project)"
+              (keydown.space)="openDetails(project)"
+            >
+              <img
+                matListItemIcon
+                ngSrc="assets/logos/{{ project.image }}"
+                width="50"
+                height="50"
+                [alt]="project.title | translate"
+              />
 
-          <span matListItemTitle>{{ project.company | translate }}</span>
-          <span matListItemLine>{{ project.role | translate }}</span>
-        </mat-list-item>
-      }
-    </mat-list>
+              <span matListItemTitle>{{ project.company | translate }}</span>
+              <span matListItemLine>{{ project.role | translate }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+      </mat-tab>
+
+      <mat-tab [label]="translations.PROJECTS.TABS.PERSONAL | translate">
+        <mat-list>
+          @for (project of personalProjects(); track project.title) {
+            <mat-list-item
+              role="button"
+              tabindex="0"
+              (click)="openDetails(project)"
+              (keydown.enter)="openDetails(project)"
+              (keydown.space)="openDetails(project)"
+            >
+              <img
+                matListItemIcon
+                ngSrc="assets/logos/{{ project.image }}"
+                width="50"
+                height="50"
+                [alt]="project.title | translate"
+              />
+
+              <span matListItemTitle>{{ project.company | translate }}</span>
+              <span matListItemLine>{{ project.role | translate }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+      </mat-tab>
+    </mat-tab-group>
   </app-expandable-panel>
 </section>

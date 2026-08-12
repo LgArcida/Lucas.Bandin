@@ -18,6 +18,10 @@ export const en = {
   PROJECTS: {
     TITLE: 'Projects',
     SUB_TITLE: 'Professional projects',
+    TABS: {
+      PROFESSIONAL: 'Professional',
+      PERSONAL: 'Personal',
+    },
     ITEMS: {
       ANAPOL: {
         ROLE: 'Lead Software Engineer (Solo)',

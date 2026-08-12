@@ -2,7 +2,15 @@ import { z } from 'zod';
 import { Period, periodSchema } from '@domain/core/models/period';
 import { Technology, technologySchema } from '@domain/core/models/technology';
 
+export const PROJECT_TYPES = {
+  Professional: 'professional',
+  Personal: 'personal',
+} as const;
+
+export type ProjectType = (typeof PROJECT_TYPES)[keyof typeof PROJECT_TYPES];
+
 export const projectSchema = z.object({
+  type: z.enum([PROJECT_TYPES.Professional, PROJECT_TYPES.Personal]),
   role: z.string().min(1, 'Role must not be empty'),
   company: z.string().min(1, 'Company must not be empty'),
   title: z.string().min(1, 'Project title must not be empty'),
@@ -30,6 +38,10 @@ export class Project {
 
   static create(input: unknown): Project {
     return new Project(projectSchema.parse(input));
+  }
+
+  get type(): ProjectType {
+    return this.data.type;
   }
 
   get company(): string {
