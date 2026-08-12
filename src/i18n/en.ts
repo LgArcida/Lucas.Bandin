@@ -3,6 +3,7 @@ export const en = {
     ME: 'Me',
     ABOUT: 'About',
     PROJECTS: 'Projects',
+    EDUCATION: 'Education',
     CONTACT: 'Contact',
   },
   SKILLS: {
@@ -29,6 +30,18 @@ export const en = {
           'Expanded a 2016 UMSA Law School OMR pilot for 250 students into a national-scale ANAPOL admission testing system processing 22,000+ applicants.',
           'Built the custom OpenCV-based OMR and scoring pipeline in-house — QR-coded applicant IDs, bubble detection, and answer-sheet scoring across seven pages per applicant — without third-party OCR or scoring services, due to strict police and government security requirements.',
         ],
+      },
+    },
+  },
+  EDUCATION: {
+    TITLE: 'Education',
+    ITEMS: {
+      UCB: {
+        INSTITUTION: 'Universidad Católica Boliviana',
+        DEGREE: 'Bachelor of Science (B.Sc.) in Systems Engineering',
+        LOCATION: 'La Paz, Bolivia',
+        DESCRIPTION: 'Placeholder description of the academic program.',
+        HIGHLIGHTS: ['Placeholder highlight of the academic program.'],
       },
     },
   },

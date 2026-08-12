@@ -25,6 +25,14 @@ import { Projects } from '@application/projects/projects';
 import { StaticProjectsRepository } from '@infrastructure/repositories/static-projects.repository';
 import { PROJECT_REPOSITORY, ProjectRepository } from '@domain/projects/ports/projects.repository';
 
+// -------------------- Education -----------------
+import { HigherEducation } from '@application/education/higherEducation';
+import { StaticEducationRepository } from '@infrastructure/repositories/static-education.repository';
+import {
+  EDUCATION_REPOSITORY,
+  EducationRepository,
+} from '@domain/education/ports/education.repository';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
@@ -59,6 +67,13 @@ export const appConfig: ApplicationConfig = {
       provide: Projects,
       useFactory: (repo: ProjectRepository) => new Projects(repo),
       deps: [PROJECT_REPOSITORY],
+    },
+
+    { provide: EDUCATION_REPOSITORY, useFactory: () => new StaticEducationRepository() },
+    {
+      provide: HigherEducation,
+      useFactory: (repo: EducationRepository) => new HigherEducation(repo),
+      deps: [EDUCATION_REPOSITORY],
     },
   ],
 };

@@ -1,0 +1,25 @@
+<section id="education" class="education">
+  <app-expandable-panel>
+    <span header>{{ translations.EDUCATION.TITLE | translate }}</span>
+    <mat-list>
+      @for (entry of entries(); track entry.institution) {
+        <mat-list-item>
+          @if (entry.image) {
+            <img
+              matListItemIcon
+              ngSrc="assets/logos/{{ entry.image }}"
+              width="50"
+              height="50"
+              [alt]="entry.institution | translate"
+            />
+          }
+          <span matListItemTitle>{{ entry.institution | translate }}</span>
+          <span matListItemLine>{{ entry.degree | translate }}</span>
+          <span matListItemLine>
+            {{ entry.period | formatPeriod: (translations.EXPERIENCE.PRESENT | translate) }}
+          </span>
+        </mat-list-item>
+      }
+    </mat-list>
+  </app-expandable-panel>
+</section>

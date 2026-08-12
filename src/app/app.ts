@@ -9,6 +9,7 @@ import { SkillsComponent } from './presentation/features/skills/skills';
 import { FooterComponent } from './presentation/layout/footer/footer';
 import { ExperienceComponent } from './presentation/features/experience/experience';
 import { ProjectsComponent } from './presentation/features/projects/projects';
+import { EducationComponent } from './presentation/features/education/education';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { ProjectsComponent } from './presentation/features/projects/projects';
     FooterComponent,
     ExperienceComponent,
     ProjectsComponent,
+    EducationComponent,
   ],
   providers: [],
   templateUrl: './app.html',

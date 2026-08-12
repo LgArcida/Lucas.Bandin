@@ -5,6 +5,7 @@ export const es = {
     ME: 'Yo',
     ABOUT: 'Sobre mí',
     PROJECTS: 'Proyectos',
+    EDUCATION: 'Educación',
     CONTACT: 'Contacto',
   },
   SKILLS: {
@@ -31,6 +32,18 @@ export const es = {
           'Expandí un piloto OMR de 2016 de la Facultad de Derecho de la UMSA para 250 estudiantes hasta convertirlo en un sistema nacional de pruebas de admisión de la ANAPOL que procesa más de 22.000 postulantes.',
           'Construí el pipeline de OMR y corrección personalizado basado en OpenCV de forma interna — IDs de postulante codificados en QR, detección de burbujas y corrección de hojas de respuesta a lo largo de siete páginas por postulante — sin servicios de OCR o de corrección de terceros, debido a los estrictos requisitos de seguridad policial y gubernamental.',
         ],
+      },
+    },
+  },
+  EDUCATION: {
+    TITLE: 'Educación',
+    ITEMS: {
+      UCB: {
+        INSTITUTION: 'Universidad Católica Boliviana',
+        DEGREE: 'Bachelor of Science (B.Sc.) in Systems Engineering',
+        LOCATION: 'La Paz, Bolivia',
+        DESCRIPTION: 'Descripción del programa académico (pendiente).',
+        HIGHLIGHTS: ['Destacado del programa académico (pendiente).'],
       },
     },
   },

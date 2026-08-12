@@ -1,0 +1,10 @@
+.education {
+  display: block;
+
+  img[matListItemIcon] {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    object-fit: contain;
+  }
+}
