@@ -7,18 +7,4 @@
     border-radius: 0.5rem;
     object-fit: contain;
   }
-
-  .highlights {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 0 4vw;
-
-    li {
-      margin-block-end: 0.5rem;
-      padding-inline-start: 1rem;
-      border-inline-start: 2px solid var(--mat-sys-primary);
-      font-size: 0.875rem;
-      line-height: 1.4;
-    }
-  }
 }
