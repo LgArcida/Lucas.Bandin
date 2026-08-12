@@ -19,4 +19,18 @@ export const PROJECTS_DATA = [
     highlights: PROJECTS.ITEMS.ANAPOL.HIGHLIGHTS,
     technologies: [findTechnology('Python'), findTechnology('Django'), findTechnology('OpenCV')],
   },
+  {
+    company: PROJECTS.ITEMS.UMSA_DERECHO.COMPANY,
+    role: PROJECTS.ITEMS.UMSA_DERECHO.ROLE,
+    title: PROJECTS.ITEMS.UMSA_DERECHO.TITLE,
+    description: PROJECTS.ITEMS.UMSA_DERECHO.DESCRIPTION,
+    image: 'umsa.webp',
+    period: {
+      start: '2016-06-01',
+      end: '2016-12-31',
+    },
+    location: PROJECTS.ITEMS.UMSA_DERECHO.LOCATION,
+    highlights: PROJECTS.ITEMS.UMSA_DERECHO.HIGHLIGHTS,
+    technologies: [findTechnology('Python'), findTechnology('Django'), findTechnology('OpenCV')],
+  },
 ] satisfies ProjectModel[];

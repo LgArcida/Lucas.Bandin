@@ -29,12 +29,25 @@ export const es = {
           'Construí una plataforma segura en Django para procesar las pruebas psicológicas de admisión de la Academia Nacional de Policía de Bolivia.',
         LOCATION: 'La Paz, Bolivia',
         HIGHLIGHTS: [
-          'Escalé un piloto OMR de 2016 de la Facultad de Derecho de la UMSA para 250 estudiantes hasta convertirlo en un sistema nacional de pruebas de admisión de la ANAPOL que procesa más de 47.000 postulantes.',
+          'Escalé un piloto OMR de 2016 de la Facultad de Derecho de la UMSA para más de 300 estudiantes hasta convertirlo en un sistema nacional de pruebas de admisión de la ANAPOL que procesa más de 47.000 postulantes.',
           'Diseñé y construí todo el sistema desde cero usando únicamente Python y OpenCV — sin servicios de OCR ni de corrección de terceros — porque los estrictos requisitos de seguridad policial y gubernamental exigían que todo funcionara internamente.',
           'Construí un pipeline OMR personalizado con IDs de postulante y de examen codificados en QR, detección de burbujas y corrección de hojas de respuesta a lo largo de siete páginas por postulante.',
           'Escaneé, digitalicé y almacené decenas de miles de hojas de respuesta físicas, construyendo un archivo completo de los datos de examen.',
           'Creé un índice y un código QR para cada estudiante y cada examen, vinculando cada hoja de respuesta con su dueño.',
           'Calculé las calificaciones finales y publiqué los resultados oficiales de admisión, todo mientras trabajaba bajo la supervisión directa de funcionarios gubernamentales y policiales.',
+        ],
+      },
+      UMSA_DERECHO: {
+        ROLE: 'Ingeniero de Software (Solo)',
+        COMPANY: 'UMSA - Universidad Mayor de San Andrés (Facultad de Derecho)',
+        TITLE: 'Piloto de Corrección Automatizada de Exámenes OMR',
+        DESCRIPTION:
+          'Construí el piloto del sistema automatizado de corrección OMR de exámenes para la Facultad de Derecho de la Universidad Mayor de San Andrés — el predecesor que luego escaló al sistema nacional de pruebas de admisión de la ANAPOL.',
+        LOCATION: 'La Paz, Bolivia',
+        HIGHLIGHTS: [
+          'Construí una versión más simple del sistema de corrección en Python/Django, usando Django para almacenar los datos de los estudiantes y dar seguimiento a sus exámenes durante todo el piloto.',
+          'Procesé hojas de respuesta de una sola página para más de 300 estudiantes, un flujo deliberadamente más simple que las hojas de siete páginas del sistema nacional posterior.',
+          'Gestioné todo el piloto de forma manual y en solitario como único ingeniero, siendo responsable del pipeline completo de principio a fin.',
         ],
       },
     },

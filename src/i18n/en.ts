@@ -27,12 +27,25 @@ export const en = {
           'Built a secure Django platform for processing psychological admission tests for the Bolivian National Police Academy.',
         LOCATION: 'La Paz, Bolivia',
         HIGHLIGHTS: [
-          'Scaled a 2016 UMSA Law School OMR pilot for 250 students into a nationwide ANAPOL admission testing system processing 47,000+ applicants.',
+          'Scaled a 2016 UMSA Law School OMR pilot for 300+ students into a nationwide ANAPOL admission testing system processing 47,000+ applicants.',
           'Designed and built the entire system from scratch using only Python and OpenCV — no third-party OCR or scoring services — because strict police and government security rules required everything to run in-house.',
           'Built a custom OMR pipeline with QR-coded applicant and exam IDs, bubble detection, and answer-sheet scoring across seven pages per applicant.',
           'Scanned, digitized, and stored tens of thousands of physical answer sheets, building a complete archive of the exam data.',
           'Created a QR index and code for every student and every exam, linking each answer sheet to its owner.',
           'Computed final scores and published the official admission results, all while working under direct supervision by government and police officials.',
+        ],
+      },
+      UMSA_DERECHO: {
+        ROLE: 'Software Engineer (Solo)',
+        COMPANY: 'UMSA - Universidad Mayor de San Andrés (Facultad de Derecho)',
+        TITLE: 'OMR Automated Test Scoring Pilot',
+        DESCRIPTION:
+          'Built the pilot of the automated OMR exam scoring system for the Law Faculty of Universidad Mayor de San Andrés — the predecessor that later scaled into the national ANAPOL admission testing system.',
+        LOCATION: 'La Paz, Bolivia',
+        HIGHLIGHTS: [
+          'Built a simpler version of the Python/Django scoring system, using Django to store student data and track exams throughout the pilot.',
+          'Processed single-page paper answer sheets for 300+ students, a deliberately simpler flow than the seven-page sheets of the later national system.',
+          'Ran the entire pilot manually and solo as the only engineer, owning the complete pipeline end to end.',
         ],
       },
     },
