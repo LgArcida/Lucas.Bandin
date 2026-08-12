@@ -1,0 +1,31 @@
+<section id="beyond-code" class="beyond-code">
+  <app-expandable-panel>
+    <span header>{{ translations.BEYOND_CODE.TITLE | translate }}</span>
+    <h3 class="block-title">{{ translations.BEYOND_CODE.DANCE | translate }}</h3>
+    <mat-list>
+      @for (milestone of balletMilestones(); track milestone.venue) {
+        <mat-list-item
+          role="button"
+          tabindex="0"
+          (click)="openDetails(milestone)"
+          (keydown.enter)="openDetails(milestone)"
+          (keydown.space)="openDetails(milestone)"
+        >
+          <mat-icon matListItemIcon>music_note</mat-icon>
+          <span matListItemTitle>{{ milestone.venue | translate }}</span>
+          <span matListItemLine>{{ milestone.role | translate }}</span>
+        </mat-list-item>
+      }
+    </mat-list>
+    <h3 class="block-title">{{ translations.BEYOND_CODE.MAKER | translate }}</h3>
+    <mat-list>
+      @for (hobby of techHobbies(); track hobby.name) {
+        <mat-list-item>
+          <mat-icon matListItemIcon>{{ hobby.icon }}</mat-icon>
+          <span matListItemTitle>{{ hobby.name | translate }}</span>
+          <span matListItemLine>{{ hobby.description | translate }}</span>
+        </mat-list-item>
+      }
+    </mat-list>
+  </app-expandable-panel>
+</section>

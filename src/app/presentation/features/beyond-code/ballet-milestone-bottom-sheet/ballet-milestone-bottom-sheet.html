@@ -1,0 +1,28 @@
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="header">
+    <mat-icon class="logo">music_note</mat-icon>
+    <div class="text">
+      <span id="sheet-title" class="name">{{ milestone.venue | translate }}</span>
+      <span class="role">{{ milestone.role | translate }}</span>
+      <span class="period">{{ milestone.location | translate }}</span>
+      <span class="period">
+        {{ milestone.period | formatPeriod: (translations.EXPERIENCE.PRESENT | translate) }}
+      </span>
+    </div>
+    <button
+      matIconButton
+      (click)="onCloseClick()"
+      [attr.aria-label]="translations.EXPERIENCE.CLOSE | translate"
+    >
+      <mat-icon fontIcon="close" />
+    </button>
+  </div>
+  <p class="description">{{ milestone.description | translate }}</p>
+  @if (milestone.highlights.length > 0) {
+    <ul class="highlights">
+      @for (item of milestone.highlights; track $index) {
+        <li>{{ item | translate }}</li>
+      }
+    </ul>
+  }
+</div>

@@ -33,6 +33,14 @@ import {
   EducationRepository,
 } from '@domain/education/ports/education.repository';
 
+// -------------------- Interests -----------------
+import { Interests } from '@application/interests/interests';
+import { StaticInterestsRepository } from '@infrastructure/repositories/static-interests.repository';
+import {
+  INTERESTS_REPOSITORY,
+  InterestsRepository,
+} from '@domain/interests/ports/interests.repository';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
@@ -74,6 +82,13 @@ export const appConfig: ApplicationConfig = {
       provide: HigherEducation,
       useFactory: (repo: EducationRepository) => new HigherEducation(repo),
       deps: [EDUCATION_REPOSITORY],
+    },
+
+    { provide: INTERESTS_REPOSITORY, useFactory: () => new StaticInterestsRepository() },
+    {
+      provide: Interests,
+      useFactory: (repo: InterestsRepository) => new Interests(repo),
+      deps: [INTERESTS_REPOSITORY],
     },
   ],
 };

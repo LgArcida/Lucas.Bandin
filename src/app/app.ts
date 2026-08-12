@@ -10,6 +10,7 @@ import { FooterComponent } from './presentation/layout/footer/footer';
 import { ExperienceComponent } from './presentation/features/experience/experience';
 import { ProjectsComponent } from './presentation/features/projects/projects';
 import { EducationComponent } from './presentation/features/education/education';
+import { BeyondCodeComponent } from './presentation/features/beyond-code/beyond-code';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { EducationComponent } from './presentation/features/education/education'
     ExperienceComponent,
     ProjectsComponent,
     EducationComponent,
+    BeyondCodeComponent,
   ],
   providers: [],
   templateUrl: './app.html',

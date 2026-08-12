@@ -12,5 +12,6 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'ABOUT' },
   { labelKey: 'PROJECTS', targetId: 'projects' },
   { labelKey: 'EDUCATION', targetId: 'education' },
+  { labelKey: 'BEYOND_CODE', targetId: 'beyond-code' },
   { labelKey: 'CONTACT' },
 ];

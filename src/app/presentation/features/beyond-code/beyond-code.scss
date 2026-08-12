@@ -1,0 +1,15 @@
+.beyond-code {
+  display: block;
+
+  .block-title {
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brand-accent-lite);
+  }
+
+  mat-icon[matListItemIcon] {
+    color: var(--brand-accent-lite);
+  }
+}

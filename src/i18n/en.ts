@@ -4,6 +4,7 @@ export const en = {
     ABOUT: 'About',
     PROJECTS: 'Projects',
     EDUCATION: 'Education',
+    BEYOND_CODE: 'Beyond code',
     CONTACT: 'Contact',
   },
   SKILLS: {
@@ -71,6 +72,43 @@ export const en = {
           'On large university projects I usually took the initiative and acted as lead — managing people, timelines, and ideas — while also writing code, and my peers remember me as a natural leader.',
           'Took extra courses (Stanford, MIT, and others) well beyond the curriculum, but never kept the certificates — if I can\u2019t actually do something, a piece of paper means nothing.',
         ],
+      },
+    },
+  },
+  BEYOND_CODE: {
+    TITLE: 'Beyond code',
+    DANCE: 'Dance',
+    MAKER: 'Maker hobbies',
+    MILESTONES: {
+      PLACEHOLDER_ONE: {
+        VENUE: 'Placeholder Ballet Company',
+        ROLE: 'Classical Ballet Dancer',
+        LOCATION: 'La Paz, Bolivia',
+        DESCRIPTION:
+          'Placeholder description for the first ballet milestone. Replace with real facts about the ballet career.',
+        HIGHLIGHTS: ['Placeholder highlight — replace with a real achievement.'],
+      },
+      PLACEHOLDER_TWO: {
+        VENUE: 'Second Placeholder Studio',
+        ROLE: 'Principal Dancer',
+        LOCATION: 'La Paz, Bolivia',
+        DESCRIPTION:
+          'Placeholder description for the second ballet milestone. Replace with real facts about the ballet career.',
+        HIGHLIGHTS: ['Placeholder highlight — replace with a real achievement.'],
+      },
+    },
+    HOBBIES: {
+      THREE_D_PRINTING: {
+        NAME: '3D printing',
+        DESCRIPTION: 'Designing and printing functional parts and prototypes.',
+      },
+      MICROCONTROLLERS: {
+        NAME: 'Microcontrollers',
+        DESCRIPTION: 'Building embedded projects with Arduino, ESP32 and friends.',
+      },
+      HOME_AUTOMATION: {
+        NAME: 'Home automation',
+        DESCRIPTION: 'Automating the house with sensors, smart devices and custom logic.',
       },
     },
   },

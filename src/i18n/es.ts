@@ -6,6 +6,7 @@ export const es = {
     ABOUT: 'Sobre mí',
     PROJECTS: 'Proyectos',
     EDUCATION: 'Educación',
+    BEYOND_CODE: 'Más allá del código',
     CONTACT: 'Contacto',
   },
   SKILLS: {
@@ -73,6 +74,44 @@ export const es = {
           'En los proyectos grandes de la universidad, normalmente tomaba la iniciativa y actuaba como líder — gestionando personas, tiempos e ideas — mientras también programaba, y mis compañeros me recuerdan como un líder natural.',
           'Tomé cursos adicionales (Stanford, MIT y otros) más allá del plan de estudios, pero nunca guardé los certificados — si no puedo hacer algo en la práctica, un pedazo de papel no significa nada.',
         ],
+      },
+    },
+  },
+  BEYOND_CODE: {
+    TITLE: 'Más allá del código',
+    DANCE: 'Danza',
+    MAKER: 'Pasatiempos maker',
+    MILESTONES: {
+      PLACEHOLDER_ONE: {
+        VENUE: 'Compañía de Ballet de Ejemplo',
+        ROLE: 'Bailarín de Ballet Clásico',
+        LOCATION: 'La Paz, Bolivia',
+        DESCRIPTION:
+          'Descripción de ejemplo para el primer hito de ballet. Reemplázala con datos reales de tu carrera.',
+        HIGHLIGHTS: ['Hito de ejemplo — reemplázalo con un logro real.'],
+      },
+      PLACEHOLDER_TWO: {
+        VENUE: 'Segundo Estudio de Ejemplo',
+        ROLE: 'Bailarín Principal',
+        LOCATION: 'La Paz, Bolivia',
+        DESCRIPTION:
+          'Descripción de ejemplo para el segundo hito de ballet. Reemplázala con datos reales de tu carrera.',
+        HIGHLIGHTS: ['Hito de ejemplo — reemplázalo con un logro real.'],
+      },
+    },
+    HOBBIES: {
+      THREE_D_PRINTING: {
+        NAME: 'Impresión 3D',
+        DESCRIPTION: 'Diseñando e imprimiendo piezas funcionales y prototipos.',
+      },
+      MICROCONTROLLERS: {
+        NAME: 'Microcontroladores',
+        DESCRIPTION: 'Construyendo proyectos embebidos con Arduino, ESP32 y otros.',
+      },
+      HOME_AUTOMATION: {
+        NAME: 'Domótica',
+        DESCRIPTION:
+          'Automatizando la casa con sensores, dispositivos inteligentes y lógica propia.',
       },
     },
   },
