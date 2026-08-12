@@ -1,3 +1,4 @@
+import type { WorkExperienceModel } from '@domain/experience/models/work-experience';
 import { findTechnology } from './technologies';
 import { Translations } from '@i18n/translations';
 
@@ -157,4 +158,4 @@ export const EXPERIENCES_DATA = [
       findTechnology('CSS'),
     ],
   },
-];
+] satisfies WorkExperienceModel[];

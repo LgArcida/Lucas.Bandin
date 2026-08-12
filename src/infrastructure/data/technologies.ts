@@ -1,3 +1,5 @@
+import type { TechnologyModel } from '@domain/core/models/technology';
+
 export const TECHNOLOGIES = [
   { name: 'Angular', image: 'angular.webp' },
   { name: 'Ngrx', image: 'ngrx.webp' },
@@ -29,7 +31,7 @@ export const TECHNOLOGIES = [
   { name: 'Bluetooth', image: '' },
   { name: 'Iridium Satellite', image: '' },
   { name: 'Chess.js', image: '' },
-] as const;
+] as const satisfies readonly TechnologyModel[];
 
 export const findTechnology = (name: string) =>
   TECHNOLOGIES.find((x) => x.name === name) ?? { name, image: '' };

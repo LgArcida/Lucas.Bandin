@@ -1,4 +1,4 @@
-import { TECHNOLOGIES } from './technologies';
+import type { SocialLinkModel } from '@domain/profile/models/social-link';
 
 export const SOCIAL_DATA = [
   { name: 'Reddit', url: 'https://www.reddit.com/user/LgArcida/', icon: 'reddit.webp' },
@@ -9,4 +9,4 @@ export const SOCIAL_DATA = [
   },
   { name: 'Facebook', url: 'https://www.facebook.com/lucas.bandin.arcida/', icon: 'facebook.webp' },
   { name: 'GitHub', url: 'https://github.com/LgArcida', icon: 'github.webp' },
-];
+] satisfies SocialLinkModel[];

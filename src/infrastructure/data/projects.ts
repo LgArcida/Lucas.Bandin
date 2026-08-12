@@ -1,3 +1,4 @@
+import type { ProjectModel } from '@domain/projects/models/project';
 import { findTechnology } from './technologies';
 import { Translations } from '@i18n/translations';
 
@@ -18,4 +19,4 @@ export const PROJECTS_DATA = [
     highlights: PROJECTS.ITEMS.ANAPOL.HIGHLIGHTS,
     technologies: [findTechnology('Python'), findTechnology('Django'), findTechnology('OpenCV')],
   },
-];
+] satisfies ProjectModel[];

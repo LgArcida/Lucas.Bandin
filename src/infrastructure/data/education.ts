@@ -1,3 +1,4 @@
+import type { EducationModel } from '@domain/education/models/education';
 import { Translations } from '@i18n/translations';
 
 const EDUCATION = Translations.EDUCATION;
@@ -16,4 +17,4 @@ export const EDUCATION_DATA = [
     image: 'ucb.webp',
     website: 'https://www.ucb.edu.bo/',
   },
-];
+] satisfies EducationModel[];
