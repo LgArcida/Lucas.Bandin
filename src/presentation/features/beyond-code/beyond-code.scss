@@ -12,4 +12,11 @@
   mat-icon[matListItemIcon] {
     color: var(--brand-accent-lite);
   }
+
+  img[matListItemIcon] {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    object-fit: contain;
+  }
 }

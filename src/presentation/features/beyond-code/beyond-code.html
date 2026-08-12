@@ -11,7 +11,17 @@
           (keydown.enter)="openDetails(milestone)"
           (keydown.space)="openDetails(milestone)"
         >
-          <mat-icon matListItemIcon>music_note</mat-icon>
+          @if (milestone.image) {
+            <img
+              matListItemIcon
+              ngSrc="assets/logos/{{ milestone.image }}"
+              width="48"
+              height="48"
+              [alt]="milestone.venue | translate"
+            />
+          } @else {
+            <mat-icon matListItemIcon>music_note</mat-icon>
+          }
           <span matListItemTitle>{{ milestone.venue | translate }}</span>
           <span matListItemLine>{{ milestone.role | translate }}</span>
         </mat-list-item>

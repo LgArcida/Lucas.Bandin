@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Interests } from '@application/interests/interests';
 import { BalletMilestone } from '@domain/interests/models/ballet-milestone';
@@ -12,7 +13,7 @@ import { Translations } from '@i18n/translations';
 
 @Component({
   selector: 'app-beyond-code',
-  imports: [TranslatePipe, MatIconModule, MatListModule, ExpandablePanelComponent],
+  imports: [TranslatePipe, MatIconModule, MatListModule, NgOptimizedImage, ExpandablePanelComponent],
   templateUrl: './beyond-code.html',
   styleUrl: './beyond-code.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

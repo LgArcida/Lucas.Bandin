@@ -8,26 +8,28 @@ const HOBBIES = BEYOND_CODE.HOBBIES;
 
 export const BALLET_MILESTONES_DATA = [
   {
-    venue: MILESTONES.PLACEHOLDER_ONE.VENUE,
-    role: MILESTONES.PLACEHOLDER_ONE.ROLE,
+    venue: MILESTONES.BOB.VENUE,
+    role: MILESTONES.BOB.ROLE,
     period: {
       start: '2005-01-01',
       end: '2010-12-31',
     },
-    location: MILESTONES.PLACEHOLDER_ONE.LOCATION,
-    description: MILESTONES.PLACEHOLDER_ONE.DESCRIPTION,
-    highlights: MILESTONES.PLACEHOLDER_ONE.HIGHLIGHTS,
+    location: MILESTONES.BOB.LOCATION,
+    description: MILESTONES.BOB.DESCRIPTION,
+    highlights: MILESTONES.BOB.HIGHLIGHTS,
+    image: 'bob.webp',
   },
   {
-    venue: MILESTONES.PLACEHOLDER_TWO.VENUE,
-    role: MILESTONES.PLACEHOLDER_TWO.ROLE,
+    venue: MILESTONES.EDMG.VENUE,
+    role: MILESTONES.EDMG.ROLE,
     period: {
       start: '2010-01-01',
       end: '2015-12-31',
     },
-    location: MILESTONES.PLACEHOLDER_TWO.LOCATION,
-    description: MILESTONES.PLACEHOLDER_TWO.DESCRIPTION,
-    highlights: MILESTONES.PLACEHOLDER_TWO.HIGHLIGHTS,
+    location: MILESTONES.EDMG.LOCATION,
+    description: MILESTONES.EDMG.DESCRIPTION,
+    highlights: MILESTONES.EDMG.HIGHLIGHTS,
+    image: 'edmg.webp',
   },
 ] satisfies BalletMilestoneModel[];
 

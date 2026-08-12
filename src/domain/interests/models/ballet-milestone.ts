@@ -10,6 +10,7 @@ export const balletMilestoneSchema = z.object({
   highlights: z
     .array(z.string().min(1, 'Highlight must not be empty'))
     .min(1, 'At least one highlight is required'),
+  image: z.string().optional(),
 });
 
 export type BalletMilestoneModel = z.infer<typeof balletMilestoneSchema>;
@@ -47,5 +48,9 @@ export class BalletMilestone {
 
   get highlights(): readonly string[] {
     return this.data.highlights;
+  }
+
+  get image(): string | undefined {
+    return this.data.image;
   }
 }

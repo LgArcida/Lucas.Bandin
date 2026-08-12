@@ -10,11 +10,19 @@
   gap: 1rem;
   align-items: flex-start;
 
-  .logo {
+  mat-icon.logo {
     color: var(--brand-accent-lite);
     font-size: 2.5rem;
     width: 2.5rem;
     height: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  img.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    object-fit: contain;
     flex-shrink: 0;
   }
 

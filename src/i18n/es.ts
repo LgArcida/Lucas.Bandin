@@ -82,16 +82,16 @@ export const es = {
     DANCE: 'Danza',
     MAKER: 'Pasatiempos maker',
     MILESTONES: {
-      PLACEHOLDER_ONE: {
-        VENUE: 'Compañía de Ballet de Ejemplo',
+      BOB: {
+        VENUE: 'Ballet Oficial de Bolivia',
         ROLE: 'Bailarín de Ballet Clásico',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
           'Descripción de ejemplo para el primer hito de ballet. Reemplázala con datos reales de tu carrera.',
         HIGHLIGHTS: ['Hito de ejemplo — reemplázalo con un logro real.'],
       },
-      PLACEHOLDER_TWO: {
-        VENUE: 'Segundo Estudio de Ejemplo',
+      EDMG: {
+        VENUE: 'Estudio Dance Mariela Gonzales',
         ROLE: 'Bailarín Principal',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:

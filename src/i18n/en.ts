@@ -80,16 +80,16 @@ export const en = {
     DANCE: 'Dance',
     MAKER: 'Maker hobbies',
     MILESTONES: {
-      PLACEHOLDER_ONE: {
-        VENUE: 'Placeholder Ballet Company',
+      BOB: {
+        VENUE: 'Ballet Oficial de Bolivia',
         ROLE: 'Classical Ballet Dancer',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
           'Placeholder description for the first ballet milestone. Replace with real facts about the ballet career.',
         HIGHLIGHTS: ['Placeholder highlight — replace with a real achievement.'],
       },
-      PLACEHOLDER_TWO: {
-        VENUE: 'Second Placeholder Studio',
+      EDMG: {
+        VENUE: 'Estudio Dance Mariela Gonzales',
         ROLE: 'Principal Dancer',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
