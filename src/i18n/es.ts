@@ -42,8 +42,15 @@ export const es = {
         INSTITUTION: 'Universidad Católica Boliviana',
         DEGREE: 'Bachelor of Science (B.Sc.) in Systems Engineering',
         LOCATION: 'La Paz, Bolivia',
-        DESCRIPTION: 'Descripción del programa académico (pendiente).',
-        HIGHLIGHTS: ['Destacado del programa académico (pendiente).'],
+        DESCRIPTION:
+          'Completé la carrera de cinco años de Ingeniería de Sistemas, graduándome con un promedio de 93 %. Combina una sólida base académica en algoritmos, estructuras de datos e ingeniería de software con experiencia práctica en visión por computadora, programación competitiva y liderazgo.',
+        HIGHLIGHTS: [
+          'Me gradué con un promedio de 93 % en la carrera de Ingeniería de Sistemas.',
+          'Participé en el ACM-ICPC (International Collegiate Programming Contest).',
+          'Asumí roles de liderazgo mientras trabajaba con compañeros en proyectos universitarios.',
+          'Tesis de grado: construí un sistema de visión por computadora para detectar posiciones de ballet usando OpenCV, un Microsoft Kinect y el algoritmo SURF.',
+          'Me desempeñé como líder de equipo en una alianza con una empresa española, implementando frameworks de evaluación utilizados para evaluar a estudiantes universitarios y a candidatos a puestos de trabajo.',
+        ],
       },
     },
   },

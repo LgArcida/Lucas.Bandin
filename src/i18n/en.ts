@@ -40,8 +40,15 @@ export const en = {
         INSTITUTION: 'Universidad Católica Boliviana',
         DEGREE: 'Bachelor of Science (B.Sc.) in Systems Engineering',
         LOCATION: 'La Paz, Bolivia',
-        DESCRIPTION: 'Placeholder description of the academic program.',
-        HIGHLIGHTS: ['Placeholder highlight of the academic program.'],
+        DESCRIPTION:
+          'Completed a five-year Systems Engineering program, graduating with a 93% career average. Combines a strong academic foundation in algorithms, data structures, and software engineering with hands-on work in computer vision, competitive programming, and leadership.',
+        HIGHLIGHTS: [
+          'Graduated with a 93% career average in Systems Engineering.',
+          'Competed in the ACM-ICPC (International Collegiate Programming Contest).',
+          'Took on leadership roles while working with peers on university projects.',
+          'Final thesis: built a computer-vision system to detect ballet positions using OpenCV, a Microsoft Kinect, and the SURF algorithm.',
+          'Served as team lead in a partnership with a Spanish company, implementing testing frameworks used to assess university students and to screen job candidates.',
+        ],
       },
     },
   },

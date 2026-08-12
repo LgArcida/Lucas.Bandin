@@ -19,6 +19,13 @@
             {{ entry.period | formatPeriod: (translations.EXPERIENCE.PRESENT | translate) }}
           </span>
         </mat-list-item>
+        @if (entry.highlights.length > 0) {
+          <ul class="highlights">
+            @for (h of entry.highlights; track $index) {
+              <li>{{ h | translate }}</li>
+            }
+          </ul>
+        }
       }
     </mat-list>
   </app-expandable-panel>
