@@ -3,7 +3,7 @@
     <span header>{{ translations.BEYOND_CODE.TITLE | translate }}</span>
     <h3 class="block-title">{{ translations.BEYOND_CODE.DANCE | translate }}</h3>
     <mat-list>
-      @for (milestone of balletMilestones(); track milestone.venue) {
+      @for (milestone of balletMilestones(); track milestone.id) {
         <mat-list-item
           role="button"
           tabindex="0"

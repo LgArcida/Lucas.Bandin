@@ -81,22 +81,38 @@ export const es = {
     TITLE: 'Más allá del código',
     DANCE: 'Danza',
     MAKER: 'Pasatiempos maker',
+    CAREER: 'Carrera',
     MILESTONES: {
       BOB: {
         VENUE: 'Ballet Oficial de Bolivia',
-        ROLE: 'Bailarín de Ballet Clásico',
+        ROLE: 'Estudiante y corps de ballet',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
-          'Descripción de ejemplo para el primer hito de ballet. Reemplázala con datos reales de tu carrera.',
-        HIGHLIGHTS: ['Hito de ejemplo — reemplázalo con un logro real.'],
+          'Ballet Oficial de Bolivia fue mi primera academia de ballet (2003\u20132006). Me formé como estudiante regular en una academia sólida y bien gestionada, y me destacaba como una figura joven y prometedora. Desde 2006 fui seleccionado para apoyar al cuerpo principal, participando en grandes shows con el elenco principal \u2014 siempre en un rol de apoyo y corps de ballet.',
+        HIGHLIGHTS: [
+          'Participé en el show de despedida de 2006 de los bailarines principales de Bolivia, Mariela Gonzales y Jaime Mendez, bailando en El Corsario y Don Quijote (como Espada)',
+          'Seleccionado en 2006 para apoyar al elenco principal en grandes producciones, siempre como corps de ballet',
+          'Participé en unos 3\u20136 shows al año',
+          'Pasé de estudiante regular a una figura joven y destacada en la academia',
+        ],
       },
       EDMG: {
         VENUE: 'Estudio Dance Mariela Gonzales',
-        ROLE: 'Bailarín Principal',
+        ROLE: 'Bailarín principal retirado',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
-          'Descripción de ejemplo para el segundo hito de ballet. Reemplázala con datos reales de tu carrera.',
-        HIGHLIGHTS: ['Hito de ejemplo — reemplázalo con un logro real.'],
+          'Estudio Dance Mariela Gonzales es donde pasé la mayor parte de mi carrera. Comencé como estudiante en 2006, me gradué al corps de ballet, fui promovido a solista y bailé como bailarín principal durante muchos años, hasta que una lesión de rodilla me obligó a retirarme en 2021.',
+        HIGHLIGHTS: [
+          'Pasé 15 años en EDMG, de estudiante a bailarín principal',
+          'Participé en muchos talleres, competencias y festivales',
+        ],
+        ROLES: {
+          STUDENT: { TITLE: 'Estudiante' },
+          CORPS: { TITLE: 'Corps de ballet' },
+          SOLOIST: { TITLE: 'Solista' },
+          PRINCIPAL: { TITLE: 'Bailarín principal' },
+          EX_PRINCIPAL: { TITLE: 'Bailarín principal retirado' },
+        },
       },
     },
     HOBBIES: {

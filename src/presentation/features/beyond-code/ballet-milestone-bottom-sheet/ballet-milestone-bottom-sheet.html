@@ -27,6 +27,21 @@
       <mat-icon fontIcon="close" />
     </button>
   </div>
+  @if (milestone.roles.length > 0) {
+    <section class="roles">
+      <h4 class="roles-title">{{ translations.BEYOND_CODE.CAREER | translate }}</h4>
+      <ul>
+        @for (role of milestone.roles; track role.title) {
+          <li>
+            <span class="role-title">{{ role.title | translate }}</span>
+            <span class="role-period">
+              {{ role.period | formatPeriod: (translations.EXPERIENCE.PRESENT | translate) }}
+            </span>
+          </li>
+        }
+      </ul>
+    </section>
+  }
   <p class="description">{{ milestone.description | translate }}</p>
   @if (milestone.highlights.length > 0) {
     <ul class="highlights">

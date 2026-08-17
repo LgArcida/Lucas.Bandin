@@ -79,22 +79,38 @@ export const en = {
     TITLE: 'Beyond code',
     DANCE: 'Dance',
     MAKER: 'Maker hobbies',
+    CAREER: 'Career',
     MILESTONES: {
       BOB: {
         VENUE: 'Ballet Oficial de Bolivia',
-        ROLE: 'Classical Ballet Dancer',
+        ROLE: 'Student & corps de ballet',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
-          'Placeholder description for the first ballet milestone. Replace with real facts about the ballet career.',
-        HIGHLIGHTS: ['Placeholder highlight — replace with a real achievement.'],
+          'Ballet Oficial de Bolivia was my first ballet academy (2003\u20132006). I trained as a regular student in a solid, well-run academy and stood out as a strong upcoming dancer. From 2006 I was selected to support the main staff, taking part in major shows with the main cast \u2014 always in a supporting corps-de-ballet role.',
+        HIGHLIGHTS: [
+          'Performed in the 2006 retirement show for Bolivia\u2019s principal dancers Mariela Gonzales and Jaime Mendez, dancing in Le Corsaire and Don Quixote (as Espada)',
+          'Selected in 2006 to support the main cast in major productions, always as corps de ballet',
+          'Performed in roughly 3\u20136 shows a year',
+          'Grew from a regular student into a strong upcoming figure at the academy',
+        ],
       },
       EDMG: {
         VENUE: 'Estudio Dance Mariela Gonzales',
-        ROLE: 'Principal Dancer',
+        ROLE: 'Ex-principal dancer',
         LOCATION: 'La Paz, Bolivia',
         DESCRIPTION:
-          'Placeholder description for the second ballet milestone. Replace with real facts about the ballet career.',
-        HIGHLIGHTS: ['Placeholder highlight — replace with a real achievement.'],
+          'Estudio Dance Mariela Gonzales is where I spent most of my career. I started as a student in 2006, graduated to the corps de ballet, was promoted to soloist, and danced as a principal dancer for many years, until a knee injury forced me to retire in 2021.',
+        HIGHLIGHTS: [
+          'Spent 15 years at EDMG, rising from student to principal dancer',
+          'Took part in many workshops, competitions and festivals',
+        ],
+        ROLES: {
+          STUDENT: { TITLE: 'Student' },
+          CORPS: { TITLE: 'Corps de ballet' },
+          SOLOIST: { TITLE: 'Soloist' },
+          PRINCIPAL: { TITLE: 'Principal dancer' },
+          EX_PRINCIPAL: { TITLE: 'Ex-principal dancer' },
+        },
       },
     },
     HOBBIES: {
