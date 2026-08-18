@@ -9,7 +9,7 @@ The repo is already on GitHub; this just wires Vercel to it.
 git status && git push origin main
 ```
 
-- [ ] `git status` says "nothing to commit" and the push succeeds.
+- [x] `git status` says "nothing to commit" and the push succeeds.
   - One-line explanation: Vercel can only deploy what's on GitHub.
 
 ## B. Link the GitHub repo (terminal, preferred)
@@ -18,7 +18,7 @@ git status && git push origin main
 vercel git connect
 ```
 
-- [ ] Follow the prompts: pick your GitHub account, then the `Lucas.Bandin` repo.
+- [x] Follow the prompts: pick your GitHub account, then the `Lucas.Bandin` repo.
   - One-line explanation: tells Vercel "watch this repo".
 
 ## C. Confirm the connection
@@ -27,14 +27,14 @@ vercel git connect
 vercel project ls
 ```
 
-- [ ] You see your project listed.
+- [x] You see your project listed.
   - One-line explanation: your local CLI is linked to the Vercel project.
 
 ## D. Verify auto-deploy works
 
-- [ ] Push any tiny change (e.g. edit a README) — or wait until your next real change.
+- [x] Push any tiny change (e.g. edit a README) — or wait until your next real change.
   - One-line explanation: a new deployment should appear automatically.
-- [ ] Optional: open a PR to `main` — Vercel gives it a **preview URL**.
+- [x] Optional: open a PR to `main` — Vercel gives it a **preview URL**.
   - One-line explanation: PRs get their own test deployment without touching production.
 
 ## UI instead
