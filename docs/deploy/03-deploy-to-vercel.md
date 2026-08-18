@@ -27,7 +27,7 @@ vercel --prod
 
 ## B. Note your URL
 
-- [ ] Write your production URL here: `https://________.vercel.app`
+- [x] Write your production URL here: `https://lucasbandin.vercel.app`
   - One-line explanation: you'll need it in the next file.
 
 ## UI instead
