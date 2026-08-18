@@ -31,10 +31,10 @@ npm run serve:ssr:Lucas.Bandin
 ls -la dist/Lucas.Bandin/server/server.mjs
 ```
 
-- [ ] The file exists (a few hundred KB).
+- [x] The file exists (a few hundred KB).
   - One-line explanation: this is the server entry point Vercel detects and runs.
 
 ## E. Stop the server
 
-- [ ] Press `Ctrl+C` in the terminal.
+- [x] Press `Ctrl+C` in the terminal.
   - One-line explanation: frees port 4000 and ends the local test.

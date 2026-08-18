@@ -8,12 +8,12 @@ From the project root:
 vercel
 ```
 
-- [ ] If it asks about scope/team, pick your personal account.
-- [ ] If it asks to link a project, say **No** (this is a brand-new project).
-- [ ] **Framework**: it should auto-detect `Angular` — keep it.
-- [ ] **Build Command**: it should show `npm run build` — keep it.
-- [ ] **Output Directory**: leave it **empty** / accept the default.
-- [ ] Wait for the build to finish — it ends with a URL like `https://lucas-bandin.vercel.app`.
+- [x] If it asks about scope/team, pick your personal account.
+- [x] If it asks to link a project, say **No** (this is a brand-new project).
+- [x ] **Framework**: it should auto-detect `Angular` — keep it.
+- [x] **Build Command**: it should show `npm run build` — keep it.
+- [x] **Output Directory**: leave it **empty** / accept the default.
+- [x] Wait for the build to finish — it ends with a URL like `https://lucas-bandin.vercel.app`.
   - One-line explanation: this first run creates the Vercel project, builds, and deploys to a preview URL.
 
 Now deploy to **production** (the URL people will actually use):
@@ -22,7 +22,7 @@ Now deploy to **production** (the URL people will actually use):
 vercel --prod
 ```
 
-- [ ] It builds again and gives you a production URL, e.g. `https://lucas-bandin.vercel.app`.
+- [x] It builds again and gives you a production URL, e.g. `https://lucas-bandin.vercel.app`.
   - One-line explanation: `--prod` ships to the production environment instead of a preview.
 
 ## B. Note your URL
