@@ -12,6 +12,7 @@ import { ExperienceComponent } from '@presentation/features/experience/experienc
 import { ProjectsComponent } from '@presentation/features/projects/projects';
 import { EducationComponent } from '@presentation/features/education/education';
 import { BeyondCodeComponent } from '@presentation/features/beyond-code/beyond-code';
+import { MateLoaderComponent } from '@presentation/shared/mate-loader/mate-loader';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ import { BeyondCodeComponent } from '@presentation/features/beyond-code/beyond-c
     ProjectsComponent,
     EducationComponent,
     BeyondCodeComponent,
+    MateLoaderComponent,
   ],
   providers: [],
   templateUrl: './app.html',

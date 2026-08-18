@@ -1,0 +1,208 @@
+<svg
+  class="mate-scene"
+  viewBox="0 0 260 240"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Loading"
+>
+  <defs>
+    <radialGradient id="mate-gourd-grad" cx="35%" cy="28%" r="82%">
+      <stop offset="0%" stop-color="var(--brand-accent-lite)" />
+      <stop offset="45%" stop-color="var(--brand-bubble)" />
+      <stop offset="100%" stop-color="#6d3b1c" />
+    </radialGradient>
+
+    <linearGradient id="mate-metal-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbfbfc" />
+      <stop offset="45%" stop-color="#cfccd2" />
+      <stop offset="100%" stop-color="#85828a" />
+    </linearGradient>
+
+    <linearGradient id="mate-yerba-grad" x1="0.1" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#7ba83f" />
+      <stop offset="100%" stop-color="#46681f" />
+    </linearGradient>
+
+    <linearGradient id="mate-thermos-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6c7cc0" />
+      <stop offset="45%" stop-color="var(--brand-primary)" />
+      <stop offset="100%" stop-color="#2b3260" />
+    </linearGradient>
+
+    <linearGradient id="mate-water-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b3e0ff" />
+      <stop offset="100%" stop-color="#4aa6e8" />
+    </linearGradient>
+
+    <linearGradient id="mate-rim-grad" x1="0" y1="0" x2="0.25" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#dedbe2" />
+      <stop offset="62%" stop-color="#a9a6ae" />
+      <stop offset="100%" stop-color="#757279" />
+    </linearGradient>
+
+    <radialGradient id="mate-shine" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="mate-shade" x1="1" y1="0.25" x2="0" y2="0.75">
+      <stop offset="0%" stop-color="#4a2410" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#4a2410" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="mate-bottom-shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a2410" stop-opacity="0" />
+      <stop offset="100%" stop-color="#4a2410" stop-opacity="0.5" />
+    </linearGradient>
+
+    <linearGradient id="mate-neck-shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a2410" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#4a2410" stop-opacity="0" />
+    </linearGradient>
+
+    <clipPath id="mate-gourd-clip">
+      <path
+        d="M 130 122 C 124 140 112 152 112 176 C 112 202 130 216 160 216 C 190 216 208 202 208 176 C 208 152 196 140 190 122 Z"
+      />
+    </clipPath>
+  </defs>
+
+  <ellipse cx="160" cy="220" rx="56" ry="8" fill="#4a2410" opacity="0.14" />
+
+  <g class="mate">
+    <path
+      class="gourd"
+      d="M 130 122 C 124 140 112 152 112 176 C 112 202 130 216 160 216 C 190 216 208 202 208 176 C 208 152 196 140 190 122 Z"
+      fill="url(#mate-gourd-grad)"
+    />
+
+    <g clip-path="url(#mate-gourd-clip)" aria-hidden="true">
+      <ellipse cx="140" cy="160" rx="21" ry="35" transform="rotate(-14 140 160)" fill="url(#mate-shine)" />
+      <ellipse cx="136" cy="147" rx="9" ry="17" transform="rotate(-18 136 147)" fill="url(#mate-shine)" />
+      <path
+        d="M 194 134 C 206 154 210 178 203 195 C 196 210 181 218 162 221 C 187 211 200 191 200 168 C 200 154 197 143 194 134 Z"
+        fill="url(#mate-shade)"
+      />
+      <rect x="108" y="176" width="104" height="44" fill="url(#mate-bottom-shade)" />
+      <rect x="108" y="128" width="104" height="26" fill="url(#mate-neck-shade)" />
+    </g>
+
+    <path
+      d="M 124 117 C 124 100 196 100 196 117 L 194 130 C 194 143 126 143 126 130 Z"
+      fill="url(#mate-rim-grad)"
+    />
+    <path
+      d="M 126 131 C 126 144 194 144 194 131 L 194 134 C 194 147 126 147 126 134 Z"
+      fill="#5f5c64"
+      opacity="0.3"
+    />
+    <path
+      d="M 130 128 C 142 137 178 137 190 128 C 180 135 140 135 130 128 Z"
+      fill="#ffffff"
+      opacity="0.55"
+    />
+
+    <ellipse cx="160" cy="118" rx="30" ry="9" fill="#2a1a0e" />
+
+    <g class="yerba" aria-hidden="true">
+      <path
+        d="M 130 118 C 130 110 148 102 164 105 C 176 107 187 112 190 118 C 190 127 130 127 130 118 Z"
+        fill="url(#mate-yerba-grad)"
+      />
+      <path d="M 132 116 C 134 108 150 101 164 104 C 152 106 140 111 132 116 Z" fill="#8fbb4e" opacity="0.85" />
+      <ellipse cx="145" cy="113" rx="3" ry="1.6" transform="rotate(-20 145 113)" fill="#2f4a16" opacity="0.45" />
+      <ellipse cx="168" cy="114" rx="3.2" ry="1.7" transform="rotate(15 168 114)" fill="#2f4a16" opacity="0.45" />
+      <ellipse cx="156" cy="110" rx="2.6" ry="1.4" transform="rotate(-8 156 110)" fill="#2f4a16" opacity="0.4" />
+      <ellipse cx="178" cy="117" rx="2.4" ry="1.3" transform="rotate(25 178 117)" fill="#2f4a16" opacity="0.4" />
+    </g>
+
+    <g class="bombilla" aria-hidden="true">
+      <path
+        d="M 176 113 C 192 96 210 74 226 54"
+        fill="none"
+        stroke="#6f6c72"
+        stroke-width="9"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 176 113 C 192 96 210 74 226 54"
+        fill="none"
+        stroke="url(#mate-metal-grad)"
+        stroke-width="6.4"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 174 111 C 190 94 208 72 224 52"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        opacity="0.55"
+      />
+      <ellipse cx="228" cy="51" rx="8" ry="5.4" transform="rotate(-51 228 51)" fill="#6f6c72" />
+      <ellipse cx="228" cy="51" rx="6.8" ry="4.4" transform="rotate(-51 228 51)" fill="url(#mate-metal-grad)" />
+    </g>
+  </g>
+
+  <g class="thermos">
+    <g transform="translate(34 138) rotate(40)">
+      <path
+        d="M -22 -74 C -44 -71 -46 -45 -22 -41"
+        fill="none"
+        stroke="#39406f"
+        stroke-width="7"
+        stroke-linecap="round"
+      />
+      <rect x="-24" y="-92" width="48" height="92" rx="13" fill="url(#mate-thermos-grad)" />
+      <path
+        d="M -24 -18 L 24 -18 L 24 -11 C 24 -4 20 0 13 0 L -13 0 C -20 0 -24 -4 -24 -11 Z"
+        fill="#2b3260"
+      />
+      <rect x="-24" y="-62" width="48" height="12" fill="var(--brand-accent)" opacity="0.9" />
+      <rect x="-16" y="-82" width="7" height="62" rx="3.5" fill="#ffffff" opacity="0.22" />
+      <rect x="-23" y="-97" width="46" height="10" rx="4" fill="#2b3260" opacity="0.85" />
+      <rect x="-18" y="-109" width="36" height="14" rx="5" fill="#5c6db0" />
+      <rect x="-14" y="-121" width="28" height="14" rx="6" fill="url(#mate-thermos-grad)" />
+      <path d="M 8 -121 L 30 -117 C 35 -116 35 -108 30 -107 L 10 -108 Z" fill="#5c6db0" />
+    </g>
+  </g>
+
+  <g class="pour" aria-hidden="true">
+    <path
+      d="M 131 74 C 137 84 142 94 148 106"
+      fill="none"
+      stroke="url(#mate-water-grad)"
+      stroke-width="7"
+      stroke-linecap="round"
+    />
+    <path
+      class="stream-sparkle"
+      d="M 130 74 C 136 84 141 94 147 106"
+      pathLength="1"
+      fill="none"
+      stroke="#eaf7ff"
+      stroke-width="1.5"
+      opacity="0.6"
+      stroke-linecap="round"
+      stroke-dasharray="0.13 0.28"
+    />
+    <path
+      class="stream-sparkle stream-sparkle--slow"
+      d="M 133 75 C 139 85 144 95 150 106"
+      pathLength="1"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.4"
+      stroke-linecap="round"
+      stroke-dasharray="0.05 0.34"
+      opacity="0.55"
+    />
+  </g>
+
+  <g class="steam" aria-hidden="true">
+    <path d="M 152 98 C 146 88 158 82 152 72 C 148 64 156 58 154 52" />
+    <path d="M 168 100 C 162 90 174 84 168 74 C 164 66 172 60 170 54" />
+    <path d="M 182 102 C 176 92 188 86 182 76 C 178 68 186 62 184 56" />
+  </g>
+</svg>
