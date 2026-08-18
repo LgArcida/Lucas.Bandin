@@ -27,30 +27,32 @@
         </mat-list>
       </mat-tab>
 
-      <mat-tab [label]="translations.PROJECTS.TABS.PERSONAL | translate">
-        <mat-list>
-          @for (project of personalProjects(); track project.title) {
-            <mat-list-item
-              role="button"
-              tabindex="0"
-              (click)="openDetails(project)"
-              (keydown.enter)="openDetails(project)"
-              (keydown.space)="openDetails(project)"
-            >
-              <img
-                matListItemIcon
-                ngSrc="assets/logos/{{ project.image }}"
-                width="50"
-                height="50"
-                [alt]="project.title | translate"
-              />
+      @if (personalTabEnabled) {
+        <mat-tab [label]="translations.PROJECTS.TABS.PERSONAL | translate">
+          <mat-list>
+            @for (project of personalProjects(); track project.title) {
+              <mat-list-item
+                role="button"
+                tabindex="0"
+                (click)="openDetails(project)"
+                (keydown.enter)="openDetails(project)"
+                (keydown.space)="openDetails(project)"
+              >
+                <img
+                  matListItemIcon
+                  ngSrc="assets/logos/{{ project.image }}"
+                  width="50"
+                  height="50"
+                  [alt]="project.title | translate"
+                />
 
-              <span matListItemTitle>{{ project.company | translate }}</span>
-              <span matListItemLine>{{ project.role | translate }}</span>
-            </mat-list-item>
-          }
-        </mat-list>
-      </mat-tab>
+                <span matListItemTitle>{{ project.company | translate }}</span>
+                <span matListItemLine>{{ project.role | translate }}</span>
+              </mat-list-item>
+            }
+          </mat-list>
+        </mat-tab>
+      }
     </mat-tab-group>
   </app-expandable-panel>
 </section>

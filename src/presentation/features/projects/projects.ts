@@ -5,6 +5,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MatListModule } from '@angular/material/list';
 import { Projects } from '@application/projects/projects';
+import { FEATURE_FLAGS } from '@application/feature-flags/feature-flags';
 import { Project, PROJECT_TYPES } from '@domain/projects/models/project';
 import { ExpandablePanelComponent } from '../../shared/expandable-panel/expandable-panel';
 import { ProjectDetailsBottomSheetComponent } from './project-details-bottom-sheet/project-details-bottom-sheet';
@@ -27,8 +28,10 @@ import { NgOptimizedImage } from '@angular/common';
 export class ProjectsComponent {
   protected readonly translations = Translations;
   readonly #projects = inject(Projects);
+  readonly #featureFlags = inject(FEATURE_FLAGS);
   readonly #bottomSheet = inject(MatBottomSheet);
   protected readonly projects = toSignal(this.#projects.projects$, { initialValue: [] });
+  protected readonly personalTabEnabled = this.#featureFlags.projectsPersonalTab;
 
   protected readonly professionalProjects = computed(() =>
     this.projects().filter((project) => project.type === PROJECT_TYPES.Professional),

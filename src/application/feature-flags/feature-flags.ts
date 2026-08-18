@@ -2,6 +2,7 @@ import { InjectionToken } from '@angular/core';
 
 export const FEATURE_KEYS = {
   beyondCode: 'BEYOND_CODE',
+  projectsPersonalTab: 'PROJECTS_PERSONAL_TAB',
 } as const;
 
 export type FeatureKey = keyof typeof FEATURE_KEYS;

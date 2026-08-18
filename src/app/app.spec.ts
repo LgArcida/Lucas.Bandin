@@ -27,7 +27,7 @@ describe('App', () => {
           },
         },
         { provide: LOCALIZATION_PORT, useValue: { setLanguage: () => undefined, getCurrentLanguage: () => 'en' } },
-        { provide: FEATURE_FLAGS, useValue: { beyondCode: true } },
+        { provide: FEATURE_FLAGS, useValue: { beyondCode: true, projectsPersonalTab: false } },
         { provide: Profile, useFactory: () => new Profile(mockRepo) },
       ],
     }).compileComponents();

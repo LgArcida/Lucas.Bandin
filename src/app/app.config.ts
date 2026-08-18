@@ -56,7 +56,7 @@ export const appConfig: ApplicationConfig = {
     { provide: LOCALIZATION_PORT, useClass: NgxTranslateAdapter },
     {
       provide: FEATURE_FLAGS,
-      useValue: { beyondCode: true } satisfies FeatureFlags,
+      useValue: { beyondCode: false, projectsPersonalTab: false } satisfies FeatureFlags,
     },
 
     // Composition root: bind each port (token) to its infrastructure adapter,
