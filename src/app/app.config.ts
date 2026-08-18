@@ -4,6 +4,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { LOCALIZATION_PORT } from '@application/localization/localization.port';
+import { FEATURE_FLAGS, FeatureFlags } from '@application/feature-flags/feature-flags';
 import { NgxTranslateAdapter } from '@infrastructure/adapters/ngx-translate.adapter';
 import { TsTranslateLoader } from '@infrastructure/adapters/ts-translate.loader';
 
@@ -53,6 +54,10 @@ export const appConfig: ApplicationConfig = {
     }),
     { provide: TranslateLoader, useClass: TsTranslateLoader },
     { provide: LOCALIZATION_PORT, useClass: NgxTranslateAdapter },
+    {
+      provide: FEATURE_FLAGS,
+      useValue: { beyondCode: true } satisfies FeatureFlags,
+    },
 
     // Composition root: bind each port (token) to its infrastructure adapter,
     // then build the application use case from whatever fulfills the port.

@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher';
-import { NAV_ITEMS, NavItem } from '@application/navigation/nav-items';
+import { NavItem } from '@application/navigation/nav-items';
 import { NavigationService } from '@application/navigation/navigation.service';
 import { Translations } from '@i18n/translations';
 
@@ -25,7 +25,7 @@ export class HeaderComponent {
   protected readonly translations = Translations;
   readonly menuToggle = output<void>();
   readonly #navigation = inject(NavigationService);
-  protected readonly navItems = NAV_ITEMS;
+  protected readonly navItems = this.#navigation.visibleNavItems;
 
   protected navigate(item: NavItem): void {
     if (item.targetId) {

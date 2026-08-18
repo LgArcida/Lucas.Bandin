@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { LOCALIZATION_PORT } from '@application/localization/localization.port';
+import { FEATURE_FLAGS } from '@application/feature-flags/feature-flags';
 import { ProfileRepository } from '@domain/profile/ports/profile.repository';
 import { Profile } from '@application/profile/profile';
 import { App } from './app';
@@ -26,6 +27,7 @@ describe('App', () => {
           },
         },
         { provide: LOCALIZATION_PORT, useValue: { setLanguage: () => undefined, getCurrentLanguage: () => 'en' } },
+        { provide: FEATURE_FLAGS, useValue: { beyondCode: true } },
         { provide: Profile, useFactory: () => new Profile(mockRepo) },
       ],
     }).compileComponents();

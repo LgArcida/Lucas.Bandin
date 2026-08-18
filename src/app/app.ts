@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppStore } from '@application/state/app.store';
+import { FEATURE_FLAGS } from '@application/feature-flags/feature-flags';
 import { HeaderComponent } from '@presentation/layout/header/header';
 import { SidenavMenuComponent } from '@presentation/layout/sidenav-menu/sidenav-menu';
 import { AboutComponent } from '@presentation/features/about-me/about-me';
@@ -35,6 +36,8 @@ import { BeyondCodeComponent } from '@presentation/features/beyond-code/beyond-c
 export class App {
   readonly #document = inject(DOCUMENT);
   readonly #appStore = inject(AppStore);
+  readonly #featureFlags = inject(FEATURE_FLAGS);
+  protected readonly beyondCodeEnabled = this.#featureFlags.beyondCode;
 
   constructor() {
     effect(() => {

@@ -2,10 +2,10 @@ import type { Translations } from '@i18n/translations';
 
 export type NavLabelKey = keyof typeof Translations.NAV;
 
-export interface NavItem {
+export type NavItem = {
   labelKey: NavLabelKey;
   targetId?: string;
-}
+};
 
 export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'ME', targetId: 'about' },
