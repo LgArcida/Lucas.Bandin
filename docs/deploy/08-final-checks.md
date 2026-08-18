@@ -1,53 +1,36 @@
-# 08 — Final checks + canonical redirect
+# 08 — Final checks (single subdomain, no redirects)
 
-## A. Pick one canonical host (recommended: the root domain)
+You have exactly one public host (`lgba.sukceso.org`), so there's nothing to
+redirect — just verify everything works on it.
 
-- [ ] In Vercel → **Settings → Domains**, decide the main URL.
-  - One-line explanation: `www` and the root should not be two competing sites.
-  - Recommended: keep **`yourdomain.com`** as the main one.
-
-## B. Redirect the other one to the canonical host
-
-- [ ] On the `www.yourdomain.com` row, click the **…** menu → **Redirect to** `yourdomain.com`.
-  - One-line explanation: anyone typing `www.` lands on the root automatically (or reverse it if you prefer `www`).
-- [ ] Confirm the redirect applies (Vercel does it at the edge, no code needed).
-
-## C. TLS is live on the root
+## A. TLS is live on the subdomain
 
 ```bash
-curl -sI https://yourdomain.com
+curl -sI https://lgba.sukceso.org
 ```
 
-- [ ] First line is `HTTP/2 200` (and the cert is valid in your browser).
+- [x] First line is `HTTP/2 200` (and the cert is valid in your browser).
   - One-line explanation: HTTPS is up — Vercel's automatic certificate works.
 
-## D. www redirects to the root
+## B. Assets load on the subdomain
 
 ```bash
-curl -sI https://www.yourdomain.com
+curl -s -o /dev/null -w "%{http_code}\n" https://lgba.sukceso.org/assets/Du.webp
 ```
 
-- [ ] You see `HTTP/2 308` and a `location: https://yourdomain.com/...` header.
-  - One-line explanation: the canonical redirect works.
-
-## E. Assets still load on the custom domain
-
-```bash
-curl -s -o /dev/null -w "%{http_code}\n" https://yourdomain.com/assets/Du.webp
-```
-
-- [ ] Prints `200`.
+- [x] Prints `200`.
   - One-line explanation: nothing is broken after switching domains.
 
-## F. Final browser walkthrough
+## C. Final browser walkthrough
 
-- [ ] Open <https://yourdomain.com> in a normal (or incognito) tab.
-- [ ] Hard-refresh (`Ctrl+Shift+R`) — full page renders instantly.
-- [ ] Scroll every section; reload mid-page (no 404s); click every nav link.
-- [ ] Open it on your phone — layout and performance feel right.
+- [x] Open <https://lgba.sukceso.org> in a normal (or incognito) tab.
+- [x] Hard-refresh (`Ctrl+Shift+R`) — full page renders instantly.
+- [x] Scroll every section; reload mid-page (no 404s); click every nav link.
+- [x] Open it on your phone — layout and performance feel right.
 
-## G. You're live
+## D. You're live
 
-- [ ] Done. Your portfolio is at **https://yourdomain.com**.
+- [x] Done. Your portfolio is at **https://lgba.sukceso.org**.
   - From now on: `git push origin main` → Vercel deploys automatically.
   - Remember: keep the Cloudflare records gray cloud.
+  - Your root `sukceso.org` is still unused — point it somewhere (or a mail domain) whenever you want.

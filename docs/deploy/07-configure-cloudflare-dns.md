@@ -1,45 +1,39 @@
-# 07 — Point Cloudflare DNS at Vercel
+# 07 — Create the subdomain in Cloudflare and point it at Vercel
 
-Everything here happens in the **Cloudflare dashboard**. Keep every record
-**gray cloud** (DNS only) — never click the orange cloud for these.
+Everything here happens in the **Cloudflare dashboard**.
+
+> **How subdomains work here:** Cloudflare has no "create subdomain" button.
+> A subdomain like `lgba.sukceso.org` is created automatically the moment you
+> add a DNS record whose **Name** is `lgba`. So the single CNAME record below is
+> what brings `lgba.sukceso.org` to life.
+
+Keep the record **gray cloud** (DNS only) — never click the orange cloud for this.
 
 ## A. Log in and open DNS
 
-- [ ] Go to <https://dash.cloudflare.com> → select your domain → **DNS** → **Records**.
+- [x] Go to <https://dash.cloudflare.com> → select **`sukceso.org`** → **DNS** → **Records**.
   - One-line explanation: Cloudflare is the DNS authority for your domain.
 
-## B. Add the ownership verification TXT (from file 06)
+## B. Add the CNAME record (verifies + connects in one step)
 
-- [ ] **Add record**:
-  - **Type:** `TXT`
-  - **Name:** `yourdomain.com` (or `@`)
-  - **Content:** paste the `vercel-verification=...` value from Vercel
-  - **TTL:** Auto
-- [ ] Back in Vercel's Domains page, click **Refresh** — the domain shows as verified.
-  - One-line explanation: proves to Vercel you own the domain.
-
-## C. Add the A record (points the root domain at Vercel)
-
-- [ ] **Add record**:
-  - **Type:** `A`
-  - **Name:** `@`
-  - **IPv4 address:** `76.76.21.21`
-  - **Proxy status:** **DNS only** (gray cloud)
-- [ ] Confirm the record shows **gray cloud**.
-  - One-line explanation: Vercel answers requests for `yourdomain.com`.
-
-## D. Add the CNAME record (points www at Vercel)
-
-- [ ] **Add record**:
+- [x] Click **Add record** and fill in:
   - **Type:** `CNAME`
-  - **Name:** `www`
-  - **Target:** `cname.vercel-dns.com`
+  - **Name:** `lgba`
+  - **Target / Value:** `4f596a3eb68de41a.vercel-dns-017.com` (paste exactly what Vercel showed you; if Cloudflare rejects the trailing dot, drop it)
+  - **TTL:** Auto
   - **Proxy status:** **DNS only** (gray cloud)
-- [ ] Confirm the record shows **gray cloud**.
-  - One-line explanation: Vercel answers requests for `www.yourdomain.com`.
+- [x] Save it — `lgba.sukceso.org` now exists and points at Vercel.
+  - One-line explanation: this record is what "creates" the subdomain; Vercel's unique value also proves you own it.
+- [x] Confirm the record shows **gray cloud**.
+  - One-line explanation: Vercel handles CDN and TLS; Cloudflare just answers DNS.
 
-## E. Wait for Vercel to see it
+## C. Wait for Vercel to verify it
 
-- [ ] Back in Vercel → **Settings → Domains**, both `yourdomain.com` and `www.yourdomain.com`
-      eventually show **Valid Configuration** (may take a few minutes; click Refresh).
-  - One-line explanation: Vercel auto-issues the HTTPS certificate (Let's Encrypt) once DNS points at it.
+- [x] Back in Vercel → **Settings → Domains**, `lgba.sukceso.org` eventually shows
+      **Valid Configuration** (may take a few minutes; click Refresh).
+  - One-line explanation: once DNS points at Vercel, ownership is auto-verified and the HTTPS certificate (Let's Encrypt) is issued.
+
+## D. Done with DNS
+
+- [x] Your root domain `sukceso.org` is untouched — only `lgba.sukceso.org` points at Vercel.
+  - One-line explanation: the rest of your domain stays exactly as it was.
