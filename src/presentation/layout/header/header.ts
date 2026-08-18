@@ -4,8 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher';
-import { NavItem } from '@application/navigation/nav-items';
-import { NavigationService } from '@application/navigation/navigation.service';
+import { FEATURE_FLAGS } from '@application/feature-flags/feature-flags';
 import { Translations } from '@i18n/translations';
 
 @Component({
@@ -23,13 +22,8 @@ import { Translations } from '@i18n/translations';
 })
 export class HeaderComponent {
   protected readonly translations = Translations;
-  readonly menuToggle = output<void>();
-  readonly #navigation = inject(NavigationService);
-  protected readonly navItems = this.#navigation.visibleNavItems;
+  readonly #featureFlags = inject(FEATURE_FLAGS);
+  protected readonly beyondCodeEnabled = this.#featureFlags.beyondCode;
 
-  protected navigate(item: NavItem): void {
-    if (item.targetId) {
-      this.#navigation.scrollTo(item.targetId);
-    }
-  }
+  readonly menuToggle = output<void>();
 }

@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 export const FEATURE_KEYS = {
-  beyondCode: 'beyondCode',
+  beyondCode: 'BEYOND_CODE',
 } as const;
 
 export type FeatureKey = keyof typeof FEATURE_KEYS;

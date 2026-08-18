@@ -6,36 +6,20 @@
     <app-header (menuToggle)="drawer.toggle()" />
     <main>
       <app-me />
-      <section class="sections">
-        <app-about-me />
-        @defer (on viewport) {
+      @defer (on idle) {
+        <section class="sections">
+          <app-about-me />
           <app-skills />
-        } @placeholder {
-          <section style="min-height: 50vh"></section>
-        }
-        @defer (on viewport) {
           <app-experience />
-        } @placeholder {
-          <section style="min-height: 50vh"></section>
-        }
-        @defer (on viewport) {
           <app-projects />
-        } @placeholder {
-          <section style="min-height: 50vh"></section>
-        }
-        @if (beyondCodeEnabled) {
-          @defer (on viewport) {
+          @if (beyondCodeEnabled) {
             <app-beyond-code />
-          } @placeholder {
-            <section style="min-height: 50vh"></section>
           }
-        }
-        @defer (on viewport) {
           <app-education />
-        } @placeholder {
-          <section style="min-height: 50vh"></section>
-        }
-      </section>
+        </section>
+      } @placeholder (minimum 0.5s) {
+        <section style="min-height: 50vh">Loading!</section>
+      }
     </main>
     <app-footer />
   </mat-sidenav-content>

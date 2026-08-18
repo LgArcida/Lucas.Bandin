@@ -1,8 +1,11 @@
 <mat-nav-list>
-  @for (item of navItems; track item.labelKey) {
-    <button mat-list-item (click)="onNavigate(item)">
-      {{ translations.NAV[item.labelKey] | translate }}
-    </button>
+  <a mat-list-item href="#about" (click)="navigate.emit()">{{ translations.NAV.ME | translate }}</a>
+  <button mat-list-item aria-disabled="true">{{ translations.NAV.ABOUT | translate }}</button>
+  <a mat-list-item href="#projects" (click)="navigate.emit()">{{ translations.NAV.PROJECTS | translate }}</a>
+  <a mat-list-item href="#education" (click)="navigate.emit()">{{ translations.NAV.EDUCATION | translate }}</a>
+  @if (beyondCodeEnabled) {
+    <a mat-list-item href="#beyond-code" (click)="navigate.emit()">{{ translations.NAV.BEYOND_CODE | translate }}</a>
   }
+  <button mat-list-item aria-disabled="true">{{ translations.NAV.CONTACT | translate }}</button>
 </mat-nav-list>
 <app-language-switcher class="sidenav-lang" />

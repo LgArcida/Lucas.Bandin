@@ -9,9 +9,14 @@
   </button>
   <span class="spacer"></span>
   <nav class="desktop-nav">
-    @for (item of navItems; track item.labelKey) {
-      <button mat-button (click)="navigate(item)">{{ translations.NAV[item.labelKey] | translate }}</button>
+    <a mat-button href="#about">{{ translations.NAV.ME | translate }}</a>
+    <button mat-button aria-disabled="true">{{ translations.NAV.ABOUT | translate }}</button>
+    <a mat-button href="#projects">{{ translations.NAV.PROJECTS | translate }}</a>
+    <a mat-button href="#education">{{ translations.NAV.EDUCATION | translate }}</a>
+    @if (beyondCodeEnabled) {
+      <a mat-button href="#beyond-code">{{ translations.NAV.BEYOND_CODE | translate }}</a>
     }
+    <button mat-button aria-disabled="true">{{ translations.NAV.CONTACT | translate }}</button>
   </nav>
   <app-language-switcher class="lang-switcher" />
 </mat-toolbar>

@@ -2,8 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, output } from '@angular/cor
 import { MatListModule } from '@angular/material/list';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher';
-import { NavItem } from '@application/navigation/nav-items';
-import { NavigationService } from '@application/navigation/navigation.service';
+import { FEATURE_FLAGS } from '@application/feature-flags/feature-flags';
 import { Translations } from '@i18n/translations';
 
 @Component({
@@ -15,14 +14,9 @@ import { Translations } from '@i18n/translations';
 })
 export class SidenavMenuComponent {
   protected readonly translations = Translations;
-  readonly navigate = output<void>();
-  readonly #navigation = inject(NavigationService);
-  protected readonly navItems = this.#navigation.visibleNavItems;
+  readonly #featureFlags = inject(FEATURE_FLAGS);
 
-  protected onNavigate(item: NavItem): void {
-    if (item.targetId) {
-      this.#navigation.scrollTo(item.targetId);
-    }
-    this.navigate.emit();
-  }
+  protected readonly beyondCodeEnabled = this.#featureFlags.beyondCode;
+
+  readonly navigate = output<void>();
 }
