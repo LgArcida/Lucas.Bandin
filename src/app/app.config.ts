@@ -7,6 +7,7 @@ import { LOCALIZATION_PORT } from '@application/localization/localization.port';
 import { FEATURE_FLAGS, FeatureFlags } from '@application/feature-flags/feature-flags';
 import { NgxTranslateAdapter } from '@infrastructure/adapters/ngx-translate.adapter';
 import { TsTranslateLoader } from '@infrastructure/adapters/ts-translate.loader';
+import { environment } from '@environments/environment';
 
 // -------------------- Experience -----------------
 import { Experience } from '@application/experience/experience';
@@ -56,7 +57,7 @@ export const appConfig: ApplicationConfig = {
     { provide: LOCALIZATION_PORT, useClass: NgxTranslateAdapter },
     {
       provide: FEATURE_FLAGS,
-      useValue: { beyondCode: false, projectsPersonalTab: false } satisfies FeatureFlags,
+      useValue: environment.featureFlags satisfies FeatureFlags,
     },
 
     // Composition root: bind each port (token) to its infrastructure adapter,

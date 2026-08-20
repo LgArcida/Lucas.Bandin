@@ -11,7 +11,8 @@
       "@presentation/*":  ["src/presentation/*"],
       "@infrastructure/*": ["src/infrastructure/*"],
       "@i18n/*":          ["src/i18n/*"],
-      "@i18n":            ["src/i18n/index.ts"]
+      "@i18n":            ["src/i18n/index.ts"],
+      "@environments/*":  ["src/environments/*"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
